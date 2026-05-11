@@ -902,25 +902,31 @@
 <script>
     function toggleMenu() {
         var menu = document.getElementById("mobile-nav");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
+        if (menu) { // Проверка, существует ли меню на странице
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
         }
     }
 
+    // Редирект на мобильную версию
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900) {
         var path = window.location.pathname;
         var currentPage = path.split("/").pop();
         
-        if (currentPage === "" || currentPage === "index.html" || path === "/") {
-            window.location.href = "mobile.html";
-        } 
-        else if (currentPage === "index_en.html") {
-            window.location.href = "mobile_en.html";
-        } 
-        else if (currentPage === "index_ru.html") {
-            window.location.href = "mobile_ru.html";
+        // Проверяем, не находимся ли мы уже на мобильной странице, чтобы избежать бесконечного редиректа
+        if (!currentPage.includes('mobile')) {
+            if (currentPage === "" || currentPage === "index.html" || path === "/") {
+                window.location.href = "mobile.html";
+            } 
+            else if (currentPage === "index_en.html") {
+                window.location.href = "mobile_en.html";
+            } 
+            else if (currentPage === "index_ru.html") {
+                window.location.href = "mobile_ru.html";
+            }
         }
     }
 </script>
