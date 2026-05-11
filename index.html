@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Board LLC</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* БАЗОВЫЕ СТИЛИ */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #fff; text-align: center; color: #333; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* ШАПКА */
+        .m-header { background: #000; color: #fff; padding: 10px 20px; font-weight: bold; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .pc-nav { display: none; list-style: none; gap: 20px; margin: 0; padding: 0; }
+        .pc-nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .pc-nav a:hover { color: #d4a035; }
+
+        /* ЛОГОТИП */
+        .m-logo { padding: 20px; }
+        .m-logo img { width: 100px; }
+        
+        /* ГЛАВНЫЙ БЛОК (HERO) */
+        .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+        .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 10px 0; font-weight: 800; }
+        .lang-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 15px 0; }
+        .tag { background: #f0f2f5; padding: 6px 12px; border-radius: 15px; font-size: 13px; border: 1px solid #ddd; font-weight: 600; }
+
+        /* КАРТОЧКИ ДИРЕКТОРА / КОМАНДЫ */
+        .staff-container { display: flex; flex-direction: column; gap: 10px; text-align: left; margin-top: 20px; }
+        .staff-card { display: flex; align-items: center; gap: 15px; padding: 15px; border-bottom: 1px solid #f0f0f0; }
+
+        /* СЛАЙДЕР (КРУПНЫЙ) */
+        .our-work-section { padding: 40px 0; background-color: #fff; overflow: hidden; }
+        .work-title { font-size: 24px; font-weight: bold; border-left: 4px solid #d4a035; padding-left: 15px; margin: 0 auto 20px; max-width: 1160px; text-align: left; }
+        .marquee-window { width: 100%; overflow: hidden; height: 320px; display: flex; align-items: center; }
+        .marquee-track { display: flex; width: calc(420px * 10); animation: scroll-right 25s linear infinite; }
+        .marquee-track img { width: 400px; height: 280px; object-fit: contain; margin: 0 10px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #fff; transition: 0.3s; }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-track img:hover { transform: scale(1.05); }
+
+        /* УСЛУГИ И ТАРИФЫ */
+        .services-grid, .price-container { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .service-card, details { background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; text-align: left; overflow: hidden; }
+        summary { padding: 18px; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+        summary::after { content: '+'; color: #d4a035; font-size: 20px; }
+        details[open] summary::after { content: '−'; }
+
+        /* КНОПКИ */
+        .m-btn { display: block; background: #d4a035; color: #000; padding: 18px; text-decoration: none; border-radius: 10px; font-weight: 800; margin-bottom: 10px; }
+        .m-call { background: #c61a30; color: #fff; }
+
+        /* ФУТЕР */
+        .footer-flex { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr; gap: 30px; text-align: left; }
+
+/* Обновленный CSS для главного блока (ПК версия) */
+@media (min-width: 1024px) {
+    /* Основной контейнер Flex */
+    .hero-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Центрируем по вертикали для баланса */
+        padding: 60px 40px; /* Больше отступов для солидности */
+        max-width: 1300px; /* Чуть шире, чтобы вместить крупный текст */
+        margin: 0 auto;
+        gap: 50px;
+    }
+
+    /* ЛЕВАЯ ЧАСТЬ: ДЕЛАЕМ БОЛЬШЕ И ГЛАВНЕЕ */
+    .hero-title-block {
+        flex: 1.4; /* Занимает больше места */
+        text-align: left;
+    }
+
+    .hero-title-block h1 {
+        /* Кардинально увеличиваем заголовок */
+        font-size: 72px; /* БЫЛО 48px — ТЕПЕРЬ 72px */
+        line-height: 1.1;
+        letter-spacing: -2px; /* Плотный профессиональный шрифт */
+        color: #1a2b3c;
+        margin: 0 0 20px 0;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+
+    /* Языковые теги остаются под заголовком */
+    .hero-title-block .lang-tags {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    /* ПРАВАЯ ЧАСТЬ: ПРЕВРАЩАЕМ В РАМКУ (КАРТОЧКУ) */
+    .hero-info-frame {
+        flex: 0.8; /* Занимает меньше места, выглядит компактно */
+        /* Стили рамки/карточки */
+        background: #fdfdfd; /* Чистый белый/очень светло-серый фон */
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid #e0e0e0; /* Тонкая серая рамка */
+        box-shadow: 0 6px 18px rgba(0,0,0,0.05); /* Легкая тень для объема */
+        text-align: left;
+    }
+
+    /* Заголовок внутри рамки */
+    .quality-title-pc {
+        font-size: 18px;
+        color: #1a2b3c;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Текст описания внутри рамки */
+    .hero-info-frame p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+        margin: 0;
+    }
+}
+
+/* Стили тегов (для удобства, если они не заданы отдельно) */
+.tag {
+    background: #f0f2f5;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Настройка сетки для услуг */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* По умолчанию одна колонка для мобильных */
+    gap: 20px; /* Расстояние между карточками */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Настройка для компьютерных экранов (две колонки) */
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr; /* Разделение на две равные колонки */
+    }
+}
+
+/* Стили для самих карточек, чтобы они выглядели аккуратно */
+.service-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-2px); /* Легкий эффект при наведении */
+}
+
+.service-card summary {
+    padding: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1a2b3c;
+}
+
+/* Убираем стандартную стрелочку и добавляем свой плюс (опционально) */
+.service-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.service-card summary::after {
+    content: '+';
+    color: #d4a035;
+    font-size: 20px;
+}
+
+.service-card[open] summary::after {
+    content: '−';
+}
+        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .scroll-top-btn { position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px; background: #d4a035; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+.tag {
+    display: inline-flex;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a2b3c;
+    margin: 5px;
+    gap: 10px; /* Расстояние между иконкой и текстом */
+}
+
+/* Стилизация самой иконки */
+.tag i {
+    color: #d4a035; /* Золотистый цвет как на вашем логотипе */
+    font-size: 16px;
+}
+.flag-svg {
+    /* Фиксированный размер для единообразия */
+    width: 24px;
+    height: 18px; /* Соблюдаем пропорции 4:3 */
+    
+    /* Эти свойства гарантируют абсолютную четкость краев на любом экране */
+    image-rendering: -webkit-optimize-contrast; /* Улучшает четкость в WebKit */
+    image-rendering: crisp-edges;               /* Четкие края в Firefox */
+    image-rendering: pixelated;                 /* Для очень маленьких SVG */
+    
+    /* Декоративные стили как в вашем макете */
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.footer-flex {
+    display: flex;
+    flex-wrap: wrap; /* Для мобильных устройств */
+    align-items: center; /* Выравнивание по центру высоты */
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    flex: 1; /* Занимает 50% ширины */
+    min-width: 300px;
+    text-align: left;
+}
+
+.footer-image {
+    flex: 1; /* Занимает 50% ширины */
+    min-width: 300px;
+}
+
+.footer-image img {
+    width: 100%;
+    max-width: 500px; /* Чтобы картинка не была слишком огромной */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.footer-image img:hover {
+    transform: scale(1.02); /* Эффект при наведении */
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .footer-flex {
+        flex-direction: column; /* На телефоне текст будет сверху, картинка снизу */
+        text-align: center;
+    }
+    .footer-text {
+        text-align: center;
+    }
+}
+.order-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background: #fff;
+}
+
+.order-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.buttons-container-side {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column; /* Кнопки одна под другой */
+    gap: 15px;
+}
+
+/* Стили для кнопок, чтобы они выглядели как на макете */
+.m-btn {
+    display: block;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    text-align: center;
+    transition: 0.3s;
+    font-size: 16px;
+    color: #000;
+    background: #d4a035; /* Золотистый цвет */
+}
+
+.m-call {
+    background: #c1121f; /* Красный цвет */
+    color: #fff;
+}
+
+.m-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .order-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .order-info {
+        text-align: center;
+    }
+}
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(212, 160, 53, 0.75), rgba(0, 0, 0, 0));
+    margin: 40px auto;
+    width: 80%;
+    max-width: 800px;
+}
+.advantages-section {
+    background: #fff;
+    border-top: 1px solid #eee;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.advantages-title {
+    font-size: 24px;
+    color: #1a2b3c;
+    margin-bottom: 30px;
+    text-align: left;
+    font-weight: 800;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Сетка подстраивается под экран */
+    gap: 20px;
+}
+
+.advantage-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: #d4a035; /* Золотистый акцент при наведении */
+}
+
+.adv-icon {
+    font-size: 24px;
+    min-width: 35px;
+    text-align: center;
+}
+
+.advantage-card b {
+    display: block;
+    font-size: 16px;
+    color: #1a2b3c;
+    margin-bottom: 5px;
+}
+
+.advantage-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: 1fr; /* Один столбец на телефоне */
+    }
+    .advantages-title {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+/* Дополнение для центрирования и фиксации размера иконок */
+.lang-tags {
+    display: flex !important;
+    justify-content: center !important; /* Выравнивание по центру */
+    flex-wrap: nowrap !important;       /* Запрет переноса на новую строку */
+    gap: 10px !important;               /* Расстояние между кнопками */
+    margin: 20px auto !important;       /* Отступы сверху/снизу */
+    width: 100% !important;
+}
+
+.tag {
+    flex-shrink: 0 !important;          /* ЗАПРЕТ на изменение размера (иконка не сузится) */
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;     /* Текст не уходит на вторую строку */
+}
+
+.flag-svg {
+    width: 24px !important;             /* Фиксированная ширина флага */
+    height: 18px !important;            /* Фиксированная высота флага */
+    flex-shrink: 0 !important;          /* Флаг не будет уменьшаться */
+}
+
+.order-section {
+    margin-top: -40px !important; /* Поднимает блок выше */
+    padding-top: 0 !important;    /* Убирает внутренний отступ сверху */
+}
+
+.order-section + p {
+    margin-top: 0 !important;     /* Убирает зазор после цен */
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="m-header">
+        <span>ОРЧУУЛГЫН САМБАР ХХК</span>
+        
+        <ul class="pc-nav">
+            <li><a href="#about">Бидний тухай</a></li>
+            <li><a href="#services">Үйлчилгээ</a></li>
+            <li><a href="#work">Манай ажил</a></li>
+            <li><a href="#price">Тариф</a></li>
+            <li><a href="#location">Хаяг</a></li>
+        </ul>
+
+        <div style="display: flex; gap: 8px; margin-left: auto; margin-right: 15px;">
+            <a href="index.html" title="Монгол" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035;">
+            </a>
+            <a href="index_en.html" title="English" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+            </a>
+            <a href="index_ru.html" title="Русский" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+            </a>
+        </div>
+
+        <div id="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
+            <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
+            <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
+            <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
+        </div>
+    </header>
+
+    <nav id="mobile-nav" style="display: none; background: #1a2b3c; position: fixed; width: 100%; z-index: 999;">
+        <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+            <li><a href="#about" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">🏢 Бидний тухай</a></li>
+            <li><a href="#services" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">⚙️ Үйлчилгээ</a></li>
+            <li><a href="#work" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💼 Манай ажил</a></li>
+            <li><a href="#price" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💰 Тариф</a></li>
+            <li><a href="#location" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none;">📍 Хаяг</a></li>
+        </ul>
+    </nav>
+
+    <div class="m-logo">
+        <img src="LOGO.gif" alt="Logo">
+        <div class="translation-board-text">TRANSLATION BOARD LLC</div>
+
+<div class="hero-mobile">
+    <h1 style="font-size: 48px; color: #1a2b3c; font-weight: 800; margin-bottom: 20px;">
+        ОРЧУУЛГЫН ТОВЧОО
+    </h1>
+
+    <div class="lang-tags">
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" class="flag-svg"> RU Орос</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" class="flag-svg"> GB Англи</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" class="flag-svg"> CN Хятад</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/kr.svg" class="flag-svg"> KR Солонгос</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/jp.svg" class="flag-svg"> JP Япон</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" class="flag-svg"> MN Монгол</span>
+</div>
+
+<hr class="section-divider">
+
+<section class="about-centered">
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+
+
+            БИДНИЙ ТУХАЙ
+        </h2>
+    <p>"Орчуулгын Самбар" ХХК нь 2023 онд үүсгэн байгуулагдсан компани бөгөөд  орчуулгын олон улсын чанарын стандартад нийцсэн монгол улсын иргэн, гадаадын улсын иргэдээ мэргэжлийн орчуулгын үйлчилгээг өндөр түвшинд үзүүлж байна.
+​Манай орчуулагчийн баг ба чанарын хяналт:
+Бид Орос, Англи хэлнээс гадна Хятад, Япон, Солонгос хэлний гэрээт орчуулагчдын бүрэлдэхүүнтэй ажилладаг. Манай ажлын гол зарчим бол давхар хяналт юм. Манай гэрээт орчуулагчид таны захиалга хийж гүйцэтгэсний дараа манай компанийн захирлаар хянуулж, орчуулгын утга агуулгын нарийвчлалтай бэлэн болсон материалыг захиалагчид хүлээлгэн өгдөг.
+​Албан ёсны баталгаа:
+Манай компани нь Баталгаат орчуулагчдын нэгдсэн холбооны албан ёсны зөвшөөрөл (лиценз) болон баталгаат тамгатай юм. Захирал маань ерөнхий орчуулагч бөгөөд  ОХУ-ын иргэн, мэргэжлийн хэл шинжлэлийн магистр (ОХУ-ын Өвөрбайгалийн Улсын Их Сургууль болон МУИС-ийн төгсөгч) манай орчуулгын товчооны чанарын гол баталгаа байдаг.
+Бид таны захиалга хүлээн авахад баяртай байх болно. Таны захиалгыг бид хичээнгүйлэн хүлээж байна!</p>
+</section>
+
+    <div class="hero-info-card">
+        <div class="quality-badge">
+ <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            ЧАНАРЫН ХЯНАЛТ
+        </h2>
+            <p>Манай гол зарчим бол <b>мэргэжлийн хариуцлага</b> юм. Орчуулга бэлэн болмогц компанийн ерөнхий орчуулагч маань бүх материалыг <b>нарийвчлан хянаж</b>, захиалагчид хүлээлгэн өгдөг. Чанарын давхар хяналт нь орчуулгыг алдаагүй, үнэн зөвийн баталгаатай болгодог юм.</p>
+        </div>
+    </div>
+</main>
+
+    <section id="services" style="padding: 40px 0;">
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            ҮЙЛЧИЛГЭЭ
+        </h2>
+        <section id="services">
+    <div class="services-grid">
+        <details class="service-card">
+            <summary>📜 Баталгаат орчуулга</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555;">
+                Бүх төрлийн бичиг баримтыг мэргэжлийн түвшинд орчуулж, компанийн албан ёсны тамгаар баталгаажуулна. Чанарын давхар хяналттай.
+            </div>
+        </details>
+
+        <details class="service-card">
+            <summary>🛂 Визний материалын бүрдүүлэлт</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555;">
+                Гадаад улсад зорчих визний мэдүүлэг, дагалдах бичиг баримтын зөвлөгөө, орчуулга хийж зөвлөгөө өгнө.
+            </div>
+        </details>
+
+<details class="service-card">
+    <summary>🌐 Дагалдах үйлчилгээ</summary>
+    <div style="padding: 15px; border-top: 1px solid #eee; color: #555; line-height: 1.6;">
+        ВорлдСИМ Монголия / Аяллын сим карт:</b> Олон улсад ашиглах аяллын сим картын худалдаа, цэнэглэлт болон утсын тохиргооны үйлчилгээ. Та eSIM онлайнаар авахыг хүсвэл Фэйсбүүк чаатаар холбогдоно уу.
+        <br><br>
+        <a href="https://www.facebook.com/profile.php?id=100070001765710" 
+           target="_blank" 
+           style="color: #1877F2; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="18"> 
+           WorldSIM хуудас руу зочлох
+        </a>
+    </div>
+</details>
+
+        <details class="service-card">
+            <summary>🖨️ Канон, хэвлэл, скан</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555;">
+                Бичиг баримт өндөр чанартай хувилах, хэвлэх болон бүх төрлийн материалыг дижитал (скан) хэлбэрт шилжүүлэх үйлчилгээ.
+            </div>
+        </details>
+    </div>
+</section>
+
+<div class="advantages-section">
+    <h3 class="advantages-title">🌟 Манай давуу тал:</h3>
+    <div class="advantages-grid">
+        <div class="advantage-card">
+            <span class="adv-icon">⚡</span>
+            <div>
+                <b>Шуурхай байдал:</b>
+                <p>Онлайн захиалгыг богино хугацаанд хүлээн авч таны захиалга хийж гүйцэтгэнэ.</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🌍</span>
+            <div>
+                <b>Гадаад мэргэжилтнүүд:</b>
+                <p>Хамт олонт маань гадаад орчуулагчид ажилладаг.</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🏛️</span>
+            <div>
+                <b>Элчин сайдын яам:</b>
+                <p>Элчин сайдын яамны стандартын дагуу орчуулга хийж материалыг бэлтгэнэ.</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🏢</span>
+            <div>
+                <b>Оффис үйлчилгээ:</b>
+                <p>Та манай оффис дээр биеэр ирж үйлчлүүлэх боломжтой.</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🇦🇺</span>
+            <div>
+                <b>Австрали улсын виз:</b>
+                <p>Бичиг баримтын бүрдүүлэхэд мэргэжлийн зөвлөгөө өгнө.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <section id="work" class="our-work-section">
+<h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            МАНАЙ АЖИЛ
+        </h2>
+        <div class="marquee-window">
+            <div class="marquee-track">
+                <img src="mysite1.png"><img src="mysite2.png"><img src="mysite3.png"><img src="mysite4.png"><img src="mysite5.png">
+                <img src="mysite1.png"><img src="mysite2.png"><img src="mysite3.png"><img src="mysite4.png"><img src="mysite5.png">
+            </div>
+        </div>
+    </section>
+
+    <div style="line-height: 0; background-color: #fff;">
+    <svg viewBox="0 0 1440 120" fill="#f9f9f9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 32L60 42.7C120 53 240 75 360 80C480 85 600 75 720 58.7C840 43 960 21 1080 16C1200 11 1320 21 1380 26.7L1440 32V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V32Z"></path>
+    </svg>
+</div>
+
+<section id="price" style="padding: 10px 15px 60px; background-color: #f9f9f9; font-family: 'Segoe UI', Arial, sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            Үйлчилгээний тариф
+        </h2>
+
+        <style>
+            /* Основные стили карточек */
+            .price-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
+            details { background: #fff; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; height: fit-content; }
+            summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #c61a30; font-size: 17px; outline: none; }
+            summary::-webkit-details-marker { display: none; }
+            summary::after { content: '+'; font-size: 22px; color: #d4a035; transition: 0.3s; }
+            details[open] summary::after { content: '−'; transform: rotate(180deg); }
+            details[open] summary { border-bottom: 1px solid #eee; }
+            
+            /* Адаптация для компьютеров */
+            @media (min-width: 1024px) {
+                .price-container { grid-template-columns: 1fr 1fr; gap: 25px; }
+                .price-full-width { grid-column: span 2; }
+            }
+        </style>
+
+        <div class="price-container">
+            <details>
+                <summary>👤 Хувь хүний бичиг баримт</summary>
+                <div class="price-list-content">
+                    <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                        <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                            <li>Иргэний үнэмлэх</li>
+                            <li>Төрсний гэрчилгээ</li>
+                            <li>Гэрлэлтийн гэрчилгээ</li>
+                            <li>Гэрлэлт цуцалсан гэрчилгээ</li>
+                            <li>Нас барсны гэрчилгээ</li>
+                        </ul>
+                    </div>
+                    <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; color: #666; font-weight: 600;">Нэг бүрийн үнэ:</span>
+                        <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>📄 E-Mongolia лавлагаа</summary>
+                <div class="price-list-content">
+                    <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                        <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                            <li>Төрөл садангийн лавлагаа</li>
+                            <li>Төрсний бүртгэлийн лавлагаа</li>
+                            <li>Гэрлэлт бүртгэлийн лавлагаа</li>
+                            <li>Гэрлэлт бүртгэлгүй лавлагаа</li>
+                            <li>Гэрлэлт цуцалсан лавлагаа</li>
+                            <li>Эрүүгийн хариуцлага хүлээж байгаа эсэх тодорхойлолт</li>
+                            <li>Иргэний үнэмлэхний лавлагаа</li>
+                            <li>Гадаад паспортын лавлагаа</li>
+                            <li>Оршин суугаа хаягийн бүртгэлийн лавлагаа</li>
+                        </ul>
+                    </div>
+                    <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; color: #666; font-weight: 600;">Нэг бүрийн үнэ:</span>
+                        <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>🏠 Хөрөнгө</summary>
+                <div class="price-list-content">
+                    <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                        <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                            <li>Үл хөдлөх эд хөрөнгө өмчлөх, эзэмших гэрчилгээ</li>
+                            <li>Газар өмчлөх, эзэмших гэрчилгээ</li>
+                            <li>Тээврийн хэрэгслийн гэрчилгээ</li>
+                        </ul>
+                    </div>
+                    <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 13px; color: #666; font-weight: 600;">Нэг бүрийн үнэ:</span>
+                        <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>🎓 Боловсрол</summary>
+                <div class="price-list-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px;">Бүрэн дунд боловсролын гэрчилгээ</span>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">30,000₮</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee; background: #fcfcfc;">
+                        <div>
+                            <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Монгол диплом</span>
+                            <small style="color: #666; font-size: 12px;">(хавсралтын хамт)</small>
+                        </div>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">45,000₮</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                        <div>
+                            <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Орос диплом</span>
+                            <small style="color: #666; font-size: 12px;">(хавсралтын хамт)</small>
+                        </div>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">85,000₮</strong>
+                    </div>
+                </div>
+            </details>
+
+            <details class="price-full-width">
+                <summary>💼 Ажил, бизнес</summary>
+                <div class="price-list-content">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px;">Компанийн гэрчилгээ</span>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">35,000₮</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
+                        <div style="display: flex; flex-direction: column;">
+                            <span style="color: #333; font-weight: 500; font-size: 15px;">Компанийн дүрэм</span>
+                            <small style="color: #888; font-size: 12px;">(1 нүүр)</small>
+                        </div>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000₮</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                        <div style="display: flex; flex-direction: column;">
+                            <span style="color: #333; font-weight: 500; font-size: 15px;">Санхүүгийн тайлан</span>
+                            <small style="color: #888; font-size: 12px;">(1 нүүр)</small>
+                        </div>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">20-30k₮</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                        <div style="display: flex; flex-direction: column;">
+                            <span style="color: #333; font-weight: 500; font-size: 15px;">Гэрээ</span>
+                            <small style="color: #888; font-size: 12px;">(1 нүүр)</small>
+                        </div>
+                        <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25-30k₮</strong>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; font-style: italic;">
+            * Орчуулгын үнэ нь хэл, бичиг баримтын төрөл зэрэг зүйлээс хамаарч өөр болно.
+        </p>
+    </div>
+</section>
+                </div>
+            </details>
+        </div>
+    </section>
+
+<section class="order-section">
+    <div class="order-info">
+        <p style="font-weight: bold; font-size: 18px; margin-bottom: 15px;">📝 Захиалга хэрхэн өгөх вэ?</p>
+        <div style="font-size: 15px; color: #444; line-height: 1.8;">
+            <p>1. Та материалаа и-мэйлээр илгээнэ үү.</p>
+            <p>2. Бид хугацаа, захиалгын үнийн санал бэлдээд и-мэйл илгээнэ.</p>
+            <p>3. Та захиалгаа баталгаажуулаад бидэнд мэдэгдэнэ үү.</p>
+            <p>4. Таны орчуулга бэлэн болмогц таньд тамга тэдгэгээр баталгаажуулсан PDF-ээр илгээнэ.</p>
+
+        </div>
+    </div>
+
+    <div class="buttons-container-side">
+        <a href="mailto:linguocat@gmail.com" class="m-btn">📧 ЗАХИАЛГА ӨГӨХ</a>
+        <a href="tel:+97680599859" class="m-btn m-call">📞 ЗАЛГАХ: 8059 9859</a>
+    </div>
+</section>
+
+<footer class="footer-flex" id="location">
+    <div class="footer-text">
+        <h2 style="font-weight: 800; margin-bottom: 15px;">📍 Манай хаяг</h2>
+        <p style="line-height: 1.6; margin-bottom: 20px;">
+            Улаанбаатар хот, Баянзүрх дүүрэг, Бөхийн өргөөний замын эсрэг талд, <br>
+            <b>Эрхэт оффис, 10 давхар, 1006 тоот.</b> <br>
+            <span style="display: inline-block; margin-top: 10px; font-size: 0.95em; color: #555;">
+                Оффисын ажлын цаг: Да-Ба 09:00 - 17:00
+            </span>
+        </p>
+
+        <div style="font-size: 15px; line-height: 1.8;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>📞</span>
+                <a href="tel:+97680599859" style="text-decoration: none; color: inherit; font-weight: 600;">8059 9859</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>✉️</span>
+                <a href="mailto:linguocat@gmail.com" style="text-decoration: none; color: inherit;">linguocat@gmail.com</a>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 20px; margin: 25px 0;">
+            <a href="https://facebook.com/xxvxxzzv2020/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="30">
+            </a>
+            <a href="https://wa.me/97680599859" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
+            </a>
+        </div>
+        
+        <p style="font-size: 11px; opacity: 0.6; margin-top: 30px;">
+            © 2026 Translation Board LLC
+        </p>
+    </div>
+
+    <div class="footer-image">
+        <a href="https://www.google.com/maps/search/?api=1&query=Erkhet+Office+Ulaanbaatar" target="_blank">
+            <img src="image_5.jpg" alt="Офис">
+        </a>
+    </div>
+</footer>
+<script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobile-nav");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

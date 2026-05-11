@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Board LLC | Mobile</title>
+<style>
+    /* Базовые стили */
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fff; text-align: center; color: #333; }
+    .m-header { background: #000; color: #fff; padding: 15px; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
+    .m-logo { padding: 20px; }
+    .m-logo img { width: 100px; }
+    
+    .hero-mobile { padding: 20px; text-align: left; }
+    .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 5px 0 15px; font-weight: 800; text-align: center; }
+    
+    /* Блок языков */
+    .lang-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 15px 0 25px; }
+    .tag { background: #f0f2f5; padding: 6px 12px; border-radius: 15px; font-size: 13px; border: 1px solid #ddd; font-weight: 600; }
+
+    /* Блок преимуществ */
+    .m-features { background: #fffdf7; padding: 20px; border-radius: 12px; border: 1px solid #f0e6d2; border-left: 5px solid #d4a035; margin-bottom: 25px; text-align: left; }
+    .m-features p { font-weight: 700; margin-bottom: 10px; color: #1a2b3c; }
+    .m-features ul { list-style: none; padding: 0; font-size: 14px; color: #444; line-height: 1.6; }
+    .m-features li { margin-bottom: 8px; }
+
+    /* Инструкция */
+    .m-steps { padding: 0 10px 25px; text-align: left; }
+    .m-steps p { font-weight: 700; margin-bottom: 12px; }
+    .step-item { font-size: 14px; color: #555; margin-bottom: 8px; display: flex; gap: 10px; }
+    .step-num { color: #d4a035; font-weight: bold; }
+
+    /* Кнопки */
+    .m-btn { 
+        display: block; 
+        background: #d4a035; 
+        color: #000; 
+        margin: 10px 20px; 
+        padding: 18px; 
+        text-decoration: none; 
+        border-radius: 10px; 
+        font-weight: 800;
+        font-size: 16px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .m-call { background: #c61a30; color: #fff; }
+    
+    .m-contact { background: #f4f4f4; padding: 25px; margin-top: 30px; font-size: 14px; text-align: center; }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 25px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        background-color: #d4a035;
+        color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 24px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 2000;
+        transition: 0.3s;
+    }
+
+    /* Слайдер "Наши работы" */
+    .our-work-section { padding: 20px 0; background-color: #fff; overflow: hidden; }
+    .work-title { margin-left: 20px; font-size: 18px; font-weight: bold; border-left: 4px solid #d4a035; padding-left: 10px; margin-bottom: 15px; color: #1a2b3c; }
+    .marquee-window { width: 100%; overflow: hidden; padding: 10px 0; }
+    .marquee-track { display: flex; width: calc(170px * 10); animation: scroll-right 12s linear infinite; }
+    .marquee-track img { width: 160px; height: 110px; object-fit: cover; margin: 0 5px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+    /* ЭФФЕКТЫ ПОЯВЛЕНИЯ (Reveal) */
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+    }
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* МИКРО-АНИМАЦИЯ ИКОНОК */
+    @keyframes icon-bounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+    @keyframes icon-rotate {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-10deg); }
+        75% { transform: rotate(10deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    /* Запуск анимации иконок, когда родитель (reveal) становится активным */
+    .reveal.active .icon-lightning { animation: icon-bounce 0.8s ease-out 0.4s 1; }
+    .reveal.active .icon-globe { animation: icon-rotate 0.8s ease-in-out 0.4s 1; }
+
+/* МОБИЛЬНОЕ МЕНЮ (Монгольская версия — Плавно) */
+
+    /* 1. ДОБАВИТЬ ЭТО: Прячем пункты меню заранее, чтобы они не мелькали */
+    #mobile-nav li {
+        opacity: 0;
+    }
+
+    @keyframes slideInRight {
+        from { 
+            opacity: 0; 
+            transform: translateX(30px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateX(0); 
+        }
+    }
+
+    #mobile-nav.open li {
+        /* Увеличили время самой анимации для плавности */
+        animation: slideInRight 0.8s ease-out forwards;
+        opacity: 0;
+    }
+
+    /* Паузы между пунктами */
+    #mobile-nav.open li:nth-child(1) { animation-delay: 0.2s; }
+    #mobile-nav.open li:nth-child(2) { animation-delay: 0.4s; }
+    #mobile-nav.open li:nth-child(3) { animation-delay: 0.6s; }
+    #mobile-nav.open li:nth-child(4) { animation-delay: 0.8s; }
+    #mobile-nav.open li:nth-child(5) { animation-delay: 1.0s; }
+    #mobile-nav.open li:nth-child(6) { animation-delay: 1.2s; }
+</style>
+</head>
+<body>
+    <div class="m-header" style="display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; padding: 10px 20px;">
+    <span style="font-size: 14px; font-weight: bold;">ОРЧУУЛГЫН САМБАР ХХК</span>
+    
+    <div id="menu-icon" onclick="toggleMenu()" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px;">
+        <div style="width: 22px; height: 3px; background-color: white; border-radius: 2px;"></div>
+        <div style="width: 22px; height: 3px; background-color: white; border-radius: 2px;"></div>
+        <div style="width: 22px; height: 3px; background-color: white; border-radius: 2px;"></div>
+    </div>
+</div>
+
+<div id="mobile-nav" style="display: none; background: #1a2b3c; position: fixed; top: 45px; right: 0; width: 100%; z-index: 999; border-top: 1px solid #2c3e50; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+        <li style="border-bottom: 1px solid #2c3e50;">
+            <a href="#about" onclick="toggleMenu()" style="display: block; color: white; padding: 18px 25px; text-decoration: none; font-size: 16px;">
+                <span style="display: inline-block; margin-right: 10px;">🏢</span> Бидний тухай
+            </a>
+        </li>
+        <li style="border-bottom: 1px solid #2c3e50;">
+            <a href="#services" onclick="toggleMenu()" style="display: block; color: white; padding: 18px 25px; text-decoration: none; font-size: 16px;">
+                <span style="display: inline-block; margin-right: 10px;">⚙️</span> Үйлчилгээ
+            </a>
+        </li>
+        <li style="border-bottom: 1px solid #2c3e50;">
+            <a href="#work" onclick="toggleMenu()" style="display: block; color: white; padding: 18px 25px; text-decoration: none; font-size: 16px;">
+                <span style="display: inline-block; margin-right: 10px;">💼</span> Манай ажил
+            </a>
+        </li>
+        <li style="border-bottom: 1px solid #2c3e50;">
+            <a href="#price" onclick="toggleMenu()" style="display: block; color: white; padding: 18px 25px; text-decoration: none; font-size: 16px;">
+                <span style="display: inline-block; margin-right: 10px;">💰</span> Үйлчилгээний тариф
+            </a>
+        </li>
+        <li style="border-bottom: 1px solid #2c3e50;">
+            <a href="#address" onclick="toggleMenu()" style="display: block; color: white; padding: 18px 25px; text-decoration: none; font-size: 16px;">
+                <span style="display: inline-block; margin-right: 10px;">📍</span> Манай хаяг
+            </a>
+        </li>
+
+        <li style="padding: 20px 25px; background: #14212e;">
+            <div style="color: #888; font-size: 11px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Select Language</div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <a href="mobile.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: white; font-size: 13px; padding: 8px 12px; background: #d4a035; border-radius: 6px;">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" style="width: 18px;"> MN
+                </a>
+                <a href="mobile_en.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: white; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" style="width: 18px;"> EN
+                </a>
+                <a href="mobile_ru.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: white; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" style="width: 18px;"> RU
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+<script>
+function toggleMenu() {
+    var menu = document.getElementById("mobile-nav");
+    if (menu.style.display === "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
+}
+</script>
+    
+    <div class="m-logo">
+        <img src="LOGO.gif" alt="Logo">
+        <div style="color: #c61a30; font-weight: 700; font-size: 12px; text-transform: uppercase; margin-top: 10px;">Translation Board LLC</div>
+    </div>
+
+    <div class="hero-mobile">
+        <h1>ОРЧУУЛГЫН ТОВЧОО</h1>
+        
+        <div class="lang-tags">
+            <span class="tag">🇷🇺 Орос</span>
+            <span class="tag">🇬🇧 Англи</span>
+            <span class="tag">🇨🇳 Хятад</span>
+            <span class="tag">🇰🇷 Солонгос</span>
+            <span class="tag">🇯🇵 Япон</span>
+            <span class="tag">🇲🇳 Монгол</span>
+     
+        </div>
+<section id="about" class="reveal" style="padding: 10px 20px 40px 20px; margin-top: 0; text-align: left; background-color: #fff; font-family: 'Segoe UI', Arial, sans-serif;">
+    
+    <h2 style="color: #1a2b3c; border-bottom: 3px solid #d4a035; display: inline-block; padding-bottom: 5px; margin-top: 5px; margin-bottom: 25px; font-size: 24px; font-weight: 800;">Бидний тухай</h2>
+    
+    <p style="font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 30px; font-weight: 400;">
+        <b>«Орчуулгын Самбар» ХХК</b> нь 2023 онд үүсгэн байгуулагдсан компани бөгөөд  орчуулгын олон улсын чанарын стандартад нийцсэн монгол улсын иргэн, гадаадын улсын иргэдээ мэргэжлийн орчуулгын үйлчилгээг өндөр түвшинд үзүүлж байна.
+Бид таны захиалга хүлээн авахад баяртай байх болно. Таны захиалгыг бид хичээнгүйлэн хүлээж байна!
+    </p>
+
+    <div class="reveal" style="background: linear-gradient(135deg, #fdfaf3 0%, #f7f0e0 100%); padding: 25px; border-radius: 16px; margin-bottom: 20px; border: 1px solid #e9dec6; position: relative; overflow: hidden; transition-delay: 0.2s;">
+        <div style="position: absolute; right: -10px; top: -10px; font-size: 80px; opacity: 0.05; pointer-events: none;">🛡️</div>
+        
+        <h3 style="font-size: 19px; color: #1a2b3c; margin-top: 0; margin-bottom: 18px; display: flex; align-items: center; font-weight: 800;">
+            <div style="min-width: 36px; height: 36px; background: linear-gradient(135deg, #d4a035 0%, #b8860b 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 14px; box-shadow: 0 4px 10px rgba(212, 160, 53, 0.3); border: 1px solid rgba(255,255,255,0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 13l4 4L19 7" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            Чанарын давхар хяналт
+        </h3>
+        
+        <p style="font-size: 14px; line-height: 1.6; color: #1a2b3c; margin: 0; position: relative; z-index: 1;">
+            Манай гол зарчим бол <b>мэргэжлийн хариуцлага</b> юм. Орчуулга бэлэн болмогц компанийн ерөнхий орчуулагч маань бүх материалыг <b>нарийвчлан хянаж</b>, захиалагчид хүлээлгэн өгдөг. Чанарын давхар хяналт нь орчуулгыг алдаагүй, үнэн зөвийн баталгаатай болгодог юм.
+        </p>
+    </div>
+
+    <div class="reveal" style="background: linear-gradient(135deg, #fdfaf3 0%, #f7f0e0 100%); padding: 25px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #e9dec6; transition-delay: 0.4s;">
+        <p style="font-size: 14px; line-height: 1.6; color: #1a2b3c; margin: 0;">
+            <span style="font-size: 18px; margin-right: 8px;">📜</span><b>Албан ёсны баталгаа:</b><br>
+            Манай компания нь Баталгаат орчуулагчдын нэгдсэн холбооны албан ёсны зөвшөөрөл (лиценз) болон баталгаат тамгатай юм. Ерөнхий орчуулагч нь ОХУ-ын иргэн, хэл шинжлэлийн магистр зэрэгтэй мэргэжилтэн тул бид чанарын бүрэн баталгаа өгч байна.
+        </p>
+    </div>
+
+    <div class="reveal" style="display: flex; align-items: center; gap: 15px; padding: 15px 5px; border-bottom: 1px solid #f0f0f0; margin-bottom: 10px; transition-delay: 0.6s;">
+        <div style="font-size: 24px; min-width: 32px; text-align: center;">👨‍💼</div>
+        <div>
+            <h4 style="margin: 0; color: #1a2b3c; font-size: 16px; font-weight: 700;">Захирал, ерөнхий орчуулагч</h4>
+            <p style="margin: 2px 0 0; font-size: 13px; color: #777;">Англи, Орос, Монгол хэлний орчуулга хийнэ. Орчуулгын чанар, эцсийн хяналтыг хариуцна</p>
+        </div>
+    </div>
+
+    <div class="reveal" style="display: flex; align-items: center; gap: 15px; padding: 10px 5px; transition-delay: 0.8s;">
+        <div style="font-size: 24px; min-width: 32px; text-align: center;">👥</div>
+        <div>
+            <h4 style="margin: 0; color: #1a2b3c; font-size: 16px; font-weight: 700;">Мэргэжлийн баг</h4>
+            <p style="margin: 2px 0 0; font-size: 13px; color: #777;">Хятад, Япон, Солонгос хэлний гэрээт орчуулагчид туслах орчуулга хийнэ</p>
+        </div>
+    </div>
+
+</section>
+
+<section id="services" style="padding: 20px 15px; background-color: #fff; font-family: 'Segoe UI', sans-serif;">
+    <h2 style="color: #1a2b3c; border-bottom: 3px solid #d4a035; display: inline-block; padding-bottom: 5px; margin-bottom: 25px; font-size: 24px; font-weight: 800; text-align: left; width: 100%;">
+        Үйлчилгээ
+    </h2>
+
+    <style>
+        /* Стили для аккордеона услуг */
+        .service-card { margin-bottom: 12px; background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
+        .service-summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #1a2b3c; font-size: 16px; outline: none; }
+        .service-summary::-webkit-details-marker { display: none; }
+        .service-summary::after { content: '+'; font-size: 20px; color: #d4a035; transition: 0.3s; font-weight: bold; }
+        details[open] .service-summary::after { content: '−'; transform: rotate(180deg); }
+        .service-content { padding: 0 15px 18px; font-size: 14px; color: #555; line-height: 1.5; text-align: left; }
+    </style>
+
+    <details class="service-card">
+        <summary class="service-summary">📜 Баталгаат орчуулга</summary>
+        <div class="service-content">
+            Бүх төрлийн бичиг баримтыг мэргэжлийн түвшинд орчуулж, компанийн албан ёсны тамгаар баталгаажуулна. Чанарын давхар хяналттай.
+        </div>
+    </details>
+
+    <details class="service-card">
+        <summary class="service-summary">🛂 Визний материалын бүрдүүлэлт</summary>
+        <div class="service-content">
+            Гадаад улсад зорчих визний мэдүүлэг, дагалдах бичиг баримтын зөвлөгөө, орчуулга хийж зөвлөгөө өгнө.
+        </div>
+    </details>
+
+ <details class="service-card">
+        <summary class="service-summary">🌐 Дагалдах үйлчилгээ</summary>
+        <div class="service-content">
+            <p style="margin-bottom: 12px;">
+                <b>ВорлдСИМ Монголия / Аяллын сим карт:</b> Олон улсад ашиглах аяллын сим картын худалдаа, цэнэглэлт болон утсын тохиргооны үйлчилгээ. Та eSIM онлайнаар авахыг хүсвэл Фэйсбүүк чаатаар холбогдоно уу.
+            </p>
+            <a href="https://www.facebook.com/profile.php?id=100070001765710" target="_blank" 
+               style="display: inline-block; background-color: #1877F2; color: white; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>WorldSIM хуудас руу зочлох</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+        </div>
+    </details>
+
+    <details class="service-card">
+        <summary class="service-summary">🖨️ Канон, хэвлэл, скан</summary>
+        <div class="service-content">
+            Бичиг баримт өндөр чанартай хувилах, хэвлэх болон бүх төрлийн материалыг дижитал (скан) хэлбэрт шилжүүлэх үйлчилгээ.
+        </div>
+    </details>
+</section>
+
+<div class="reveal" style="background: #fff; border-top: 1px solid #eee; padding-top: 20px;">
+    <h3 style="font-size: 18px; color: #1a2b3c; margin-bottom: 18px; padding-left: 5px;">🌟 Манай давуу тал:</h3>
+    
+    <ul class="reveal-list" style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+            <span style="min-width: 25px; text-align: center;">⚡</span> 
+            <span><b>Шуурхай байдал:</b> Онлайн захиалгыг богино хугацаанд хүлээн авч таны захиалга хийж гүйцэтгэнэ.</span>
+        </li>
+        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+            <span style="min-width: 25px; text-align: center;">🌍</span> 
+            <span><b>Гадаад мэргэжилтнүүд:</b> Хамт олонт маань гадаад орчуулагчид ажилладаг.</span>
+        </li>
+        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+            <span style="min-width: 25px; text-align: center;">🏛️</span> 
+            <span><b>Элчин сайдын яам:</b> Элчин сайдын яамны стандартын дагуу орчуулга хийж материалыг бэлтгэнэ.</span>
+        </li>
+        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+            <span style="min-width: 25px; text-align: center;">🏢</span> 
+            <span><b>Оффис үйлчилгээ:</b> Та манай оффис дээр биеэр ирж үйлчлүүлэх боломжтой.</span>
+        </li>
+        <li style="margin-bottom: 5px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+            <span style="min-width: 25px; text-align: center;">🇦🇺</span> 
+            <span><b>Австрали улсын виз:</b> Бичиг баримтын бүрдүүлэхэд мэргэжлийн зөвлөгөө өгнө.</span>
+        </li>
+    </ul>
+</div>
+    
+<section id="work" class="our-work-section">
+    <h2 class="work-title">Манай ажил</h2>
+
+    <div class="marquee-window">
+        <div class="marquee-track">
+            <img src="mysite1.png" alt="Ажил 1">
+            <img src="mysite2.png" alt="Ажил 2">
+            <img src="mysite3.png" alt="Ажил 3">
+            <img src="mysite4.png" alt="Ажил 4">
+            <img src="mysite5.png" alt="Ажил 5">
+            
+            <img src="mysite1.png" alt="Ажил 1">
+            <img src="mysite2.png" alt="Ажил 2">
+            <img src="mysite3.png" alt="Ажил 3">
+            <img src="mysite4.png" alt="Ажил 4">
+            <img src="mysite5.png" alt="Ажил 5">
+        </div>
+    </div>
+</section>
+
+</section>
+<div style="line-height: 0; background-color: #fff;">
+        <svg viewBox="0 0 1440 120" fill="#f9f9f9" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 32L60 42.7C120 53 240 75 360 80C480 85 600 75 720 58.7C840 43 960 21 1080 16C1200 11 1320 21 1380 26.7L1440 32V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V32Z"></path>
+        </svg>
+    </div>
+
+    <section id="price" style="padding: 10px 15px 40px; background-color: #f9f9f9; font-family: 'Segoe UI', Arial, sans-serif;">
+        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+            <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 30px; font-size: 24px; border-bottom: 2px solid #d4a035; display: inline-block; width: 100%; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+                Үйлчилгээний тариф
+            </h2>
+
+        <style>
+            /* Стили для красивого раскрытия */
+            details { margin-bottom: 15px; background: #fff; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+            summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #c61a30; font-size: 17px; outline: none; }
+            summary::-webkit-details-marker { display: none; }
+            summary::after { content: '+'; font-size: 22px; color: #d4a035; transition: 0.3s; }
+            details[open] summary::after { content: '−'; transform: rotate(180deg); }
+            details[open] summary { border-bottom: 1px solid #eee; }
+            .price-list-content { padding: 5px 0; }
+        </style>
+
+        <details>
+            <summary>👤 Хувь хүний бичиг баримт</summary>
+            <div class="price-list-content">
+                <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                    <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                        <li>Иргэний үнэмлэх</li>
+                        <li>Төрсний гэрчилгээ</li>
+                        <li>Гэрлэлтийн гэрчилгээ</li>
+                        <li>Гэрлэлт цуцалсан гэрчилгээ</li>
+                        <li>Нас барсны гэрчилгээ</li>
+                    </ul>
+                </div>
+                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 13px; color: #666; font-weight: 600;">Нэг бүрийн үнэ:</span>
+                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>📄 E-Mongolia лавлагаа</summary>
+            <div class="price-list-content">
+                <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                    <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                        <li>Төрөл садангийн лавлагаа</li>
+                        <li>Төрсний бүртгэлийн лавлагаа</li>
+                        <li>Гэрлэлт бүртгэлийн лавлагаа</li>
+                        <li>Гэрлэлт бүртгэлгүй лавлагаа</li>
+                        <li>Гэрлэлт цуцалсан лавлагаа</li>
+                        <li>Иргэний эрүүгийн хариуцлага хүлээж байгаа эсэх тухай тодорхойлолт</li>
+                        <li>Иргэний үнэмлэхний лавлагаа</li>
+                        <li>Гадаад паспортын лавлагаа</li>
+                        <li>Оршин суугаа хаягийн бүртгэлийн лавлагаа</li>
+                    </ul>
+                </div>
+                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 13px; color: #666; font-weight: 600;">Нэг бүрийн үнэ:</span>
+                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>🏠 Хөрөнгө</summary>
+            <div class="price-list-content">
+                <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                    <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                        <li>Үл хөдлөх эд хөрөнгө өмчлөх, эзэмших гэрчилгээ</li>
+                        <li>Газар өмчлөх, эзэмших гэрчилгээ</li>
+                        <li>Тээврийн хэрэгслийн гэрчилгээ</li>
+                    </ul>
+                </div>
+                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 13px; color: #666; font-weight: 600;">Нэг бүрийн үнэ:</span>
+                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>🎓 Боловсрол</summary>
+            <div class="price-list-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee;">
+                    <span style="color: #333; font-weight: 500; font-size: 15px;">Бүрэн дунд боловсролын гэрчилгээ</span>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">30,000₮</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee; background: #fcfcfc;">
+                    <div style="padding-right: 10px;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Монгол диплом</span>
+                        <small style="color: #666; font-size: 12px;">(хавсралтын хамт)</small>
+                    </div>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">45,000₮</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                    <div style="padding-right: 10px;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Орос диплом</span>
+                        <small style="color: #666; font-size: 12px;">(хавсралтын хамт)</small>
+                    </div>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">85,000₮</strong>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>💼 Ажил, бизнес</summary>
+            <div class="price-list-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                    <span style="color: #333; font-weight: 500; font-size: 15px;">Компанийн гэрчилгээ</span>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">35,000₮</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px;">Компанийн дүрэм</span>
+                        <small style="color: #888; font-size: 12px;">(1 нүүр)</small>
+                    </div>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000₮</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px;">Санхүүгийн тайлан</span>
+                        <small style="color: #888; font-size: 12px;">(1 нүүр)</small>
+                    </div>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">20-30k₮</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px;">Гэрээ</span>
+                        <small style="color: #888; font-size: 12px;">(1 нүүр)</small>
+                    </div>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25-30k₮</strong>
+                </div>
+            </div>
+        </details>
+
+        <p style="text-align: center; color: #888; font-size: 12px; line-height: 1.4; margin-top: 20px;">
+            * Орчуулгын үнэ нь хэл, бичиг баримтын төрөл зэрэг зүйлээс хамаарч өөр болно.
+        </p>
+    </div>
+</section>
+</section>
+        <div class="m-steps">
+            <p>📝 Захиалга хэрхэн өгөх вэ?</p>
+            <div class="step-item"><span class="step-num">1.</span> Та материалаа и-мэйлээр илгээнэ үү.</div>
+            <div class="step-item"><span class="step-num">2.</span> Бид хугацаа, захиалгын үнийн санал бэлдээд и-мэйл илгээнэ.</div>
+            <div class="step-item"><span class="step-num">3.</span> Та захиалгаа баталгаажуулаад бидэнд мэдэгдэнэ үү.</div>
+            <div class="step-item"><span class="step-num">4.</span> Таны орчуулга бэлэн болмогц таньд тамга тэдгэгээр баталгаажуулсан PDF-ээр илгээнэ.</div>
+        <div style="background: #fff; padding: 25px; border-radius: 20px; border: 1px solid #eee; margin: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <h2 style="font-size: 20px; color: #1a2b3c; margin-bottom: 10px;">Орчуулгын захиалга өгөх</h2>
+    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+        Та доорх товчийг дарж материалаа бидний и-мэйлээр илгээнэ үү.
+    </p>
+
+    <a href="mailto:linguocat@gmail.com?subject=Орчуулгын захиалга&body=Сайн байна уу, би орчуулга хийлгэх материалаа хавсаргав." 
+       style="display: block; background: #d4a035; color: #000; padding: 18px; border-radius: 12px; font-weight: 800; font-size: 16px; text-decoration: none; text-transform: uppercase;">
+        📧 ЗАХИАЛГА ӨГӨХ
+    </a>
+</div>
+
+<a href="tel:+97680599859" style="display: block; background: #c61a30; color: #fff; margin: 10px 20px; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: 800; text-align: center; font-size: 16px;">
+    📞 ШУУД ЗАЛГАХ: 8059 9859
+</a>
+
+<section id="location" style="padding: 20px 0; background-color: #fff;">
+    <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: 800; border-bottom: 2px solid #d4a035; display: inline-block; padding-bottom: 5px;">📍 Манай байршил</h2>
+    
+    <a href="https://maps.app.goo.gl/0x868e8cc94857d478" target="_blank" style="text-decoration: none; display: block;">
+        
+        <div style="width: 100%; height: 350px; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); position: relative;">
+            
+            <img 
+                src="image_5.jpg" 
+                alt="Эрхэт оффис" 
+                style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"
+            >
+            
+        </div>
+    </a>
+    
+    <p style="text-align: center; font-size: 14px; color: #666; margin-top: 15px; padding: 0 20px; line-height: 1.6;">
+    </p>
+</section>
+
+<div id="address" class="m-contact" style="padding: 20px; text-align: center;">
+    <p><b>Хаяг:</b> Улаанбаатар хот, Бөхийн өргөөний баруун талд, Эрхэт оффис, 1006 тоот</p>
+    <p><b>Ажлын цаг:</b> Да-Ба 09:00 - 17:00</p>
+    
+    <p><b>Утас:</b> 
+        <a href="tel:+97680599859" style="text-decoration: none; color: inherit; font-weight: bold;">
+            +976 8059 9859
+        </a>
+    </p>
+    
+    <p style="margin-top: 10px;">
+        <a href="mailto:linguocat@gmail.com" style="color: #666; text-decoration: none;">
+            Email: linguocat@gmail.com
+        </a>
+    </p>
+
+    <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px;">
+        
+        <a href="https://www.facebook.com/xxvxxzzv2020/" target="_blank" style="text-decoration: none; color: #1877F2;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+        </a>
+
+        <a href="https://wa.me/97680599859" target="_blank" style="text-decoration: none; color: #25D366;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.634 1.437h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+
+    </div>
+    <p style="font-size: 11px; margin-top: 15px; opacity: 0.7;">© 2026 Translation Board LLC</p>
+</div>
+<a href="#" class="scroll-top-btn">↑</a>
+<script>
+// 1. Функция для плавного появления блоков при скролле
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    var observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+}
+
+// 2. Функция для мобильного меню с поддержкой анимации
+function toggleMenu() {
+    var menu = document.getElementById("mobile-nav");
+    
+    // Проверяем, открыто ли меню сейчас
+    if (menu.style.display === "block") {
+        // Убираем класс анимации
+        menu.classList.remove("open");
+        // Ждем завершения анимации (300мс) и скрываем блок
+        setTimeout(function() {
+            menu.style.display = "none";
+        }, 300);
+    } else {
+        // Показываем блок меню
+        menu.style.display = "block";
+        // Микро-пауза, чтобы браузер успел применить display:block перед началом анимации
+        setTimeout(function() {
+            menu.classList.add("open");
+        }, 10);
+    }
+}
+
+// Запускаем инициализацию после загрузки страницы
+document.addEventListener("DOMContentLoaded", reveal);
+</script>
+
+</body>
+</html>
