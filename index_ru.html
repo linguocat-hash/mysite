@@ -909,19 +909,20 @@
         }
     }
 
-    // Добавляем проверку устройства прямо сюда
-    if (window.innerWidth <= 768) {
-        var currentPage = window.location.pathname.split("/").pop();
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900) {
+        var path = window.location.pathname;
+        var currentPage = path.split("/").pop();
         
-        if (currentPage === "index_en.html") {
-            window.location.href = "mobile_en.html";
-        } else if (currentPage === "index_ru.html") {
-            window.location.href = "mobile_ru.html";
-        } else {
+        if (currentPage === "" || currentPage === "index.html" || path === "/") {
             window.location.href = "mobile.html";
+        } 
+        else if (currentPage === "index_en.html") {
+            window.location.href = "mobile_en.html";
+        } 
+        else if (currentPage === "index_ru.html") {
+            window.location.href = "mobile_ru.html";
         }
     }
 </script>
-    </script>
 </body>
 </html>
