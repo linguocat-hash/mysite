@@ -894,19 +894,15 @@
 
     <a href="#" class="scroll-top-btn">↑</a>
 
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("mobile-nav");
-            menu.style.display = (menu.style.display === "block") ? "none" : "block";
-        }
 <script>
     function toggleMenu() {
         var menu = document.getElementById("mobile-nav");
-        if (menu) { // Проверка, существует ли меню на странице
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
+        if (menu) {
+            // Проверяем: если стиль скрыт или еще не задан скриптом, то показываем
+            if (menu.style.display === "none" || menu.style.display === "") {
                 menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
             }
         }
     }
@@ -916,7 +912,7 @@
         var path = window.location.pathname;
         var currentPage = path.split("/").pop();
         
-        // Проверяем, не находимся ли мы уже на мобильной странице, чтобы избежать бесконечного редиректа
+        // Избегаем бесконечного редиректа
         if (!currentPage.includes('mobile')) {
             if (currentPage === "" || currentPage === "index.html" || path === "/") {
                 window.location.href = "mobile.html";
