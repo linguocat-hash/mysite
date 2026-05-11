@@ -844,30 +844,31 @@
     </div>
 </footer>
 <script>
-        function toggleMenu() {
-            var menu = document.getElementById("mobile-nav");
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
+    function toggleMenu() {
+        var menu = document.getElementById("mobile-nav");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
         }
-<script>
-  // Проверяем ширину экрана (если меньше 768px — это мобильный)
-  if (window.innerWidth <= 768) {
-    var currentPage = window.location.pathname.split("/").pop();
-    
-    // Логика перенаправления в зависимости от файла
-    if (currentPage === "index_en.html") {
-      window.location.href = "mobile_en.html";
-    } else if (currentPage === "index_ru.html") {
-      window.location.href = "mobile_ru.html";
-    } else {
-      // По умолчанию для основного index.html (монгольский)
-      window.location.href = "mobile.html";
     }
-  }
+
+    // Проверяем устройство и ширину экрана
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 800) {
+        var path = window.location.pathname;
+        var currentPage = path.split("/").pop();
+        
+        // Если зашли на главную (пустой путь или index.html)
+        if (currentPage === "" || currentPage === "index.html" || path === "/") {
+            window.location.href = "mobile.html";
+        } 
+        else if (currentPage === "index_en.html") {
+            window.location.href = "mobile_en.html";
+        } 
+        else if (currentPage === "index_ru.html") {
+            window.location.href = "mobile_ru.html";
+        }
+    }
 </script>
-    </script>
 </body>
 </html>
