@@ -855,6 +855,29 @@ Translation Board LLC is committed to building long-term professional relationsh
             var menu = document.getElementById("mobile-nav");
             menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("mobile-nav");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    // Добавляем проверку устройства прямо сюда
+    if (window.innerWidth <= 768) {
+        var currentPage = window.location.pathname.split("/").pop();
+        
+        if (currentPage === "index_en.html") {
+            window.location.href = "mobile_en.html";
+        } else if (currentPage === "index_ru.html") {
+            window.location.href = "mobile_ru.html";
+        } else {
+            window.location.href = "mobile.html";
+        }
+    }
+</script>
     </script>
 </body>
 </html>
