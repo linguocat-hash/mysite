@@ -181,13 +181,26 @@
 <script>
 function toggleMenu() {
     var menu = document.getElementById("mobile-nav");
+    
     if (menu.style.display === "block") {
-        menu.style.display = "none";
+        // Убираем класс анимации, чтобы пункты плавно исчезли
+        menu.classList.remove("open");
+        
+        // Ждем 300мс (пока идет анимация) и скрываем всё меню
+        setTimeout(function() {
+            menu.style.display = "none";
+        }, 300);
     } else {
+        // Сначала включаем блок меню
         menu.style.display = "block";
+        
+        // Даем браузеру мгновение (20мс), чтобы "увидеть" меню, 
+        // и запускаем анимацию вылета пунктов
+        setTimeout(function() {
+            menu.classList.add("open");
+        }, 20);
     }
-}
-</script>
+}</script>
     
     <div class="m-logo">
         <img src="LOGO.gif" alt="Logo">
