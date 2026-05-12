@@ -592,7 +592,17 @@ function reveal() {
     reveals.forEach(el => observer.observe(el));
 }
 
-document.addEventListener("DOMContentLoaded", reveal);
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Запускаем систему слежения (ваш существующий reveal)
+    reveal();
+    
+    // 2. ПРИНУДИТЕЛЬНО активируем первый блок, если он виден на экране
+    // Это заставит "Бидний тухай" появиться сразу без скролла
+    setTimeout(function() {
+        window.scrollTo(window.scrollX, window.scrollY + 1);
+        window.scrollTo(window.scrollX, window.scrollY - 1);
+    }, 100);
+});
 </script>
 </body>
 </html>
