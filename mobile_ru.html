@@ -197,6 +197,22 @@ function toggleMenu() {
         menu.style.display = "block";
     }
 }
+// Закрытие меню при клике вне его области (для всех языковых версий)
+document.addEventListener('click', function(event) {
+    var menu = document.getElementById("mobile-nav");
+    var menuIcon = document.getElementById("menu-icon");
+    
+    // Проверка: если меню открыто и клик совершен мимо меню и мимо иконки
+    if (menu && menu.style.display === "block" && 
+        !menu.contains(event.target) && 
+        !menuIcon.contains(event.target)) {
+        
+        menu.classList.remove("open");
+        setTimeout(function() {
+            menu.style.display = "none";
+        }, 300);
+    }
+});
 </script>
     
     <div class="m-logo">
