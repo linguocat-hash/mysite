@@ -587,22 +587,20 @@ function reveal() {
                 entry.target.classList.add("active");
             }
         });
-    }, { threshold: 0.1 }); // Анимация начнется, когда 10% блока покажется на экране
+    }, { 
+        threshold: 0.1,
+        rootMargin: "0px 0px 500px 0px" // Маленькая хитрость: скрипт "видит" блоки заранее
+    });
 
     reveals.forEach(el => observer.observe(el));
+    
+    // ДОБАВЬТЕ ЭТО: Скрипт сразу проверяет первый экран при загрузке
+    setTimeout(() => {
+        window.dispatchEvent(new Event('scroll'));
+    }, 100);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Запускаем систему слежения (ваш существующий reveal)
-    reveal();
-    
-    // 2. ПРИНУДИТЕЛЬНО активируем первый блок, если он виден на экране
-    // Это заставит "Бидний тухай" появиться сразу без скролла
-    setTimeout(function() {
-        window.scrollTo(window.scrollX, window.scrollY + 1);
-        window.scrollTo(window.scrollX, window.scrollY - 1);
-    }, 100);
-});
+document.addEventListener("DOMContentLoaded", reveal);
 </script>
 </body>
 </html>
