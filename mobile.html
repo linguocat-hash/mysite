@@ -200,7 +200,25 @@ function toggleMenu() {
             menu.classList.add("open");
         }, 20);
     }
-}</script>
+}
+// Закрытие меню при клике вне его области
+document.addEventListener('click', function(event) {
+    var menu = document.getElementById("mobile-nav");
+    var menuIcon = document.getElementById("menu-icon");
+    
+    // Если меню открыто И клик был НЕ по меню И клик был НЕ по иконке бургер-меню
+    if (menu.style.display === "block" && 
+        !menu.contains(event.target) && 
+        !menuIcon.contains(event.target)) {
+        
+        // Запускаем закрытие так же, как в toggleMenu
+        menu.classList.remove("open");
+        setTimeout(function() {
+            menu.style.display = "none";
+        }, 300);
+    }
+});
+</script>
     
     <div class="m-logo">
         <img src="LOGO.gif" alt="Logo">
