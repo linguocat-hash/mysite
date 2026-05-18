@@ -267,11 +267,11 @@ document.addEventListener('click', function(event) {
 
 <!-- Контейнер для смещения кнопки вправо -->
 <div style="text-align: right; margin-top: 10px; margin-bottom: 25px;">
-    <!-- Красивая стилизованная кнопка -->
+    <!-- Красивая золотая кнопка -->
     <button id="readMoreBtn" onclick="toggleText()" style="
         background: #fff;
-        border: 2px solid #1a2b3c;
-        color: #1a2b3c;
+        border: 2px solid #d4a035;
+        color: #d4a035;
         font-size: 14px;
         font-weight: 700;
         padding: 8px 20px;
@@ -281,12 +281,13 @@ document.addEventListener('click', function(event) {
         align-items: center;
         gap: 6px;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 5px rgba(212, 160, 53, 0.1);
         font-family: 'Segoe UI', Arial, sans-serif;
     ">
         <span id="btn-text">Дэлгэрэнгүй</span>
         <svg id="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition: transform 0.3s ease;">
-            <path d="M6 9l6 6 6-6" stroke="#1a2b3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Стрелочка теперь тоже золотая -->
+            <path d="M6 9l6 6 6-6" stroke="#d4a035" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
 </div>
