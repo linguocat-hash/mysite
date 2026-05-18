@@ -258,8 +258,15 @@ document.addEventListener('click', function(event) {
     
     <h2 style="color: #1a2b3c; border-bottom: 3px solid #d4a035; display: inline-block; padding-bottom: 5px; margin-top: 5px; margin-bottom: 25px; font-size: 24px; font-weight: 800;">About Us</h2>
     
-    <p style="font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 30px; font-weight: 400;">
-        <b>Translation Board LLC</b>, established in 2023, is a professional translation agency providing high-quality linguistic services to clients in Mongolia and abroad in accordance with international standards of translation quality and professional ethics.
+<h2 style="color: #1a2b3c; border-bottom: 3px solid #d4a035; display: inline-block; padding-bottom: 5px; margin-top: 5px; margin-bottom: 25px; font-size: 24px; font-weight: 800;">About Us</h2>
+    
+<p style="font-size: 16px; line-height: 1.7; color: #444; margin-bottom: 15px; font-weight: 400;">
+    <b>Translation Board LLC</b>, established in 2023, is a professional translation agency providing high-quality linguistic services to clients in Mongolia and abroad in accordance with international standards of translation quality and professional ethics.
+    
+    <!-- Точка разделения -->
+    <span id="dots">...</span>
+    
+    <span id="more-text" style="display: none;">
         <br><br>
         The company specializes in written translation services across a wide range of subject areas and document types, ensuring accuracy, confidentiality, consistency, and professional responsibility at every stage of the translation process. Our work is guided by the principles of quality assurance, operational efficiency, and an individual approach to each client and project.
         <br><br>
@@ -268,7 +275,33 @@ document.addEventListener('click', function(event) {
         The company is headed by a professional translator from the Russian Federation who holds a Bachelor’s degree in Linguistics from Transbaikal State University and a Master’s degree from the National University of Mongolia.
         <br><br>
         Translation Board LLC is committed to building long-term professional relationships based on trust, reliability, and service excellence. We strive to provide accurate and dependable translation solutions for private individuals, corporate clients, governmental institutions, and international partners.
-    </p>
+    </span>
+</p>
+
+<!-- Золотая кнопка, выровненная по правому краю -->
+<div style="text-align: right; margin-top: 10px; margin-bottom: 25px;">
+    <button id="readMoreBtn" onclick="toggleText()" style="
+        background: #fff;
+        border: 2px solid #d4a035;
+        color: #d4a035;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 8px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(212, 160, 53, 0.1);
+        font-family: 'Segoe UI', Arial, sans-serif;
+    ">
+        <span id="btn-text">Read More</span>
+        <svg id="btn-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transition: transform 0.3s ease;">
+            <path d="M6 9l6 6 6-6" stroke="#d4a035" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+</div>
 
     <div class="reveal" style="background: linear-gradient(135deg, #fdfaf3 0%, #f7f0e0 100%); padding: 25px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #e9dec6; position: relative; overflow: hidden; transition-delay: 0.2s;">
         <div style="position: absolute; right: -10px; top: -10px; font-size: 80px; opacity: 0.05; pointer-events: none;">🛡️</div>
@@ -670,6 +703,26 @@ function reveal() {
 }
 window.addEventListener("scroll", reveal);
 document.addEventListener("DOMContentLoaded", reveal);
+function toggleText() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more-text");
+    var btnText = document.getElementById("btn-text");
+    var btnArrow = document.getElementById("btn-arrow");
+
+    if (dots.style.display === "none") {
+        // Когда текст СВОРАЧИВАЕТСЯ
+        dots.style.display = "inline";
+        moreText.style.display = "none";
+        btnText.innerHTML = "Read More";
+        btnArrow.style.transform = "rotate(0deg)";
+    } else {
+        // Когда текст РАЗВОРАЧИВАЕТСЯ
+        dots.style.display = "none";
+        moreText.style.display = "inline";
+        btnText.innerHTML = "Close";
+        btnArrow.style.transform = "rotate(180deg)";
+    }
+}
 </script>
 
 </body>
