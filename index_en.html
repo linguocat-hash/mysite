@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Translation Board LLC</title>
+    <title>Translation Board LLC | Translation Bureau</title>
 <link rel="alternate" media="only screen and (max-width: 640px)" href="https://translationboard.mn/mobile_en.html">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -795,13 +795,13 @@ Translation Board LLC is committed to building long-term professional relationsh
             </div>
         </details>
 
-        <!-- Дисклеймер внутри контейнера, но за пределами спойлера -->
-<p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; margin-left: auto; margin-right: auto; max-width: 600px; font-style: italic;">
-    * Translation fees may vary depending on the target language, document type, volume, and complexity of the translation.
-</p>
+<!-- Дисклеймер в одну строку с автоматическим переносом только на мобильных -->
+        <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; margin-left: auto; margin-right: auto; font-style: italic; grid-column: 1 / -1; white-space: lg-nowrap; @media (min-width: 768px) { white-space: nowrap; }">
+            <span style="display: inline-block; white-space: nowrap;">* Translation fees may vary depending on the target language, document type, volume, and complexity of the translation.</span>
+        </p>
 
-    </div> <!-- Закрытие внутреннего контейнера (например, .container или .price-wrap) -->
-</section> <!-- Четкое и единственное закрытие секции -->
+    </div> <!-- Закрытие внутреннего контейнера сетки -->
+</section> <!-- Единственное корректное закрытие всей секции цен -->
 
 <section class="order-section">
     <div class="order-info">
