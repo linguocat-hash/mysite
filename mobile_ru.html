@@ -457,10 +457,10 @@ document.addEventListener('click', function(event) {
     </div>
 
     <section id="price" style="padding: 10px 15px 40px; background-color: #f9f9f9; font-family: 'Segoe UI', Arial, sans-serif;">
-        <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-            <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 30px; font-size: 24px; border-bottom: 2px solid #d4a035; display: inline-block; width: 100%; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
-                Прайс лист
-            </h2>
+    <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 30px; font-size: 24px; border-bottom: 2px solid #d4a035; display: inline-block; width: 100%; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            Прайс-лист
+        </h2>
 
         <style>
             /* Стили для красивого раскрытия */
@@ -471,6 +471,13 @@ document.addEventListener('click', function(event) {
             details[open] summary::after { content: '−'; transform: rotate(180deg); }
             details[open] summary { border-bottom: 1px solid #eee; }
             .price-list-content { padding: 5px 0; }
+            
+            /* Адаптивность для мобильных устройств */
+            .price-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; gap: 15px; }
+            @media (max-width: 480px) {
+                .price-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+                .price-row strong { align-self: flex-end; }
+            }
         </style>
 
         <details>
@@ -485,9 +492,9 @@ document.addEventListener('click', function(event) {
                         <li>Свидетельство о смерти монгольского образца</li>
                     </ul>
                 </div>
-                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
                     <span style="font-size: 13px; color: #666; font-weight: 600;">Стоимость перевода одного документа:</span>
-                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800; white-space: nowrap;">15,000₮</strong>
                 </div>
             </div>
         </details>
@@ -508,9 +515,9 @@ document.addEventListener('click', function(event) {
                         <li>Справка о регистрации по месту жительства</li>
                     </ul>
                 </div>
-                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
                     <span style="font-size: 13px; color: #666; font-weight: 600;">Стоимость перевода одного документа:</span>
-                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800; white-space: nowrap;">15,000₮</strong>
                 </div>
             </div>
         </details>
@@ -525,9 +532,9 @@ document.addEventListener('click', function(event) {
                         <li>Свидетельство о регистрации транспортного средства</li>
                     </ul>
                 </div>
-                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
                     <span style="font-size: 13px; color: #666; font-weight: 600;">Стоимость перевода одного документа:</span>
-                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">15,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800; white-space: nowrap;">15,000₮</strong>
                 </div>
             </div>
         </details>
@@ -535,63 +542,61 @@ document.addEventListener('click', function(event) {
         <details>
             <summary>🎓 Образование</summary>
             <div class="price-list-content">
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee;">
-                    <span style="color: #333; font-weight: 500; font-size: 15px;">Аттестат о полном среднем образовании монгольского образца</span>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">30,000₮</strong>
+                <div class="price-row" style="border-bottom: 1px solid #eee; background: #fcfcfc;">
+                    <div style="padding-right: 10px;">
+                        <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Аттестат о полном среднем образовании монгольского образца</span>
+                        <small style="color: #666; font-size: 12px;">(с приложением)</small>
+                    </div>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">30,000₮</strong>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee; background: #fcfcfc;">
+                <div class="price-row" style="border-bottom: 1px solid #eee;">
                     <div style="padding-right: 10px;">
                         <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Диплом о высшем образовании монгольского образца</span>
                         <small style="color: #666; font-size: 12px;">(с приложением)</small>
                     </div>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">45,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">45,000₮</strong>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                <div class="price-row" style="background: #fcfcfc;">
                     <div style="padding-right: 10px;">
                         <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">Диплом о высшем образовании российского образца</span>
                         <small style="color: #666; font-size: 12px;">(с приложением)</small>
                     </div>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">85,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">85,000₮</strong>
                 </div>
             </div>
         </details>
 
-<details>
+        <details>
             <summary>💼 Юридические и бизнес-документы</summary>
             <div class="price-list-content">
-                <!-- Свидетельство о регистрации -->
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                <div class="price-row" style="border-bottom: 1px solid #f0f0f0;">
                     <span style="color: #333; font-weight: 500; font-size: 15px;">Свидетельство о регистрации юридического лица монгольского образца</span>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">35,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">35,000₮</strong>
                 </div>
-                <!-- Устав компании -->
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
+                <div class="price-row" style="border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
                     <div style="display: flex; flex-direction: column;">
                         <span style="color: #333; font-weight: 500; font-size: 15px;">Устав компании</span>
                         <small style="color: #888; font-size: 12px;">(1 страница)</small>
                     </div>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">25,000₮</strong>
                 </div>
-                <!-- Финансовый отчет -->
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                <div class="price-row" style="border-bottom: 1px solid #f0f0f0;">
                     <div style="display: flex; flex-direction: column;">
                         <span style="color: #333; font-weight: 500; font-size: 15px;">Финансовый отчет</span>
                         <small style="color: #888; font-size: 12px;">(1 страница)</small>
                     </div>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">20-30k₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">20,000 – 30,000₮</strong>
                 </div>
-                <!-- Договоры и контракты -->
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                <div class="price-row" style="border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
                     <div style="display: flex; flex-direction: column;">
                         <span style="color: #333; font-weight: 500; font-size: 15px;">Договоры и контракты</span>
                         <small style="color: #888; font-size: 12px;">(1 страница)</small>
                     </div>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25-30k₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">25,000 – 30,000₮</strong>
                 </div>
-                <!-- Доверенность (Возвращена на место, border-bottom убран для финального элемента) -->
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                <div class="price-row">
                     <span style="color: #333; font-weight: 500; font-size: 15px;">Доверенность монгольского образца</span>
-                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000₮</strong>
+                    <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800; white-space: nowrap;">25,000₮</strong>
                 </div>
             </div>
         </details>
