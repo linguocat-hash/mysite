@@ -41,6 +41,15 @@
         .m-logo { padding: 20px; }
         .m-logo img { width: 100px; }
         
+        /* Текст логотипа (если используется в шапке) */
+        .translation-board-text-mobile {
+            color: #c61a30;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        
         /* ГЛАВНЫЙ БЛОК (HERO) */
         .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 10px 0; font-weight: 800; }
@@ -68,69 +77,46 @@
         /* ФУТЕР */
         .footer-flex { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: grid; grid-template-columns: 1fr; gap: 30px; text-align: left; }
 
-        /* Обновленный CSS для главного блока (ПК версия) */
-        @media (min-width: 1024px) {
-            .hero-wrapper {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 60px 40px;
-                max-width: 1300px;
-                margin: 0 auto;
-                gap: 50px;
-            }
+        /* СЕКЦИЯ "БИДНИЙ ТУХАЙ" (Десктопная верстка) */
+        .about-centered {
+            max-width: 1300px;        /* Текст разворачивается во всю ширину */
+            margin: 60px auto;        /* Центрирование и отступы сверху/снизу */
+            padding: 0 40px;          /* Внутренние поля */
+            text-align: justify;      /* Выравнивание по левому и правому краям */
+            text-justify: inter-word; /* Равномерные пробелы между словами */
+            color: #333333;
+        }
 
-            .hero-title-block {
-                flex: 1.4;
-                text-align: left;
-            }
+        .about-centered h2 {
+            color: #1a2b3c;
+            text-align: center;
+            margin-bottom: 45px;
+            font-size: 34px;          /* Солидный крупный заголовок */
+            border-bottom: 2px solid #d4a035;
+            display: block;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-            .hero-title-block h1 {
-                font-size: 72px;
-                line-height: 1.1;
-                letter-spacing: -2px;
-                color: #1a2b3c;
-                margin: 0 0 20px 0;
-                font-weight: 900;
-                text-transform: uppercase;
-            }
+        .about-centered p {
+            font-size: 16px;
+            line-height: 1.75;        /* Хороший читаемый межстрочный интервал */
+            margin-bottom: 22px;      /* Отступы между абзацами */
+        }
 
-            .hero-title-block .lang-tags {
-                justify-content: flex-start;
-                margin-top: 10px;
-            }
+        .about-centered .lead-text {
+            font-size: 18px;          /* Первый абзац крупнее */
+            line-height: 1.7;
+            color: #1a2b3c;
+        }
 
-            .hero-info-frame {
-                flex: 0.8;
-                background: #fdfdfd;
-                padding: 30px;
-                border-radius: 16px;
-                border: 1px solid #e0e0e0;
-                box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-                text-align: left;
-            }
-
-            .quality-title-pc {
-                font-size: 18px;
-                color: #1a2b3c;
-                font-weight: 700;
-                margin-top: 0;
-                margin-bottom: 15px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .hero-info-frame p {
-                font-size: 14px;
-                color: #555;
-                line-height: 1.6;
-                margin: 0;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        .about-centered strong {
+            color: #c61a30;           /* Красный акцент */
         }
 
         /* Настройка элементов для карточек услуг */
@@ -170,7 +156,7 @@
             justify-content: space-between;
             gap: 40px;
             max-width: 1100px;
-            margin: -40px auto 40px; /* Сразу учитываем подъем блока */
+            margin: -40px auto 40px;
             padding: 0 20px 30px;
             background: #fff;
         }
@@ -219,7 +205,7 @@
         /* Кнопка "Наверх" */
         .scroll-top-btn { position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px; background: #d4a035; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-        /* ЯЗЫКОВЫЕ ТЕГИ С ФЛАГАМИ (Строгие фиксированные стили) */
+        /* ЯЗЫКОВЫЕ ТЕГИ С ФЛАГАМИ */
         .lang-tags {
             display: inline-flex !important;
             justify-content: center !important;
@@ -241,7 +227,7 @@
             color: #1a2b3c;
             gap: 10px;
             white-space: nowrap !important;
-            flex-shrink: 0 !important; /* Текст и рамка не сжимаются */
+            flex-shrink: 0 !important;
         }
 
         .tag i {
@@ -252,7 +238,7 @@
         .flag-svg {
             width: 24px !important;
             height: 18px !important;
-            flex-shrink: 0 !important; /* Флаг сохраняет размер */
+            flex-shrink: 0 !important;
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
             image-rendering: pixelated;
@@ -315,82 +301,72 @@
         /* СТИЛИ АНИМАЦИИ КАРУСЕЛИ */
         @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
-        /* АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ (Экран смартфона) */
-        @media (max-width: 768px) {
-            .advantages-grid { grid-template-columns: 1fr; }
-            .advantages-title { font-size: 20px; text-align: center; }
-            .order-section { flex-direction: column; text-align: center; gap: 20px; }
-            .order-info { text-align: center; }
-            .footer-flex { flex-direction: column; text-align: center; }
-            .footer-text { text-align: center; }
+        /* Улучшенный CSS для главного блока (ПК версия) */
+        @media (min-width: 1024px) {
+            .hero-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 60px 40px;
+                max-width: 1300px;
+                margin: 0 auto;
+                gap: 50px;
+            }
+
+            .hero-title-block {
+                flex: 1.4;
+                text-align: left;
+            }
+
+            .hero-title-block h1 {
+                font-size: 72px;
+                line-height: 1.1;
+                letter-spacing: -2px;
+                color: #1a2b3c;
+                margin: 0 0 20px 0;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .hero-title-block .lang-tags {
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+
+            .hero-info-frame {
+                flex: 0.8;
+                background: #fdfdfd;
+                padding: 30px;
+                border-radius: 16px;
+                border: 1px solid #e0e0e0;
+                box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+                text-align: left;
+            }
+
+            .quality-title-pc {
+                font-size: 18px;
+                color: #1a2b3c;
+                font-weight: 700;
+                margin-top: 0;
+                margin-bottom: 15px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .hero-info-frame p {
+                font-size: 14px;
+                color: #555;
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
-/* Стили для секции "Бидний тухай" */
-.about-centered {
-    max-width: 800px;         /* Ограничиваем ширину текста для удобства чтения */
-    margin: 60px auto;        /* Центрируем блок на странице и делаем отступы сверху/снизу */
-    padding: 0 20px;          /* Защитные отступы по бокам для мобильных устройств */
-    text-align: justify;      /* Выравнивание текста по ширине (или оставьте left, если так больше нравится) */
-    color: #333333;
-}
-
-.about-centered h2 {
-    color: #1a2b3c;
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 28px;
-    border-bottom: 2px solid #d4a035;
-    display: block;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Стили для секции "Бидний тухай" (Широкий формат) */
-.about-centered {
-    max-width: 1100px;        /* Увеличили ширину, теперь текст не будет узким */
-    margin: 60px auto;        /* Центрируем блок на странице */
-    padding: 0 30px;          /* Отступы по бокам */
-    text-align: left;         /* Выравнивание по левому краю для легкого чтения */
-    color: #333333;
-}
-
-.about-centered h2 {
-    color: #1a2b3c;
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 32px;          /* Чуть увеличили заголовок под широкую верстку */
-    border-bottom: 2px solid #d4a035;
-    display: block;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 10px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.about-centered p {
-    font-size: 16px;
-    line-height: 1.7;         /* Комфортный межстрочный интервал */
-    margin-bottom: 20px;      /* Отступы между абзацами */
-}
-
-/* Первый абзац */
-.about-centered .lead-text {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #1a2b3c;
-}
-
-.about-centered strong {
-    color: #c61a30;           /* Красный акцент на важной детали */
-}
-    </style>
+</style>
 </head>
 <body>
 
