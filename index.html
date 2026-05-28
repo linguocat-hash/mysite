@@ -349,13 +349,38 @@
     letter-spacing: 1px;
 }
 
-.about-centered p {
-    font-size: 16px;
-    line-height: 1.7;         /* Увеличенный межстрочный интервал, чтобы текст не сливался */
-    margin-bottom: 20px;      /* Отступ между абзацами */
+/* Стили для секции "Бидний тухай" (Широкий формат) */
+.about-centered {
+    max-width: 1100px;        /* Увеличили ширину, теперь текст не будет узким */
+    margin: 60px auto;        /* Центрируем блок на странице */
+    padding: 0 30px;          /* Отступы по бокам */
+    text-align: left;         /* Выравнивание по левому краю для легкого чтения */
+    color: #333333;
 }
 
-/* Первый абзац делаем чуть крупнее для вовлечения читателя */
+.about-centered h2 {
+    color: #1a2b3c;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;          /* Чуть увеличили заголовок под широкую верстку */
+    border-bottom: 2px solid #d4a035;
+    display: block;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-centered p {
+    font-size: 16px;
+    line-height: 1.7;         /* Комфортный межстрочный интервал */
+    margin-bottom: 20px;      /* Отступы между абзацами */
+}
+
+/* Первый абзац */
 .about-centered .lead-text {
     font-size: 18px;
     line-height: 1.6;
@@ -363,7 +388,7 @@
 }
 
 .about-centered strong {
-    color: #c61a30;           /* Красный акцент на фразе "давхар хяналт" (двойной контроль) */
+    color: #c61a30;           /* Красный акцент на важной детали */
 }
     </style>
 </head>
