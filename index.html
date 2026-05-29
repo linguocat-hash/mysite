@@ -29,7 +29,19 @@
 
     <style>
         /* БАЗОВЫЕ СТИЛИ */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #fff; text-align: center; color: #333; scroll-behavior: smooth; overflow-x: hidden; }
+        body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    /* Подключаем десктопный фон с сервера translationboard.mn */
+    background: #ffffff url('https://translationboard.mn/OfficeLAPTOP.png') no-repeat center top; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    text-align: center; 
+    color: #333; 
+    scroll-behavior: smooth; 
+    overflow-x: hidden; 
+}
         
         /* ШАПКА */
         .m-header { background: #000; color: #fff; padding: 10px 20px; font-weight: bold; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
