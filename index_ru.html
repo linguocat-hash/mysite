@@ -32,18 +32,18 @@
     <style>
         /* БАЗОВЫЕ СТИЛИ */
         body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    /* Подключаем десктопный фон с сервера translationboard.mn */
-    background: #ffffff url('https://translationboard.mn/OfficeLAPTOP.png') no-repeat center top; 
-    background-size: cover; 
-    background-attachment: fixed; 
-    text-align: center; 
-    color: #333; 
-    scroll-behavior: smooth; 
-    overflow-x: hidden; 
-}
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            /* Подключаем десктопный фон с сервера translationboard.mn */
+            background: #ffffff url('https://translationboard.mn/OfficeLAPTOP.png') no-repeat center top; 
+            background-size: cover; 
+            background-attachment: fixed; 
+            text-align: center; 
+            color: #333; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+        }
         
         /* ШАПКА */
         .m-header { background: #000; color: #fff; padding: 10px 20px; font-weight: bold; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
@@ -130,26 +130,23 @@
             align-items: center; 
         }
 
-        /* ИСПРАВЛЕНО: Убрали calc, добавили автоматическое определение ширины и gap */
         .marquee-track { 
             display: flex; 
             width: max-content; 
-            gap: 20px; /* Зазор между картинками (заменяет старые margin по 10px с каждой стороны) */
+            gap: 20px; 
             animation: scroll-right 25s linear infinite; 
         }
 
-        /* ИСПРАВЛЕНО: Оптимизировали отступы */
         .marquee-track img { 
             width: 400px; 
             height: 280px; 
             object-fit: contain; 
-            /* margin: 0 10px; — Больше не нужен, зазоры контролирует родительский gap */
             border-radius: 12px; 
             border: 1px solid #eee; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
             background: #fff; 
             transition: 0.3s; 
-            flex-shrink: 0; /* Защита от сжатия картинок браузером */
+            flex-shrink: 0; 
         }
 
         .marquee-track:hover { 
@@ -160,9 +157,9 @@
             transform: scale(1.05); 
         }
 
-        /* ИСПРАВЛЕНО: Бесшовный шаг анимации с математически точной компенсацией gap */
+        /* ИСПРАВЛЕНО: Бесшовный шаг анимации галереи с точной компенсацией gap */
         @keyframes scroll-right { 
-            0% { transform: translateX(calc(-50% - 10px)); } /* Сдвиг ровно на половину ленты и половину центрального зазора */
+            0% { transform: translateX(calc(-50% - 10px)); } 
             100% { transform: translateX(0); } 
         }
 
@@ -231,12 +228,12 @@
         /* КНОПКА НАВЕРХ */
         .scroll-top-btn { position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px; background: #d4a035; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
-        /* ЯЗЫКОВЫЕ ТЕГИ И ФЛАГИ */
+        /* ЯЗЫКОВЫЕ ТЕГИ И ФЛАГИ (Идеальные овальные капсулы, как в EN версии) */
         .lang-tags {
             display: flex !important;
             justify-content: center !important;
             flex-wrap: nowrap !important;
-            gap: 12px !important; /* Одинаковое расстояние между капсулами */
+            gap: 12px !important;
             margin: 20px auto !important;
             width: 100% !important;
         }
@@ -246,12 +243,12 @@
             align-items: center !important;
             background: #f8f9fa !important;
             border: 1px solid #e0e0e0 !important;
-            padding: 8px 18px !important; /* ИСПРАВЛЕНО: Вернули отступы, чтобы получилась овальная капсула */
+            padding: 8px 18px !important; 
             border-radius: 50px !important;
-            font-size: 14px !important; /* Размер шрифта как в английской версии */
+            font-size: 14px !important; 
             font-weight: 600 !important;
             color: #1a2b3c !important;
-            gap: 10px !important; /* Расстояние между флажком и текстом внутри капсулы */
+            gap: 10px !important; 
             white-space: nowrap !important;
             flex-shrink: 0 !important;
             margin: 0 !important;
@@ -271,11 +268,11 @@
         }
 
         .flag-svg {
-            width: 24px !important; /* Размер флага как в английской версии */
+            width: 24px !important; 
             height: 18px !important;
             display: inline-block !important;
             vertical-align: middle;
-            margin-right: 0 !important; /* Отступ теперь регулируется через gap в родителе */
+            margin-right: 0 !important; 
             border-radius: 2px !important;
             object-fit: cover !important;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
@@ -368,8 +365,6 @@
 
             .services-grid { grid-template-columns: 1fr 1fr; }
         }
-
-        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 </style>
 <script type="application/ld+json">
 {
