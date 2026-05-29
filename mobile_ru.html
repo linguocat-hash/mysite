@@ -111,36 +111,44 @@
             color: #1a2b3c;
         }
 
+/* ОКНО БЕГУЩЕЙ СТРОКИ */
         .marquee-window {
             width: 100%;
             overflow: hidden;
             padding: 10px 0;
         }
 
+        /* ИСПРАВЛЕНО: Полностью адаптивный трек вместо calc */
         .marquee-track {
             display: flex;
-            width: calc(170px * 10); 
-            animation: scroll-right 12s linear infinite;
+            width: max-content; 
+            gap: 10px; /* Фиксированный зазор между карточками */
+            animation: scroll-right 14s linear infinite;
         }
 
+        /* ИСПРАВЛЕНО: Картинки стали аккуратнее, чтобы не перегружать мобильный экран */
         .marquee-track img {
-            width: 160px;
-            height: 110px;
+            width: 130px;
+            height: 90px;
             object-fit: cover;
-            margin: 0 5px;
             border-radius: 8px;
             border: 1px solid #eee;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0; /* Запрещаем браузеру сжимать картинки */
         }
 
+        /* ИСПРАВЛЕНО: Идеальный бесшовный цикл, учитывающий gap */
         @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
+            0% { transform: translateX(calc(-50% - 5px)); }
             100% { transform: translateX(0); }
         }
 
+        /* Остановка бегущей строки при зажатии пальцем */
         .marquee-track:active {
             animation-play-state: paused;
         }
+
+        /* МЕНЮ — здесь изначально всё было настроено отлично */
         /* Состояние пунктов меню ДО открытия */
         #mobile-nav li {
             opacity: 0;
