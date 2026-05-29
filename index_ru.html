@@ -236,7 +236,7 @@
             display: flex !important;
             justify-content: center !important;
             flex-wrap: nowrap !important;
-            gap: 10px !important;
+            gap: 12px !important; /* Одинаковый шаг между флагами */
             margin: 20px auto !important;
             width: 100% !important;
         }
@@ -244,24 +244,25 @@
         .tag {
             display: inline-flex !important;
             align-items: center !important;
+            justify-content: center !important; /* Центрируем флаг внутри круга */
             background: #f8f9fa !important;
             border: 1px solid #e0e0e0 !important;
-            padding: 4px 10px !important;
+            padding: 0 !important; /* Убираем текстовые отступы */
+            width: 44px !important; /* Делаем подложку круглой */
+            height: 44px !important; /* Делаем подложку круглой */
             border-radius: 50px !important;
-            font-size: 12px !important;
-            font-weight: 600 !important;
-            color: #1a2b3c !important;
-            gap: 6px !important;
+            margin: 0 !important;
             white-space: nowrap !important;
             flex-shrink: 0 !important;
-            margin: 0 !important;
             transition: 0.3s ease !important;
         }
 
+        /* Сохраняем ваш красивый эффект при наведении */
         .tag:hover {
             background: #fff !important;
             border-color: #d4a035 !important;
-            transform: translateY(-1px) !important;
+            transform: translateY(-2px) !important; /* Чуть заметнее приподнимаем */
+            box-shadow: 0 4px 8px rgba(212, 160, 53, 0.15) !important; /* Добавляем мягкое золотистое свечение */
         }
 
         .tag i {
@@ -270,11 +271,11 @@
         }
 
         .flag-svg {
-            width: 18px !important;
-            height: 13px !important;
+            width: 24px !important; /* Увеличили размер до английской версии */
+            height: 18px !important; /* Увеличили размер до английской версии */
             display: inline-block !important;
             vertical-align: middle;
-            border-radius: 1px !important;
+            border-radius: 2px !important;
             object-fit: cover !important;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
             flex-shrink: 0 !important;
