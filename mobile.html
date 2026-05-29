@@ -257,12 +257,6 @@
                 <span style="display: inline-block; margin-right: 10px;">📍</span> Манай хаяг
             </a>
         </li>
-        
-        <li style="border-bottom: 1px solid #2c3e50;">
-            <a href="#order" onclick="toggleMenu()" style="display: block; color: white; padding: 18px 25px; text-decoration: none; font-size: 16px;">
-                <span style="display: inline-block; margin-right: 10px;">📝</span> Захиалга өгөх
-            </a>
-        </li>
 
         <li style="padding: 20px 25px; background: #14212e;">
             <div style="color: #888; font-size: 11px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Select Language</div>
@@ -280,12 +274,18 @@
         </li>
     </ul>
 </div>
+<script>
 function toggleMenu() {
     var menu = document.getElementById("mobile-nav");
-    if (!menu) return; // Защита, если меню не найдено на странице
     
     if (menu.style.display === "block") {
-        closeMenu(menu);
+        // Убираем класс анимации, чтобы пункты плавно исчезли
+        menu.classList.remove("open");
+        
+        // Ждем 300мс (пока идет анимация) и скрываем всё меню
+        setTimeout(function() {
+            menu.style.display = "none";
+        }, 300);
     } else {
         // Сначала включаем блок меню
         menu.style.display = "block";
@@ -297,32 +297,21 @@ function toggleMenu() {
         }, 20);
     }
 }
-
-// Выносим функцию закрытия, чтобы не дублировать setTimeout в двух местах
-function closeMenu(menu) {
-    // Убираем класс анимации, чтобы пункты плавно исчезли
-    menu.classList.remove("open");
-    
-    // Ждем 300мс (пока идет анимация) и скрываем всё меню
-    setTimeout(function() {
-        menu.style.display = "none";
-    }, 300);
-}
-
 // Закрытие меню при клике вне его области
 document.addEventListener('click', function(event) {
     var menu = document.getElementById("mobile-nav");
     var menuIcon = document.getElementById("menu-icon");
     
-    // Если меню нет на странице или оно уже скрыто — ничего не делаем
-    if (!menu || menu.style.display !== "block") return;
-    
-    // Проверяем клик: был ли он вне меню И вне иконки бургера (с защитой от null)
-    var clickedOutsideMenu = !menu.contains(event.target);
-    var clickedOutsideIcon = !menuIcon || !menuIcon.contains(event.target);
-    
-    if (clickedOutsideMenu && clickedOutsideIcon) {
-        closeMenu(menu);
+    // Если меню открыто И клик был НЕ по меню И клик был НЕ по иконке бургер-меню
+    if (menu.style.display === "block" && 
+        !menu.contains(event.target) && 
+        !menuIcon.contains(event.target)) {
+        
+        // Запускаем закрытие так же, как в toggleMenu
+        menu.classList.remove("open");
+        setTimeout(function() {
+            menu.style.display = "none";
+        }, 300);
     }
 });
 </script>
