@@ -98,62 +98,104 @@
             transition: 0.3s;
         }
 
-        /* Слайдер "Наши работы" */
-        .our-work-section { padding: 20px 0; background-color: #fff; overflow: hidden; }
-        .work-title { margin-left: 20px; font-size: 18px; font-weight: bold; border-left: 4px solid #d4a035; padding-left: 10px; margin-bottom: 15px; color: #1a2b3c; }
-        .marquee-window { width: 100%; overflow: hidden; padding: 10px 0; }
-        .marquee-track { display: flex; width: calc(170px * 10); animation: scroll-right 12s linear infinite; }
-        .marquee-track img { width: 160px; height: 110px; object-fit: cover; margin: 0 5px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+/* Слайдер "Наши работы" (Ажил 1-6) */
+.our-work-section { 
+    padding: 20px 0; 
+    background-color: #fff; 
+    overflow: hidden; 
+}
+.work-title { 
+    margin-left: 20px; 
+    font-size: 18px; 
+    font-weight: bold; 
+    border-left: 4px solid #d4a035; 
+    padding-left: 10px; 
+    margin-bottom: 15px; 
+    color: #1a2b3c; 
+}
+.marquee-window { 
+    width: 100%; 
+    overflow: hidden; 
+    padding: 10px 0; 
+}
 
-        /* ЭФФЕКТЫ ПОЯВЛЕНИЯ (Reveal) */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* ИСПРАВЛЕНО: Бегущая строка адаптирована под мобильные */
+.marquee-track { 
+    display: flex; 
+    width: max-content; 
+    gap: 10px; 
+    animation: scroll-right 14s linear infinite; 
+}
+.marquee-track img { 
+    width: 130px; /* ИСПРАВЛЕНО: Оптимальный размер для мобильных экранов */
+    height: 90px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    border: 1px solid #eee; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    flex-shrink: 0; 
+}
 
-        /* МИКРО-АНИМАЦИЯ ИКОНОК */
-        @keyframes icon-bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-        }
-        @keyframes icon-rotate {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(-10deg); }
-            75% { transform: rotate(10deg); }
-            100% { transform: rotate(0deg); }
-        }
+/* ИСПРАВЛЕНО: Плавный бесшовный сдвиг вправо с учетом gap */
+@keyframes scroll-right { 
+    0% { transform: translateX(calc(-50% - 5px)); } 
+    100% { transform: translateX(0); } 
+}
 
-        /* Запуск анимации иконок */
-        .reveal.active .icon-lightning { animation: icon-bounce 0.8s ease-out 0.4s 1; }
-        .reveal.active .icon-globe { animation: icon-rotate 0.8s ease-in-out 0.4s 1; }
+/* ДОБАВЛЕНО: Остановка анимации при удержании пальцем на экране */
+.marquee-track:active {
+    animation-play-state: paused;
+}
 
-        /* Начальное состояние пунктов меню */
-        #mobile-nav li {
-            opacity: 0 !important;
-            transform: translateX(30px) !important;
-            transition: all 0.4s ease-out !important;
-        }
+/* ЭФФЕКТЫ ПОЯВЛЕНИЯ (Reveal) — настроены отлично */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        /* Состояние при открытом меню */
-        #mobile-nav.open li {
-            opacity: 1 !important;
-            transform: translateX(0) !important;
-        }
+/* МИКРО-АНИМАЦИЯ ИКОНОК — настроены отлично */
+@keyframes icon-bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+@keyframes icon-rotate {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
 
-        /* Очередность появления */
-        #mobile-nav.open li:nth-child(1) { transition-delay: 0.1s !important; }
-        #mobile-nav.open li:nth-child(2) { transition-delay: 0.15s !important; }
-        #mobile-nav.open li:nth-child(3) { transition-delay: 0.2s !important; }
-        #mobile-nav.open li:nth-child(4) { transition-delay: 0.25s !important; }
-        #mobile-nav.open li:nth-child(5) { transition-delay: 0.3s !important; }
-        #mobile-nav.open li:nth-child(6) { transition-delay: 0.35s !important; }
+/* Запуск анимации иконок */
+.reveal.active .icon-lightning { animation: icon-bounce 0.8s ease-out 0.4s 1; }
+.reveal.active .icon-globe { animation: icon-rotate 0.8s ease-in-out 0.4s 1; }
 
+/* Начальное состояние пунктов меню */
+#mobile-nav li {
+    opacity: 0 !important;
+    transform: translateX(30px) !important;
+    transition: all 0.4s ease-out !important;
+}
+
+/* Состояние при открытом меню */
+#mobile-nav.open li {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Очередность появления */
+#mobile-nav.open li:nth-child(1) { transition-delay: 0.1s !important; }
+#mobile-nav.open li:nth-child(2) { transition-delay: 0.15s !important; }
+#mobile-nav.open li:nth-child(3) { transition-delay: 0.2s !important; }
+#mobile-nav.open li:nth-child(4) { transition-delay: 0.25s !important; }
+#mobile-nav.open li:nth-child(5) { transition-delay: 0.3s !important; }
+#mobile-nav.open li:nth-child(6) { transition-delay: 0.35s !important; }
+
+/* Стили для монгольского текста плашки */
 .translation-board-text-mobile {
     color: #c61a30;
     font-weight: 700;
