@@ -113,57 +113,63 @@
             color: #1a2b3c;
         }
 
-        .marquee-window {
-            width: 100%;
-            overflow: hidden;
-            padding: 10px 0;
-        }
+/* Окно бегущей строки */
+.marquee-window {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+}
 
-        .marquee-track {
-            display: flex;
-            width: calc(170px * 10); 
-            animation: scroll-right 12s linear infinite;
-        }
+/* ИСПРАВЛЕНО: Адаптивный трек без жестких calc */
+.marquee-track {
+    display: flex;
+    width: max-content; 
+    gap: 10px; /* Отступ между картинками */
+    animation: scroll-right 14s linear infinite; /* 14s чуть плавнее для мобильных */
+}
 
-        .marquee-track img {
-            width: 160px;
-            height: 110px;
-            object-fit: cover;
-            margin: 0 5px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
+/* ИСПРАВЛЕНО: Оптимальный размер картинок для экранов смартфонов */
+.marquee-track img {
+    width: 130px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Запрещаем flex сжимать картинки */
+}
 
-        @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
+/* ИСПРАВЛЕНО: Бесшовная анимация с учетом зазора gap */
+@keyframes scroll-right {
+    0% { transform: translateX(calc(-50% - 5px)); }
+    100% { transform: translateX(0); }
+}
 
-        .marquee-track:active {
-            animation-play-state: paused;
-        }
+/* На смартфонах ховера нет, останавливаем анимацию по тачу (:active) */
+.marquee-track:active {
+    animation-play-state: paused;
+}
 
-        /* Начальное состояние пунктов меню */
-        #mobile-nav li {
-            opacity: 0 !important;
-            transform: translateX(30px) !important;
-            transition: all 0.4s ease-out !important;
-        }
+/* ОПТИМИЗИРОВАНО: Мобильное меню (убраны тяжелые !important) */
+#mobile-nav li {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
 
-        /* Состояние при открытом меню */
-        #mobile-nav.open li {
-            opacity: 1 !important;
-            transform: translateX(0) !important;
-        }
+/* Состояние при открытом меню */
+#mobile-nav.open li {
+    opacity: 1;
+    transform: translateX(0);
+}
 
-        /* Очередность появления */
-        #mobile-nav.open li:nth-child(1) { transition-delay: 0.1s !important; }
-        #mobile-nav.open li:nth-child(2) { transition-delay: 0.15s !important; }
-        #mobile-nav.open li:nth-child(3) { transition-delay: 0.2s !important; }
-        #mobile-nav.open li:nth-child(4) { transition-delay: 0.25s !important; }
-        #mobile-nav.open li:nth-child(5) { transition-delay: 0.3s !important; }
-        #mobile-nav.open li:nth-child(6) { transition-delay: 0.35s !important; }
+/* Очередность появления пунктов при открытии */
+#mobile-nav.open li:nth-child(1) { transition-delay: 0.1s; }
+#mobile-nav.open li:nth-child(2) { transition-delay: 0.15s; }
+#mobile-nav.open li:nth-child(3) { transition-delay: 0.2s; }
+#mobile-nav.open li:nth-child(4) { transition-delay: 0.25s; }
+#mobile-nav.open li:nth-child(5) { transition-delay: 0.3s; }
+#mobile-nav.open li:nth-child(6) { transition-delay: 0.35s; }
     </style>
 <script type="application/ld+json">
 {
