@@ -104,13 +104,65 @@
         .staff-card { display: flex; align-items: center; gap: 15px; padding: 15px; border-bottom: 1px solid #f0f0f0; }
 
         /* OUR WORK SLIDER */
-        .our-work-section { padding: 40px 0; background-color: #fff; overflow: hidden; }
-        .work-title { font-size: 24px; font-weight: bold; border-left: 4px solid #d4a035; padding-left: 15px; margin: 0 auto 20px; max-width: 1160px; text-align: left; }
-        .marquee-window { width: 100%; overflow: hidden; height: 320px; display: flex; align-items: center; }
-        .marquee-track { display: flex; width: calc(420px * 10); animation: scroll-right 25s linear infinite; }
-        .marquee-track img { width: 400px; height: 280px; object-fit: contain; margin: 0 10px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #fff; transition: 0.3s; }
-        .marquee-track:hover { animation-play-state: paused; }
-        .marquee-track img:hover { transform: scale(1.05); }
+        .our-work-section { 
+            padding: 40px 0; 
+            background-color: #fff; 
+            overflow: hidden; 
+        }
+
+        .work-title { 
+            font-size: 24px; 
+            font-weight: bold; 
+            border-left: 4px solid #d4a035; 
+            padding-left: 15px; 
+            margin: 0 auto 20px; 
+            max-width: 1160px; 
+            text-align: left; 
+        }
+
+        .marquee-window { 
+            width: 100%; 
+            overflow: hidden; 
+            height: 320px; 
+            display: flex; 
+            align-items: center; 
+        }
+
+        /* ИСПРАВЛЕНО: Убрали calc, добавили автоматическое определение ширины и gap */
+        .marquee-track { 
+            display: flex; 
+            width: max-content; 
+            gap: 20px; /* Зазор между картинками (заменяет старые margin по 10px с каждой стороны) */
+            animation: scroll-right 25s linear infinite; 
+        }
+
+        /* ИСПРАВЛЕНО: Оптимизировали отступы */
+        .marquee-track img { 
+            width: 400px; 
+            height: 280px; 
+            object-fit: contain; 
+            /* margin: 0 10px; — Больше не нужен, зазоры контролирует родительский gap */
+            border-radius: 12px; 
+            border: 1px solid #eee; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            background: #fff; 
+            transition: 0.3s; 
+            flex-shrink: 0; /* Защита от сжатия картинок браузером */
+        }
+
+        .marquee-track:hover { 
+            animation-play-state: paused; 
+        }
+
+        .marquee-track img:hover { 
+            transform: scale(1.05); 
+        }
+
+        /* ИСПРАВЛЕНО: Бесшовный шаг анимации с математически точной компенсацией gap */
+        @keyframes scroll-right { 
+            0% { transform: translateX(calc(-50% - 10px)); } /* Сдвиг ровно на половину ленты и половину центрального зазора */
+            100% { transform: translateX(0); } 
+        }
 
         /* SERVICES AND PRICING */
         .services-grid, .price-container { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 1200px; margin: 0 auto; padding: 20px; }
