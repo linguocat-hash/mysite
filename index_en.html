@@ -377,10 +377,17 @@
 </header>
 <body>
 
+    Отлично! Переносим ту же самую проверенную логику на английскую версию сайта index_en.html. Здесь мы обновили структуру иконки бургера для анимации, добавили передачу события event во все ссылки меню и сохранили правильную подсветку британского флага.
+
+Вот готовый код для index_en.html. Замените ваш кусок от <body> до конца тега </nav> (и не забудьте обновить скрипт внизу страницы):
+
+HTML
+<body>
+
     <header class="m-header">
         <span>ОРЧУУЛГЫН САМБАР ХХК</span>
         
-        <!-- ИСПРАВЛЕНО: Перевели меню на английский и добавили пункт How to Order -->
+        <!-- Главное меню для компьютеров -->
         <ul class="pc-nav">
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Our Services</a></li>
@@ -396,30 +403,30 @@
                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
             </a>
             <a href="index_en.html" title="English" style="text-decoration: none;">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035; box-shadow: 0 0 5px rgba(212, 160, 53, 0.6);">
             </a>
             <a href="index_ru.html" title="Русский" style="text-decoration: none;">
                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
             </a>
         </div>
 
-        <!-- Иконка мобильного меню -->
-        <div id="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
-            <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
-            <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
-            <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
+        <!-- ИСПРАВЛЕНО: Иконка мобильного меню с CSS-анимацией в крестик -->
+        <div id="menu-icon" onclick="toggleMenu(event)" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 22px; height: 14px; position: relative; z-index: 1001;">
+            <div class="line" style="width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s ease; transform-origin: left center;"></div>
+            <div class="line" style="width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s ease;"></div>
+            <div class="line" style="width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s ease; transform-origin: left center;"></div>
         </div>
     </header>
 
-    <!-- Адаптивное меню под шапкой (Добавили 6-й пункт How to Order) -->
+    <!-- Адаптивное меню под шапкой -->
     <nav id="mobile-nav" style="display: none; background: #1a2b3c; position: fixed; width: 100%; z-index: 999;">
         <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
-            <li><a href="#about" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">🏢 About Us</a></li>
-            <li><a href="#services" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">⚙️ Our Services</a></li>
-            <li><a href="#work" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💼 Portfolio</a></li>
-            <li><a href="#price" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💰 Rates</a></li>
-            <li><a href="#location" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">📍 Contact Us</a></li>
-            <li><a href="#order" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none;">📝 How to Order</a></li>
+            <li><a href="#about" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">🏢 About Us</a></li>
+            <li><a href="#services" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">⚙️ Our Services</a></li>
+            <li><a href="#work" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💼 Portfolio</a></li>
+            <li><a href="#price" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💰 Rates</a></li>
+            <li><a href="#location" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">📍 Contact Us</a></li>
+            <li><a href="#order" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none;">📝 How to Order</a></li>
         </ul>
     </nav>
 
@@ -802,16 +809,51 @@ Translation Board LLC is committed to building long-term professional relationsh
 <a href="#" class="scroll-top-btn">↑</a>
 
 <script>
-    function toggleMenu() {
+    function toggleMenu(event) {
+        // Стопорим всплытие, чтобы клик по самому бургеру не засчитывался за клик «снаружи»
+        if (event) event.stopPropagation();
+
         var menu = document.getElementById("mobile-nav");
-        
-        if (menu.style.display === "none" || menu.style.display === "") {
-            menu.style.display = "block";
-        } else {
-            menu.style.display = "none";
+        var icon = document.getElementById("menu-icon");
+        var lines = icon ? icon.getElementsByClassName('line') : [];
+
+        if (menu) {
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+                
+                // Перекрещиваем полоски в крестик
+                if (lines.length >= 3) {
+                    lines[0].style.transform = 'rotate(45deg) translate(2px, -1px)';
+                    lines[1].style.opacity = '0';
+                    lines[2].style.transform = 'rotate(-45deg) translate(2px, 1px)';
+                }
+            } else {
+                menu.style.display = "none";
+                
+                // Возвращаем три полоски назад
+                if (lines.length >= 3) {
+                    lines[0].style.transform = 'none';
+                    lines[1].style.opacity = '1';
+                    lines[2].style.transform = 'none';
+                }
+            }
         }
     }
 
+    // Слушаем клики по всей странице для скрытия меню «за окном»
+    document.addEventListener('click', function(event) {
+        var menu = document.getElementById("mobile-nav");
+        var icon = document.getElementById("menu-icon");
+        
+        // Если меню горит на экране и кликнули не на него и не на бургер — сворачиваем
+        if (menu && menu.style.display === 'block') {
+            if (!menu.contains(event.target) && (!icon || !icon.contains(event.target))) {
+                toggleMenu();
+            }
+        }
+    });
+
+    // ВАШ ИСХОДНЫЙ КОД: Редирект мобильных пользователей
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900) {
         var path = window.location.pathname;
         var currentPage = path.split("/").pop();
