@@ -451,14 +451,17 @@
     <header class="m-header">
         <span>ОРЧУУЛГЫН САМБАР ХХК</span>
         
+        <!-- Главное меню для компьютеров (Добавили Захиалга өгөх) -->
         <ul class="pc-nav">
             <li><a href="#about">Бидний тухай</a></li>
             <li><a href="#services">Үйлчилгээ</a></li>
             <li><a href="#work">Манай ажил</a></li>
             <li><a href="#price">Тариф</a></li>
             <li><a href="#location">Хаяг</a></li>
+            <li><a href="#order" style="color: #d4a035; font-weight: bold;">Захиалга өгөх</a></li>
         </ul>
 
+        <!-- Переключатель языков -->
         <div style="display: flex; gap: 8px; margin-left: auto; margin-right: 15px;">
             <a href="index.html" title="Монгол" style="text-decoration: none;">
                 <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035;">
@@ -471,6 +474,7 @@
             </a>
         </div>
 
+        <!-- Иконка мобильного меню -->
         <div id="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
             <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
             <div style="width: 22px; height: 3px; background: white; margin: 4px 0; border-radius: 2px;"></div>
@@ -478,13 +482,15 @@
         </div>
     </header>
 
+    <!-- Резервное меню под шапкой (Добавили 6-й пункт для синхронизации) -->
     <nav id="mobile-nav" style="display: none; background: #1a2b3c; position: fixed; width: 100%; z-index: 999;">
         <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
             <li><a href="#about" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">🏢 Бидний тухай</a></li>
             <li><a href="#services" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">⚙️ Үйлчилгээ</a></li>
             <li><a href="#work" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💼 Манай ажил</a></li>
             <li><a href="#price" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💰 Тариф</a></li>
-            <li><a href="#location" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none;">📍 Хаяг</a></li>
+            <li><a href="#location" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">📍 Хаяг</a></li>
+            <li><a href="#order" onclick="toggleMenu()" style="display: block; color: white; padding: 15px 25px; text-decoration: none;">📝 Захиалга өгөх</a></li>
         </ul>
     </nav>
 
@@ -806,7 +812,7 @@
 </section>
 
 
-<section class="order-section">
+<section id="order" class="order-section" style="scroll-margin-top: 90px;">
     <div class="order-info">
         <p style="font-weight: bold; font-size: 18px; margin-bottom: 15px;">📝 Захиалга хэрхэн өгөх вэ?</p>
         <div style="font-size: 15px; color: #444; line-height: 1.8;">
