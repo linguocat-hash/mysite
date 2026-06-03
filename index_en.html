@@ -11,7 +11,7 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 <meta property="og:image" content="https://translationboard.mn/FORPAGESHARELOGO.png" />
-<meta property="og:image:type" content="image/gif" />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
@@ -357,8 +357,6 @@
 
             .services-grid { grid-template-columns: 1fr 1fr; }
         }
-
-        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 </style>
 <script type="application/ld+json">
 {
@@ -374,8 +372,9 @@
   ]
 }
 </script>
-</header>
+</head>
 <body>
+<main>
 
     <header class="m-header">
         <span>ОРЧУУЛГЫН САМБАР ХХК</span>
@@ -393,13 +392,13 @@
         <!-- Переключатель языков (Английский флаг подсвечен рамкой) -->
         <div style="display: flex; gap: 8px; margin-left: auto; margin-right: 15px;">
             <a href="index.html" title="Монгол" style="text-decoration: none;">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" alt="Mongolian flag" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
             </a>
             <a href="index_en.html" title="English" style="text-decoration: none;">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035; box-shadow: 0 0 5px rgba(212, 160, 53, 0.6);">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" alt="UK flag" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035; box-shadow: 0 0 5px rgba(212, 160, 53, 0.6);">
             </a>
             <a href="index_ru.html" title="Русский" style="text-decoration: none;">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" alt="Russian flag" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
             </a>
         </div>
 
@@ -433,12 +432,14 @@
     </h1>
 
     <div class="lang-tags">
-    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" class="flag-svg"> Russian</span>
-    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" class="flag-svg"> English</span>
-    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" class="flag-svg"> Chinese</span>
-    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/kr.svg" class="flag-svg"> Korean</span>
-    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/jp.svg" class="flag-svg"> Japanese</span>
-    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" class="flag-svg"> Mongolian</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" class="flag-svg" alt="Russian flag"> Russian</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" class="flag-svg" alt="UK flag"> English</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" class="flag-svg" alt="Chinese flag"> Chinese</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/kr.svg" class="flag-svg" alt="Korean flag"> Korean</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/jp.svg" class="flag-svg" alt="Japanese flag"> Japanese</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" class="flag-svg" alt="Mongolian flag"> Mongolian</span>
+</div>
+</div>
 </div>
 
 <hr class="section-divider" id="about">
@@ -469,13 +470,11 @@ Translation Board LLC is committed to building long-term professional relationsh
             <p>Our primary principle is <b>professional responsibility</b> and <b>adherence to high quality standards</b>. Every completed translation undergoes <b>mandatory review</b>, by the company’s chief translator prior to delivery to the client. Our double quality control system ensures linguistic accuracy, terminological consistency, and the elimination of errors.</p>
         </div>
     </div>
-</main>
 
     <section id="services" style="padding: 40px 0;">
         <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
             OUR SERVICES
         </h2>
-        <section id="services">
     <div class="services-grid">
         <details class="service-card">
             <summary>📜 Certified Translation</summary>
@@ -499,7 +498,7 @@ Translation Board LLC is committed to building long-term professional relationsh
         <a href="https://www.facebook.com/profile.php?id=100070001765710" 
            target="_blank" 
            style="color: #1877F2; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
-           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="18"> 
+           <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" width="18"> 
            Visit WorldSIM
         </a>
     </div>
@@ -561,8 +560,8 @@ Translation Board LLC is committed to building long-term professional relationsh
         </h2>
         <div class="marquee-window">
             <div class="marquee-track">
-                <img src="mysite1.png"><img src="mysite2.png"><img src="mysite3.png"><img src="mysite4.png"><img src="mysite5.png"><img src="mysite6.png">
-                <img src="mysite1.png"><img src="mysite2.png"><img src="mysite3.png"><img src="mysite4.png"><img src="mysite5.png"><img src="mysite6.png">
+                <img src="mysite1.png" alt="Portfolio sample 1"><img src="mysite2.png" alt="Portfolio sample 2"><img src="mysite3.png" alt="Portfolio sample 3"><img src="mysite4.png" alt="Portfolio sample 4"><img src="mysite5.png" alt="Portfolio sample 5"><img src="mysite6.png" alt="Portfolio sample 6">
+                <img src="mysite1.png" alt="Portfolio sample 1"><img src="mysite2.png" alt="Portfolio sample 2"><img src="mysite3.png" alt="Portfolio sample 3"><img src="mysite4.png" alt="Portfolio sample 4"><img src="mysite5.png" alt="Portfolio sample 5"><img src="mysite6.png" alt="Portfolio sample 6">
             </div>
         </div>
     </section>
@@ -722,8 +721,8 @@ Translation Board LLC is committed to building long-term professional relationsh
         </details>
 
 <!-- Дисклеймер в одну строку с автоматическим переносом только на мобильных -->
-        <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; margin-left: auto; margin-right: auto; font-style: italic; grid-column: 1 / -1; white-space: lg-nowrap; @media (min-width: 768px) { white-space: nowrap; }">
-            <span style="display: inline-block; white-space: nowrap;">* Translation fees may vary depending on the target language, document type, volume, and complexity of the translation.</span>
+        <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; margin-left: auto; margin-right: auto; font-style: italic; max-width: 820px; margin-bottom: 0;">
+            <span style="display: inline-block; white-space: normal;">* Translation fees may vary depending on the target language, document type, volume, and complexity of the translation.</span>
         </p>
 
     </div> <!-- Закрытие внутреннего контейнера сетки -->
@@ -749,6 +748,7 @@ Translation Board LLC is committed to building long-term professional relationsh
         </p>
     </div>
 </section>
+</main>
 
 <!-- Footer с принудительным Flexbox-позиционированием -->
 <footer class="footer-flex" id="location" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px; padding: 40px 0;">
@@ -778,10 +778,10 @@ Translation Board LLC is committed to building long-term professional relationsh
         <!-- Иконки уменьшены до 24px -->
         <div style="display: flex; gap: 15px; margin: 25px 0;">
             <a href="https://facebook.com/xxvxxzzv2020/" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="width: 24px; height: auto; display: block;">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook icon" style="width: 24px; height: auto; display: block;">
             </a>
             <a href="https://wa.me/97680599859" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" style="width: 24px; height: auto; display: block;">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp icon" style="width: 24px; height: auto; display: block;">
             </a>
         </div>
         
