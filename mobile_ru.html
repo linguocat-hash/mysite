@@ -602,7 +602,23 @@
     <style>
         /* Стили для аккордеона услуг */
         .service-card { margin-bottom: 12px; background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
-        .service-summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #1a2b3c; font-size: 16px; outline: none; }
+        
+        .service-summary { 
+            padding: 18px 15px; 
+            cursor: pointer; 
+            list-style: none; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            font-weight: 700; 
+            color: #1a2b3c; 
+            font-size: 16px; 
+            outline: none; 
+            text-align: left; /* ЖЕСТКИЙ СБРОС: если флекс ломается, текст всё равно останется слева */
+            width: 100%;      /* Заставляем занимать всю ширину плашки */
+            box-sizing: border-box; /* Чтобы внутренние отступы не распирали кнопку */
+        }
+        
         .service-summary::-webkit-details-marker { display: none; }
         .service-summary::after { content: '+'; font-size: 20px; color: #d4a035; transition: 0.3s; font-weight: bold; }
         details[open] .service-summary::after { content: '−'; transform: rotate(180deg); }
@@ -645,7 +661,7 @@
             </div >
         </div >
     </details>
-    
+
     <details class="service-card" style="display: block;">
         <summary class="service-summary">🖨️ Копирование, печать и сканирование</summary>
         <div class="service-content">
