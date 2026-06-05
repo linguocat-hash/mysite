@@ -26,6 +26,10 @@
 
 <link rel="canonical" href="https://translationboard.mn/index_en.html">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
     <style>
         body { 
     font-family: 'Segoe UI', sans-serif; 
@@ -44,6 +48,133 @@
         
         .hero-mobile { padding: 20px; text-align: left; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 5px 0 15px; font-weight: 800; text-align: center; }
+        
+        /* Базовый адаптивный контейнер */
+.gow-en-text-container {
+            text-align: center;
+            padding: 20px 0;
+            background: transparent;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .gow-en-line {
+            display: block;
+            white-space: nowrap; 
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        /* Настройка боксов под TRANSLATION (11 букв) */
+        .gow-en-letter-box {
+            display: inline-block;
+            position: relative;
+            width: 7.5vw;        
+            max-width: 34px;    
+            height: 10vw;       
+            max-height: 48px;   
+            margin: 0 0.2vw;    
+            vertical-align: middle;
+        }
+
+        /* Настройка боксов под BUREAU (6 букв) */
+        .gow-en-line-2 .gow-en-letter-box {
+            width: 11vw;        
+            max-width: 52px;    
+            height: 14vw;       
+            max-height: 68px;   
+            margin: 0 0.5vw;
+        }
+
+        .gow-en-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        /* Настоящее золото рун */
+        .gow-en-letter-box .rune-en {
+            font-family: 'Segoe UI Historic', 'Arial', sans-serif;
+            font-size: 9vw; 
+            font-weight: bold;
+            background: linear-gradient(135deg, #9a741e 0%, #f9e497 25%, #d4af37 50%, #ffffff 65%, #b38f2d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(1px 1px 0.5px #5c4308) 
+                    drop-shadow(-0.5px -0.5px 0.5px #fff5cc)
+                    drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+            opacity: 0;
+            transform: scale(1);
+            animation: gowGoldExplodeEn 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Каменные буквы */
+        .gow-en-letter-box .letter-en {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 8.5vw;
+            letter-spacing: -0.5px;
+            color: #1c2e3d;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: gowLetterRevealEn 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .gow-en-line-2 .letter-en { font-size: 11.5vw; }
+        .gow-en-line-2 .rune-en { font-size: 12vw; }
+
+        @media (min-width: 480px) {
+            .gow-en-letter-box { width: 34px; height: 46px; margin: 0 2px; }
+            .gow-en-line-2 .gow-en-letter-box { width: 50px; height: 64px; margin: 0 4px; }
+            .gow-en-letter-box .rune-en { font-size: 2.8rem; }
+            .gow-en-letter-box .letter-en { font-size: 2.7rem; }
+            .gow-en-line-2 .rune-en { font-size: 4.0rem; }
+            .gow-en-line-2 .letter-en { font-size: 3.9rem; }
+        }
+
+        /* ТОЧНЫЕ ИСПРАВЛЕННЫЕ АНИМАЦИИ ДЛЯ АНГЛИЙСКОЙ ВЕРСИИ */
+        @keyframes gowGoldExplodeEn {
+            0% { opacity: 0; transform: scale(1.25); filter: blur(3px) brightness(2) drop-shadow(0 0 15px #ffaa00); }
+            15% { opacity: 1; transform: scale(1); filter: drop-shadow(1px 1px 0.5px #5c4308) drop-shadow(-0.5px -0.5px 0.5px #fff5cc) drop-shadow(0 0 6px rgba(212, 175, 55, 0.5)); }
+            45% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 12px #ff4500) brightness(1.7) contrast(1.2); }
+            70% { opacity: 0.5; transform: scale(1.05); filter: blur(2px) brightness(0.8); }
+            100% { opacity: 0; transform: scale(0.85); filter: blur(12px); }
+        }
+
+        @keyframes gowLetterRevealEn {
+            0% { opacity: 0; transform: scale(0.85); filter: blur(5px) brightness(3); color: #ffffff; text-shadow: 0 0 12px rgba(255,255,255,1); }
+            45% { opacity: 0.7; filter: blur(2px) brightness(2); color: #ffffff; text-shadow: 0 0 20px #ffffff, 0 0 12px #ff8c00; }
+            100% { opacity: 1; transform: scale(1); filter: blur(0px); color: #1c2e3d; text-shadow: 1px 1px 0px #2f3e4e, 2px 2px 0px #13202d, 2px 4px 4px rgba(0, 0, 0, 0.25); }
+        }
+
+        /* Взрывная волна таймингов (из центра слова к краям) */
+        .en-box-1-6 .letter-en, .en-box-1-6 .rune-en { animation-delay: 0.25s; }
+        .en-box-1-5 .letter-en, .en-box-1-5 .rune-en { animation-delay: 0.40s; }
+        .en-box-1-7 .letter-en, .en-box-1-7 .rune-en { animation-delay: 0.55s; }
+        .en-box-1-4 .letter-en, .en-box-1-4 .rune-en { animation-delay: 0.70s; }
+        .en-box-1-8 .letter-en, .en-box-1-8 .rune-en { animation-delay: 0.85s; }
+        .en-box-1-3 .letter-en, .en-box-1-3 .rune-en { animation-delay: 1.00s; }
+        .en-box-1-9 .letter-en, .en-box-1-9 .rune-en { animation-delay: 1.15s; }
+        .en-box-1-2 .letter-en, .en-box-1-2 .rune-en { animation-delay: 1.30s; }
+        .en-box-1-10 .letter-en, .en-box-1-10 .rune-en { animation-delay: 1.45s; }
+        .en-box-1-1 .letter-en, .en-box-1-1 .rune-en { animation-delay: 1.60s; }
+        .en-box-1-11 .letter-en, .en-box-1-11 .rune-en { animation-delay: 1.75s; }
+
+        .en-box-2-3 .letter-en, .en-box-2-3 .rune-en { animation-delay: 1.95s; }
+        .en-box-2-4 .letter-en, .en-box-2-4 .rune-en { animation-delay: 2.10s; }
+        .en-box-2-2 .letter-en, .en-box-2-2 .rune-en { animation-delay: 2.25s; }
+        .en-box-2-5 .letter-en, .en-box-2-5 .rune-en { animation-delay: 2.40s; }
+        .en-box-2-1 .letter-en, .en-box-2-1 .rune-en { animation-delay: 2.55s; }
+        .en-box-2-6 .letter-en, .en-box-2-6 .rune-en { animation-delay: 2.70s; }
         
         /* Блок языков */
         .lang-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 15px 0 25px; }
@@ -294,7 +425,30 @@
     </div>
 
     <div class="hero-mobile">
-        <h1>TRANSLATION BUREAU</h1>
+    <div class="gow-en-text-container">
+        <div class="gow-en-line gow-en-line-1">
+            <div class="gow-en-letter-box en-box-1-1"><span class="gow-en-item rune-en">ᛏ</span><span class="gow-en-item letter-en">T</span></div>
+            <div class="gow-en-letter-box en-box-1-2"><span class="gow-en-item rune-en">ᚱ</span><span class="gow-en-item letter-en">R</span></div>
+            <div class="gow-en-letter-box en-box-1-3"><span class="gow-en-item rune-en">ᚨ</span><span class="gow-en-item letter-en">A</span></div>
+            <div class="gow-en-letter-box en-box-1-4"><span class="gow-en-item rune-en">ᚾ</span><span class="gow-en-item letter-en">N</span></div>
+            <div class="gow-en-letter-box en-box-1-5"><span class="gow-en-item rune-en">ᛋ</span><span class="gow-en-item letter-en">S</span></div>
+            <div class="gow-en-letter-box en-box-1-6"><span class="gow-en-item rune-en">ᛚ</span><span class="gow-en-item letter-en">L</span></div>
+            <div class="gow-en-letter-box en-box-1-7"><span class="gow-en-item rune-en">ᚨ</span><span class="gow-en-item letter-en">A</span></div>
+            <div class="gow-en-letter-box en-box-1-8"><span class="gow-en-item rune-en">ᛏ</span><span class="gow-en-item letter-en">T</span></div>
+            <div class="gow-en-letter-box en-box-1-9"><span class="gow-en-item rune-en">ᛁ</span><span class="gow-en-item letter-en">I</span></div>
+            <div class="gow-en-letter-box en-box-1-10"><span class="gow-en-item rune-en">ᛟ</span><span class="gow-en-item letter-en">O</span></div>
+            <div class="gow-en-letter-box en-box-1-11"><span class="gow-en-item rune-en">ᚾ</span><span class="gow-en-item letter-en">N</span></div>
+        </div>
+        
+        <div class="gow-en-line gow-en-line-2">
+            <div class="gow-en-letter-box en-box-2-1"><span class="gow-en-item rune-en">ᛒ</span><span class="gow-en-item letter-en">B</span></div>
+            <div class="gow-en-letter-box en-box-2-2"><span class="gow-en-item rune-en">ᚢ</span><span class="gow-en-item letter-en">U</span></div>
+            <div class="gow-en-letter-box en-box-2-3"><span class="gow-en-item rune-en">ᚱ</span><span class="gow-en-item letter-en">R</span></div>
+            <div class="gow-en-letter-box en-box-2-4"><span class="gow-en-item rune-en">ᛖ</span><span class="gow-en-item letter-en">E</span></div>
+            <div class="gow-en-letter-box en-box-2-5"><span class="gow-en-item rune-en">ᚨ</span><span class="gow-en-item letter-en">A</span></div>
+            <div class="gow-en-letter-box en-box-2-6"><span class="gow-en-item rune-en">ᚢ</span><span class="gow-en-item letter-en">U</span></div>
+        </div>
+    </div>
         
         <div class="lang-tags">
             <span class="tag">🇷🇺 Russian</span>
