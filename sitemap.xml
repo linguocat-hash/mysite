@@ -20,25 +20,4 @@
     <lastmod>2026-05-13</lastmod>
     <priority>0.8</priority>
   </url>
-
-  <!-- Мобильная версия (Монгольский) -->
-  <url>
-    <loc>https://translationboard.mn/mobile.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Мобильная английская версия -->
-  <url>
-    <loc>https://translationboard.mn/mobile_en.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Мобильная русская версия -->
-  <url>
-    <loc>https://translationboard.mn/mobile_ru.html</loc>
-    <lastmod>2026-05-13</lastmod>
-    <priority>0.5</priority>
-  </url>
 </urlset>
