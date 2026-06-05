@@ -67,25 +67,25 @@
             width: 100%;
         }
 
-        /* Настройка боксов под TRANSLATION (11 букв) */
+        /* УПЛОТНЕННЫЕ БОКСЫ ПОД TRANSLATION (11 букв) — ТЕПЕРЬ ТОЧНО ВЛЕЗЕТ */
         .gow-en-letter-box {
             display: inline-block;
             position: relative;
-            width: 7.5vw;        
-            max-width: 34px;    
-            height: 10vw;       
-            max-height: 48px;   
-            margin: 0 0.2vw;    
+            width: 6.8vw;        /* Уменьшили, чтобы строка сжалась по ширине */
+            max-width: 28px;    
+            height: 9.5vw;       
+            max-height: 44px;   
+            margin: 0 0.1vw;    /* Минимальный отступ для плотности */
             vertical-align: middle;
         }
 
-        /* Настройка боксов под BUREAU (6 букв) */
+        /* КОРРЕКТИРОВКА ПОД BUREAU (6 букв) */
         .gow-en-line-2 .gow-en-letter-box {
-            width: 11vw;        
-            max-width: 52px;    
-            height: 14vw;       
-            max-height: 68px;   
-            margin: 0 0.5vw;
+            width: 10vw;        
+            max-width: 44px;    
+            height: 13vw;       
+            max-height: 60px;   
+            margin: 0 0.4vw;
         }
 
         .gow-en-item {
@@ -104,7 +104,7 @@
         /* Настоящее золото рун */
         .gow-en-letter-box .rune-en {
             font-family: 'Segoe UI Historic', 'Arial', sans-serif;
-            font-size: 9vw; 
+            font-size: 8.5vw; 
             font-weight: bold;
             background: linear-gradient(135deg, #9a741e 0%, #f9e497 25%, #d4af37 50%, #ffffff 65%, #b38f2d 100%);
             -webkit-background-clip: text;
@@ -121,32 +121,33 @@
         .gow-en-letter-box .letter-en {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 8.5vw;
-            letter-spacing: -0.5px;
+            font-size: 8vw;
+            letter-spacing: -0.8px; /* Чуть плотнее прижали буквы друг к другу */
             color: #1c2e3d;
             opacity: 0;
             transform: scale(0.9);
             animation: gowLetterRevealEn 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        .gow-en-line-2 .letter-en { font-size: 11.5vw; }
-        .gow-en-line-2 .rune-en { font-size: 12vw; }
+        .gow-en-line-2 .letter-en { font-size: 11vw; letter-spacing: -0.5px; }
+        .gow-en-line-2 .rune-en { font-size: 11.5vw; }
 
+        /* Для планшетов и ПК возвращаем солидный крупный размер */
         @media (min-width: 480px) {
             .gow-en-letter-box { width: 34px; height: 46px; margin: 0 2px; }
             .gow-en-line-2 .gow-en-letter-box { width: 50px; height: 64px; margin: 0 4px; }
             .gow-en-letter-box .rune-en { font-size: 2.8rem; }
-            .gow-en-letter-box .letter-en { font-size: 2.7rem; }
+            .gow-en-letter-box .letter-en { font-size: 2.7rem; letter-spacing: -0.5px; }
             .gow-en-line-2 .rune-en { font-size: 4.0rem; }
             .gow-en-line-2 .letter-en { font-size: 3.9rem; }
         }
 
-        /* ТОЧНЫЕ ИСПРАВЛЕННЫЕ АНИМАЦИИ ДЛЯ АНГЛИЙСКОЙ ВЕРСИИ */
+        /* АНИМАЦИИ */
         @keyframes gowGoldExplodeEn {
-            0% { opacity: 0; transform: scale(1.25); filter: blur(3px) brightness(2) drop-shadow(0 0 15px #ffaa00); }
+            0% { opacity: 0; transform: scale(1.2); filter: blur(3px) brightness(2) drop-shadow(0 0 15px #ffaa00); }
             15% { opacity: 1; transform: scale(1); filter: drop-shadow(1px 1px 0.5px #5c4308) drop-shadow(-0.5px -0.5px 0.5px #fff5cc) drop-shadow(0 0 6px rgba(212, 175, 55, 0.5)); }
-            45% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 12px #ff4500) brightness(1.7) contrast(1.2); }
-            70% { opacity: 0.5; transform: scale(1.05); filter: blur(2px) brightness(0.8); }
+            45% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 12px #ff4500) brightness(1.7) contrast(1.2); }
+            70% { opacity: 0.5; transform: scale(1.02); filter: blur(2px) brightness(0.8); }
             100% { opacity: 0; transform: scale(0.85); filter: blur(12px); }
         }
 
@@ -156,7 +157,7 @@
             100% { opacity: 1; transform: scale(1); filter: blur(0px); color: #1c2e3d; text-shadow: 1px 1px 0px #2f3e4e, 2px 2px 0px #13202d, 2px 4px 4px rgba(0, 0, 0, 0.25); }
         }
 
-        /* Взрывная волна таймингов (из центра слова к краям) */
+        /* Тайминги волны */
         .en-box-1-6 .letter-en, .en-box-1-6 .rune-en { animation-delay: 0.25s; }
         .en-box-1-5 .letter-en, .en-box-1-5 .rune-en { animation-delay: 0.40s; }
         .en-box-1-7 .letter-en, .en-box-1-7 .rune-en { animation-delay: 0.55s; }
