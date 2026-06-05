@@ -49,44 +49,27 @@
         .hero-mobile { padding: 20px; text-align: left; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 5px 0 15px; font-weight: 800; text-align: center; }
 
-.gow-ru-text-container {
-            text-align: center;
-            padding: 20px 0;
-            background: transparent;
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-
-        .gow-ru-line {
-            display: block;
-            white-space: nowrap; 
-            margin-bottom: 8px;
-            width: 100%;
-        }
-
-        /* Первая строка: БЮРО — сделали аккуратнее и меньше */
+/* Первая строка: БЮРО — аккуратное и компактное */
         .gow-ru-line-1 .gow-ru-letter-box {
             display: inline-block;
             position: relative;
-            width: 10vw;         /* Уменьшили ширину бокса */
-            max-width: 46px;    
-            height: 12.5vw;      /* Уменьшили высоту бокса */
-            max-height: 58px;   
+            width: 9vw;          /* Слегка уменьшили, чтобы сохранить пропорцию */
+            max-width: 42px;    
+            height: 11.5vw;      
+            max-height: 54px;   
             margin: 0 0.5vw;    
             vertical-align: middle;
         }
 
-        /* Вторая строка: ПЕРЕВОДОВ — сделали крупнее и монументальнее */
+        /* Вторая строка: ПЕРЕВОДОВ — ИСПРАВЛЕНО: убрали ширину, чтобы слово 100% влезло в экран */
         .gow-ru-line-2 .gow-ru-letter-box {
             display: inline-block;
             position: relative;
-            width: 9.8vw;        /* Увеличили ширину под каменные буквы */
-            max-width: 48px;    
-            height: 13.5vw;      /* Увеличили высоту */
-            max-height: 66px;   
-            margin: 0 0.2vw;     /* Чуть плотнее прижали буквы */
+            width: 7.8vw;        /* Сузили боксы, теперь 9 букв идеально войдут по ширине */
+            max-width: 38px;    
+            height: 11vw;        /* Пропорционально скорректировали высоту */
+            max-height: 54px;   
+            margin: 0 0.1vw;     /* Максимально плотно прижали буквы друг к другу */
             vertical-align: middle;
         }
 
@@ -106,7 +89,7 @@
         /* Текстура тяжелого золота для рун */
         .gow-ru-letter-box .rune-ru {
             font-family: 'Segoe UI Historic', 'Arial', sans-serif;
-            font-size: 12vw;     /* Пропорция для взрыва рун во второй строке */
+            font-size: 10vw;     
             font-weight: bold;
             background: linear-gradient(135deg, #9a741e 0%, #f9e497 25%, #d4af37 50%, #ffffff 65%, #b38f2d 100%);
             -webkit-background-clip: text;
@@ -119,30 +102,30 @@
             animation: gowGoldExplodeRu 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        .gow-ru-line-1 .rune-ru { font-size: 10.5vw; } /* Руны БЮРО стали меньше */
+        .gow-ru-line-1 .rune-ru { font-size: 9.5vw; } 
 
         /* Массивные каменные буквы */
         .gow-ru-letter-box .letter-ru {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 11vw;     /* ПЕРЕВОДОВ теперь крупный и мощный */
-            letter-spacing: -0.6px;
+            font-size: 9vw;      /* Подогнали размер шрифта под зауженный бокс */
+            letter-spacing: -1px; /* Сделали буквы плотнее, предотвращая перенос */
             color: #1c2e3d; 
             opacity: 0;
             transform: scale(0.9);
             animation: gowLetterRevealRu 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        .gow-ru-line-1 .letter-ru { font-size: 9.5vw; letter-spacing: -0.5px; } /* Буквы БЮРО стали меньше */
+        .gow-ru-line-1 .letter-ru { font-size: 8.5vw; letter-spacing: -0.5px; }
 
         /* Оптимизация под экраны планшетов и ПК */
         @media (min-width: 480px) {
-            .gow-ru-line-1 .gow-ru-letter-box { width: 46px; height: 58px; margin: 0 3px; }
-            .gow-ru-line-2 .gow-ru-letter-box { width: 52px; height: 68px; margin: 0 4px; }
-            .gow-ru-letter-box .rune-ru { font-size: 3.8rem; }
-            .gow-ru-letter-box .letter-ru { font-size: 3.7rem; }
-            .gow-ru-line-1 .rune-ru { font-size: 3.2rem; }
-            .gow-ru-line-1 .letter-ru { font-size: 3.1rem; }
+            .gow-ru-line-1 .gow-ru-letter-box { width: 42px; height: 54px; margin: 0 3px; }
+            .gow-ru-line-2 .gow-ru-letter-box { width: 38px; height: 54px; margin: 0 2px; }
+            .gow-ru-letter-box .rune-ru { font-size: 3.2rem; }
+            .gow-ru-letter-box .letter-ru { font-size: 3.1rem; }
+            .gow-ru-line-1 .rune-ru { font-size: 3.0rem; }
+            .gow-ru-line-1 .letter-ru { font-size: 2.9rem; }
         }
 
         /* АНИМАЦИИ ПЕРЕХОДА */
