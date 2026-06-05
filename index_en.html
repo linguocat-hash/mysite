@@ -26,22 +26,133 @@
 
     <link rel="alternate" media="only screen and (max-width: 640px)" href="https://translationboard.mn/mobile_en.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
     
     <style>
         /* BASE STYLES */
         body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    /* Подключаем десктопный фон с сервера translationboard.mn */
-    background: #ffffff url('https://translationboard.mn/OfficeLAPTOP.png') no-repeat center top; 
-    background-size: cover; 
-    background-attachment: fixed; 
-    text-align: center; 
-    color: #333; 
-    scroll-behavior: smooth; 
-    overflow-x: hidden; 
-}
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            /* Подключаем десктопный фон с сервера translationboard.mn */
+            background: #ffffff url('https://translationboard.mn/OfficeLAPTOP.png') no-repeat center top; 
+            background-size: cover; 
+            background-attachment: fixed; 
+            text-align: center; 
+            color: #333; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+        }
+
+        /* CONTAINER FOR GOD OF WAR EFFECT (DESKTOP) */
+        .gow-ru-text-container {
+            text-align: center;
+            padding: 10px 0;
+            background: transparent;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .gow-ru-line {
+            display: block;
+            white-space: nowrap; 
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        /* Настройка боксов букв под мониторы ПК */
+        .gow-ru-line-1 .gow-ru-letter-box, 
+        .gow-ru-line-2 .gow-ru-letter-box {
+            display: inline-block;
+            position: relative;
+            width: 55px;         /* Фиксированная комфортная ширина буквы на ПК */
+            height: 75px;        /* Фиксированная высота */
+            margin: 0 4px;       /* Красивый отступ между буквами */
+            vertical-align: middle;
+        }
+
+        .gow-ru-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        /* Текстура тяжелого золота для рун */
+        .gow-ru-letter-box .rune-ru {
+            font-family: 'Segoe UI Historic', 'Arial', sans-serif;
+            font-size: 4.8rem !important;
+            font-weight: bold;
+            background: linear-gradient(135deg, #9a741e 0%, #f9e497 25%, #d4af37 50%, #ffffff 65%, #b38f2d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(1px 1px 0.5px #5c4308) 
+                    drop-shadow(-0.5px -0.5px 0.5px #fff5cc)
+                    drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+            opacity: 0;
+            transform: scale(1);
+            animation: gowGoldExplodeRu 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Массивные каменные десктопные буквы */
+        .gow-ru-letter-box .letter-ru {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4.5rem !important;
+            letter-spacing: 0px !important; /* На ПК зажимать буквы не нужно */
+            color: #1c2e3d; 
+            opacity: 0;
+            transform: scale(0.9);
+            animation: gowLetterRevealRu 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* КЛЮЧЕВЫЕ АНИМАЦИИ ЭФФЕКТОВ */
+        @keyframes gowGoldExplodeRu {
+            0% { opacity: 0; transform: scale(1.25); filter: blur(3px) brightness(2) drop-shadow(0 0 15px #ffaa00); }
+            15% { opacity: 1; transform: scale(1); filter: drop-shadow(1px 1px 0.5px #5c4308) drop-shadow(-0.5px -0.5px 0.5px #fff5cc) drop-shadow(0 0 6px rgba(212, 175, 55, 0.5)); }
+            45% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 12px #ff4500) brightness(1.7) contrast(1.2); }
+            70% { opacity: 0.5; transform: scale(1.05); filter: blur(2px) brightness(0.8); }
+            100% { opacity: 0; transform: scale(0.85); filter: blur(12px); }
+        }
+
+        @keyframes gowLetterRevealRu {
+            0% { opacity: 0; transform: scale(0.85); filter: blur(5px) brightness(3); color: #ffffff; text-shadow: 0 0 12px rgba(255,255,255,1); }
+            45% { opacity: 0.7; filter: blur(2px) brightness(2); color: #ffffff; text-shadow: 0 0 20px #ffffff, 0 0 12px #ff8c00; }
+            100% { opacity: 1; transform: scale(1); filter: blur(0px); color: #1c2e3d; text-shadow: 1px 1px 0px #2f3e4e, 2px 2px 0px #13202d, 2px 4px 4px rgba(0, 0, 0, 0.25); }
+        }
+
+        /* ТАЙМИНГИ ДЛЯ АНГЛИЙСКОЙ ВЕРСИИ */
+        /* Строка 1: TRANSLATION (11 букв) */
+        .ru-box-1-1 .letter-ru, .ru-box-1-1 .rune-ru { animation-delay: 0.20s; }
+        .ru-box-1-2 .letter-ru, .ru-box-1-2 .rune-ru { animation-delay: 0.40s; }
+        .ru-box-1-3 .letter-ru, .ru-box-1-3 .rune-ru { animation-delay: 0.60s; }
+        .ru-box-1-4 .letter-ru, .ru-box-1-4 .rune-ru { animation-delay: 0.80s; }
+        .ru-box-1-5 .letter-ru, .ru-box-1-5 .rune-ru { animation-delay: 1.00s; }
+        .ru-box-1-6 .letter-ru, .ru-box-1-6 .rune-ru { animation-delay: 1.20s; }
+        .ru-box-1-7 .letter-ru, .ru-box-1-7 .rune-ru { animation-delay: 1.40s; }
+        .ru-box-1-8 .letter-ru, .ru-box-1-8 .rune-ru { animation-delay: 1.60s; }
+        .ru-box-1-9 .letter-ru, .ru-box-1-9 .rune-ru { animation-delay: 1.80s; }
+        .ru-box-1-10 .letter-ru, .ru-box-1-10 .rune-ru { animation-delay: 2.00s; }
+        .ru-box-1-11 .letter-ru, .ru-box-1-11 .rune-ru { animation-delay: 2.20s; }
+
+        /* Строка 2: BUREAU (6 букв) */
+        .ru-box-2-1 .letter-ru, .ru-box-2-1 .rune-ru { animation-delay: 2.40s; }
+        .ru-box-2-2 .letter-ru, .ru-box-2-2 .rune-ru { animation-delay: 2.60s; }
+        .ru-box-2-3 .letter-ru, .ru-box-2-3 .rune-ru { animation-delay: 2.80s; }
+        .ru-box-2-4 .letter-ru, .ru-box-2-4 .rune-ru { animation-delay: 3.00s; }
+        .ru-box-2-5 .letter-ru, .ru-box-2-5 .rune-ru { animation-delay: 3.20s; }
+        .ru-box-2-6 .letter-ru, .ru-box-2-6 .rune-ru { animation-delay: 3.40s; }
         
         /* HEADER */
         .m-header { background: #000; color: #fff; padding: 10px 20px; font-weight: bold; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
@@ -59,11 +170,11 @@
 
         /* ABOUT US SECTION (Optimized for Desktop) */
         .about-centered {
-            max-width: 1300px;        /* Spreads nicely across large desktop screens */
-            margin: 60px auto;        /* Centers on the page with spacing top/bottom */
-            padding: 0 40px;          /* Inner horizontal padding */
-            text-align: justify;      /* Aligns text perfectly on both left and right edges */
-            text-justify: inter-word; /* Distributes spaces evenly between words */
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 40px;
+            text-align: justify;
+            text-justify: inter-word;
             color: #333333;
         }
 
@@ -71,7 +182,7 @@
             color: #1a2b3c;
             text-align: center;
             margin-bottom: 45px;
-            font-size: 34px;          /* Premium header size for desktop screens */
+            font-size: 34px;
             border-bottom: 2px solid #d4a035;
             display: block;
             max-width: 400px;
@@ -83,84 +194,25 @@
             letter-spacing: 1px;
         }
 
-        .about-centered p {
-            font-size: 16px;
-            line-height: 1.75;        /* Improved line height for excellent readability */
-            margin-bottom: 22px;      /* Clear separation between paragraphs */
-        }
-
-        .about-centered .lead-text {
-            font-size: 18px;          /* First paragraph slightly larger to engage users */
-            line-height: 1.7;
-            color: #1a2b3c;
-        }
-
-        .about-centered strong {
-            color: #c61a30;           /* Clean crimson accent color for key elements */
-        }
+        .about-centered p { font-size: 16px; line-height: 1.75; margin-bottom: 22px; }
+        .about-centered .lead-text { font-size: 18px; line-height: 1.7; color: #1a2b3c; }
+        .about-centered strong { color: #c61a30; }
 
         /* STAFF / TEAM CARDS */
         .staff-container { display: flex; flex-direction: column; gap: 10px; text-align: left; margin-top: 20px; }
         .staff-card { display: flex; align-items: center; gap: 15px; padding: 15px; border-bottom: 1px solid #f0f0f0; }
 
         /* OUR WORK SLIDER */
-        .our-work-section { 
-            padding: 40px 0; 
-            background-color: #fff; 
-            overflow: hidden; 
-        }
+        .our-work-section { padding: 40px 0; background-color: #fff; overflow: hidden; }
+        .work-title { font-size: 24px; font-weight: bold; border-left: 4px solid #d4a035; padding-left: 15px; margin: 0 auto 20px; max-width: 1160px; text-align: left; }
+        .marquee-window { width: 100%; overflow: hidden; height: 320px; display: flex; align-items: center; }
+        .marquee-track { display: flex; width: max-content; gap: 20px; animation: scroll-right 25s linear infinite; }
+        .marquee-track img { width: 400px; height: 280px; object-fit: contain; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #fff; transition: 0.3s; flex-shrink: 0; }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-track img:hover { transform: scale(1.05); }
 
-        .work-title { 
-            font-size: 24px; 
-            font-weight: bold; 
-            border-left: 4px solid #d4a035; 
-            padding-left: 15px; 
-            margin: 0 auto 20px; 
-            max-width: 1160px; 
-            text-align: left; 
-        }
-
-        .marquee-window { 
-            width: 100%; 
-            overflow: hidden; 
-            height: 320px; 
-            display: flex; 
-            align-items: center; 
-        }
-
-        /* ИСПРАВЛЕНО: Убрали calc, добавили автоматическое определение ширины и gap */
-        .marquee-track { 
-            display: flex; 
-            width: max-content; 
-            gap: 20px; /* Зазор между картинками (заменяет старые margin по 10px с каждой стороны) */
-            animation: scroll-right 25s linear infinite; 
-        }
-
-        /* ИСПРАВЛЕНО: Оптимизировали отступы */
-        .marquee-track img { 
-            width: 400px; 
-            height: 280px; 
-            object-fit: contain; 
-            /* margin: 0 10px; — Больше не нужен, зазоры контролирует родительский gap */
-            border-radius: 12px; 
-            border: 1px solid #eee; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            background: #fff; 
-            transition: 0.3s; 
-            flex-shrink: 0; /* Защита от сжатия картинок браузером */
-        }
-
-        .marquee-track:hover { 
-            animation-play-state: paused; 
-        }
-
-        .marquee-track img:hover { 
-            transform: scale(1.05); 
-        }
-
-        /* ИСПРАВЛЕНО: Бесшовный шаг анимации с математически точной компенсацией gap */
         @keyframes scroll-right { 
-            0% { transform: translateX(calc(-50% - 10px)); } /* Сдвиг ровно на половину ленты и половину центрального зазора */
+            0% { transform: translateX(calc(-50% - 10px)); } 
             100% { transform: translateX(0); } 
         }
 
@@ -172,170 +224,44 @@
         details[open] summary::after { content: '−'; }
 
         /* BUTTONS AND ORDER SECTION */
-        .order-section {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            max-width: 1100px;
-            margin: -40px auto 40px;
-            padding: 0 20px 30px;
-            background: #fff;
-        }
-
-        .order-section + p {
-            margin-top: 0 !important;
-        }
-
-        .order-info {
-            flex: 1;
-            min-width: 300px;
-            text-align: left;
-        }
-
-        .buttons-container-side {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .m-btn {
-            display: block;
-            padding: 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
-            text-align: center;
-            transition: 0.3s;
-            font-size: 16px;
-            color: #000;
-            background: #d4a035;
-            margin-bottom: 10px;
-        }
-
-        .m-call {
-            background: #c1121f;
-            color: #fff;
-        }
-
-        .m-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
-        }
+        .order-section { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: -40px auto 40px; padding: 0 20px 30px; background: #fff; }
+        .order-section + p { margin-top: 0 !important; }
+        .order-info { flex: 1; min-width: 300px; text-align: left; }
+        .buttons-container-side { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 15px; }
+        .m-btn { display: block; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: 800; text-align: center; transition: 0.3s; font-size: 16px; color: #000; background: #d4a035; margin-bottom: 10px; }
+        .m-call { background: #c1121f; color: #fff; }
+        .m-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
 
         /* BACK TO TOP BUTTON */
         .scroll-top-btn { position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px; background: #d4a035; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
         /* LANGUAGE TAGS WITH FLAGS */
-        .lang-tags {
-            display: flex !important;
-            justify-content: center !important;
-            flex-wrap: nowrap !important;
-            gap: 10px !important;
-            margin: 20px auto !important;
-            width: 100% !important;
-        }
-
-        .tag {
-            display: inline-flex !important;
-            align-items: center !important;
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a2b3c;
-            margin: 5px;
-            gap: 10px;
-            white-space: nowrap !important;
-            flex-shrink: 0 !important;
-        }
-
-        .tag i {
-            color: #d4a035;
-            font-size: 16px;
-        }
-
-        .flag-svg {
-            width: 24px !important;
-            height: 18px !important;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            image-rendering: pixelated;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 8px;
-            border-radius: 2px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            flex-shrink: 0 !important;
-        }
+        .lang-tags { display: flex !important; justify-content: center !important; flex-wrap: nowrap !important; gap: 10px !important; margin: 20px auto !important; width: 100% !important; }
+        .tag { display: inline-flex !important; align-items: center !important; background: #f8f9fa; border: 1px solid #e0e0e0; padding: 8px 18px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #1a2b3c; margin: 5px; gap: 10px; white-space: nowrap !important; flex-shrink: 0 !important; }
+        .tag i { color: #d4a035; font-size: 16px; }
+        .flag-svg { width: 24px !important; height: 18px !important; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: pixelated; display: inline-block; vertical-align: middle; margin-right: 8px; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); flex-shrink: 0 !important; }
 
         /* DIVIDER */
-        .section-divider {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(212, 160, 53, 0.75), rgba(0, 0, 0, 0));
-            margin: 40px auto;
-            width: 80%;
-            max-width: 800px;
-        }
+        .section-divider { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(212, 160, 53, 0.75), rgba(0, 0, 0, 0)); margin: 40px auto; width: 80%; max-width: 800px; }
 
         /* ADVANTAGES SECTION */
-        .advantages-section {
-            background: #fff;
-            border-top: 1px solid #eee;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        .advantages-section { background: #fff; border-top: 1px solid #eee; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
         .advantages-title { font-size: 24px; color: #1a2b3c; margin-bottom: 30px; text-align: left; font-weight: 800; }
         .advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        
-        .advantage-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 20px;
-            background: #fdfdfd;
-            border: 1px solid #f0f0f0;
-            border-radius: 15px;
-            transition: 0.3s;
-            text-align: left;
-        }
-
-        .advantage-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border-color: #d4a035;
-        }
-
+        .advantage-card { display: flex; align-items: flex-start; gap: 15px; padding: 20px; background: #fdfdfd; border: 1px solid #f0f0f0; border-radius: 15px; transition: 0.3s; text-align: left; }
+        .advantage-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: #d4a035; }
         .adv-icon { font-size: 24px; min-width: 35px; text-align: center; }
         .advantage-card b { display: block; font-size: 16px; color: #1a2b3c; margin-bottom: 5px; }
         .advantage-card p { margin: 0; font-size: 14px; color: #555; line-height: 1.5; }
 
         /* FOOTER ELEMENTS */
-        .footer-flex {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
+        .footer-flex { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         .footer-text { flex: 1; min-width: 300px; text-align: left; }
         .footer-image { flex: 1; min-width: 300px; }
         .footer-image img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
         .footer-image img:hover { transform: scale(1.02); }
 
-        /* LAYOUT HOVER EFFECTS & MEDIA QUERIES FOR MAIN FLEX BLOCKS */
+        /* MEDIA QUERIES FOR MAIN FLEX BLOCKS */
         @media (min-width: 1024px) {
             .hero-wrapper {
                 display: flex;
@@ -348,7 +274,10 @@
             }
 
             .hero-title-block { flex: 1.4; text-align: left; }
-            .hero-title-block h1 { font-size: 72px; line-height: 1.1; color: #1a2b3c; margin: 0 0 20px 0; font-weight: 900; text-transform: uppercase; }
+            
+            /* Скрываем старый h1 на десктопе, так как вместо него выводим анимацию */
+            .hero-title-block h1 { display: none; } 
+            
             .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
 
             .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
@@ -426,10 +355,32 @@
         <img src="LOGO.gif" alt="Logo">
         <div class="translation-board-text">TRANSLATION BOARD LLC</div>
 
-<div class="hero-mobile">
-    <h1 style="font-size: 48px; color: #1a2b3c; font-weight: 800; margin-bottom: 20px;">
-        TRANSLATION BUREAU
-    </h1>
+<div class="hero-title-block">
+    
+    <div class="gow-ru-text-container">
+        <div class="gow-ru-line gow-ru-line-1">
+            <div class="gow-ru-letter-box ru-box-1-1"><span class="gow-ru-item rune-ru">ᛏ</span><span class="gow-ru-item letter-ru">T</span></div>
+            <div class="gow-ru-letter-box ru-box-1-2"><span class="gow-ru-item rune-ru">ᚱ</span><span class="gow-ru-item letter-ru">R</span></div>
+            <div class="gow-ru-letter-box ru-box-1-3"><span class="gow-ru-item rune-ru">ᚨ</span><span class="gow-ru-item letter-ru">A</span></div>
+            <div class="gow-ru-letter-box ru-box-1-4"><span class="gow-ru-item rune-ru">ᚾ</span><span class="gow-ru-item letter-ru">N</span></div>
+            <div class="gow-ru-letter-box ru-box-1-5"><span class="gow-ru-item rune-ru">ᛊ</span><span class="gow-ru-item letter-ru">S</span></div>
+            <div class="gow-ru-letter-box ru-box-1-6"><span class="gow-ru-item rune-ru">ᛚ</span><span class="gow-ru-item letter-ru">L</span></div>
+            <div class="gow-ru-letter-box ru-box-1-7"><span class="gow-ru-item rune-ru">ᚨ</span><span class="gow-ru-item letter-ru">A</span></div>
+            <div class="gow-ru-letter-box ru-box-1-8"><span class="gow-ru-item rune-ru">ᛏ</span><span class="gow-ru-item letter-ru">T</span></div>
+            <div class="gow-ru-letter-box ru-box-1-9"><span class="gow-ru-item rune-ru">ᛁ</span><span class="gow-ru-item letter-ru">I</span></div>
+            <div class="gow-ru-letter-box ru-box-1-10"><span class="gow-ru-item rune-ru">ᛟ</span><span class="gow-ru-item letter-ru">O</span></div>
+            <div class="gow-ru-letter-box ru-box-1-11"><span class="gow-ru-item rune-ru">ᚾ</span><span class="gow-ru-item letter-ru">N</span></div>
+        </div>
+        
+        <div class="gow-ru-line gow-ru-line-2">
+            <div class="gow-ru-letter-box ru-box-2-1"><span class="gow-ru-item rune-ru">ᛒ</span><span class="gow-ru-item letter-ru">B</span></div>
+            <div class="gow-ru-letter-box ru-box-2-2"><span class="gow-ru-item rune-ru">ᚢ</span><span class="gow-ru-item letter-ru">U</span></div>
+            <div class="gow-ru-letter-box ru-box-2-3"><span class="gow-ru-item rune-ru">ᚱ</span><span class="gow-ru-item letter-ru">R</span></div>
+            <div class="gow-ru-letter-box ru-box-2-4"><span class="gow-ru-item rune-ru">ᛖ</span><span class="gow-ru-item letter-ru">E</span></div>
+            <div class="gow-ru-letter-box ru-box-2-5"><span class="gow-ru-item rune-ru">ᚨ</span><span class="gow-ru-item letter-ru">A</span></div>
+            <div class="gow-ru-letter-box ru-box-2-6"><span class="gow-ru-item rune-ru">ᚢ</span><span class="gow-ru-item letter-ru">U</span></div>
+        </div>
+    </div>
 
     <div class="lang-tags">
     <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" class="flag-svg" alt="Russian flag"> Russian</span>
