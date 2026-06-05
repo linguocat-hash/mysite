@@ -26,6 +26,10 @@
 
 <link rel="canonical" href="https://translationboard.mn/index.html">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
     <style>
         /* Базовые стили */
         body { 
@@ -45,7 +49,168 @@
         
         .hero-mobile { padding: 20px; text-align: left; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 5px 0 15px; font-weight: 800; text-align: center; }
-        
+
+        .gow-text-container {
+            text-align: center;
+            padding: 20px 0;
+            background: transparent;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .gow-line {
+            display: block;
+            white-space: nowrap;
+            margin-bottom: 8px;
+            width: 100%;
+        }
+
+        .gow-letter-box {
+            display: inline-block;
+            position: relative;
+            width: 9vw;
+            max-width: 46px;
+            height: 12vw;
+            max-height: 62px;
+            margin: 0 0.4vw;
+            vertical-align: middle;
+        }
+
+        .gow-line-2 .gow-letter-box {
+            width: 11vw;
+            max-width: 58px;
+            height: 14vw;
+            max-height: 76px;
+            margin: 0 0.6vw;
+        }
+
+        .gow-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        .rune {
+            font-family: 'Segoe UI Historic', 'Arial', sans-serif;
+            font-size: 10.5vw;
+            font-weight: bold;
+            background: linear-gradient(135deg, #9a741e 0%, #f9e497 25%, #d4af37 50%, #ffffff 65%, #b38f2d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(1px 1px 0.5px #5c4308) 
+                    drop-shadow(-0.5px -0.5px 0.5px #fff5cc)
+                    drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+            opacity: 0;
+            transform: scale(1);
+            animation: gowGoldRuneExplode 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .letter {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 9.5vw;
+            letter-spacing: -0.5px;
+            color: #1c2e3d;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: gowLetterIntenseReveal 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .gow-line-2 .letter {
+            font-size: 11.5vw;
+        }
+        .gow-line-2 .rune {
+            font-size: 12vw;
+        }
+
+        @media (min-width: 480px) {
+            .gow-letter-box { width: 44px; height: 60px; margin: 0 3px; }
+            .gow-line-2 .gow-letter-box { width: 56px; height: 74px; margin: 0 4px; }
+            .rune { font-size: 3.4rem; }
+            .letter { font-size: 3.3rem; }
+            .gow-line-2 .rune { font-size: 4.2rem; }
+            .gow-line-2 .letter { font-size: 4.1rem; }
+        }
+
+        @keyframes gowGoldRuneExplode {
+            0% {
+                opacity: 0;
+                transform: scale(1.25);
+                filter: blur(3px) brightness(2) drop-shadow(0 0 15px #ffaa00);
+            }
+            15% {
+                opacity: 1;
+                transform: scale(1);
+                filter: drop-shadow(1px 1px 0.5px #5c4308) drop-shadow(-0.5px -0.5px 0.5px #fff5cc) drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+            }
+            45% {
+                opacity: 1;
+                transform: scale(1.18);
+                filter: drop-shadow(0 0 12px #ff4500) brightness(1.7) contrast(1.2);
+            }
+            70% {
+                opacity: 0.5;
+                transform: scale(1.05);
+                filter: blur(2px) brightness(0.8);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.85);
+                filter: blur(12px);
+            }
+        }
+
+        @keyframes gowLetterIntenseReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.85);
+                filter: blur(5px) brightness(3);
+                color: #ffffff;
+                text-shadow: 0 0 12px rgba(255,255,255,1);
+            }
+            45% {
+                opacity: 0.7;
+                filter: blur(2px) brightness(2);
+                color: #ffffff;
+                text-shadow: 0 0 20px #ffffff, 0 0 12px #ff8c00;
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0px);
+                color: #1c2e3d;
+                text-shadow: 1px 1px 0px #2f3e4e,
+                             2px 2px 0px #13202d,
+                             2px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        .rune { animation-delay: 0s; }
+        .box-1-5 .letter { animation-delay: 0.30s; } .box-1-5 .rune { animation-delay: 0.30s; }
+        .box-1-4 .letter { animation-delay: 0.48s; } .box-1-4 .rune { animation-delay: 0.48s; }
+        .box-1-6 .letter { animation-delay: 0.66s; } .box-1-6 .rune { animation-delay: 0.66s; }
+        .box-1-1 .letter { animation-delay: 0.84s; } .box-1-1 .rune { animation-delay: 0.84s; }
+        .box-1-9 .letter { animation-delay: 1.02s; } .box-1-9 .rune { animation-delay: 1.02s; }
+        .box-1-3 .letter { animation-delay: 1.20s; } .box-1-3 .rune { animation-delay: 1.20s; }
+        .box-1-7 .letter { animation-delay: 1.38s; } .box-1-7 .rune { animation-delay: 1.38s; }
+        .box-1-2 .letter { animation-delay: 1.56s; } .box-1-2 .rune { animation-delay: 1.56s; }
+        .box-1-8 .letter { animation-delay: 1.74s; } .box-1-8 .rune { animation-delay: 1.74s; }
+        .box-2-3 .letter { animation-delay: 1.95s; } .box-2-3 .rune { animation-delay: 1.95s; }
+        .box-2-4 .letter { animation-delay: 2.13s; } .box-2-4 .rune { animation-delay: 2.13s; }
+        .box-2-1 .letter { animation-delay: 2.31s; } .box-2-1 .rune { animation-delay: 2.31s; }
+        .box-2-6 .letter { animation-delay: 2.49s; } .box-2-6 .rune { animation-delay: 2.49s; }
+        .box-2-2 .letter { animation-delay: 2.67s; } .box-2-2 .rune { animation-delay: 2.67s; }
+        .box-2-5 .letter { animation-delay: 2.85s; } .box-2-5 .rune { animation-delay: 2.85s; }
+
         /* Блок языков */
         .lang-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 15px 0 25px; }
         .tag { background: #f0f2f5; padding: 6px 12px; border-radius: 15px; font-size: 13px; border: 1px solid #ddd; font-weight: 600; }
@@ -327,8 +492,28 @@
 </div>
 
     <div class="hero-mobile">
-        <h1>ОРЧУУЛГЫН ТОВЧОО</h1>
-        
+        <div class="gow-text-container">
+            <div class="gow-line gow-line-1">
+                <div class="gow-letter-box box-1-1"><span class="gow-item rune">ᚠ</span><span class="gow-item letter">О</span></div>
+                <div class="gow-letter-box box-1-2"><span class="gow-item rune">ᚢ</span><span class="gow-item letter">р</span></div>
+                <div class="gow-letter-box box-1-3"><span class="gow-item rune">ᚦ</span><span class="gow-item letter">ч</span></div>
+                <div class="gow-letter-box box-1-4"><span class="gow-item rune">ᚨ</span><span class="gow-item letter">у</span></div>
+                <div class="gow-letter-box box-1-5"><span class="gow-item rune">ᚱ</span><span class="gow-item letter">у</span></div>
+                <div class="gow-letter-box box-1-6"><span class="gow-item rune">ᚲ</span><span class="gow-item letter">л</span></div>
+                <div class="gow-letter-box box-1-7"><span class="gow-item rune">ᚷ</span><span class="gow-item letter">г</span></div>
+                <div class="gow-letter-box box-1-8"><span class="gow-item rune">ᚹ</span><span class="gow-item letter">ы</span></div>
+                <div class="gow-letter-box box-1-9"><span class="gow-item rune">ᚺ</span><span class="gow-item letter">н</span></div>
+            </div>
+            <div class="gow-line gow-line-2">
+                <div class="gow-letter-box box-2-1"><span class="gow-item rune">ᚾ</span><span class="gow-item letter">Т</span></div>
+                <div class="gow-letter-box box-2-2"><span class="gow-item rune">ᛁ</span><span class="gow-item letter">о</span></div>
+                <div class="gow-letter-box box-2-3"><span class="gow-item rune">ᛃ</span><span class="gow-item letter">в</span></div>
+                <div class="gow-letter-box box-2-4"><span class="gow-item rune">ᛇ</span><span class="gow-item letter">ч</span></div>
+                <div class="gow-letter-box box-2-5"><span class="gow-item rune">ᛈ</span><span class="gow-item letter">о</span></div>
+                <div class="gow-letter-box box-2-6"><span class="gow-item rune">ᛉ</span><span class="gow-item letter">о</span></div>
+            </div>
+        </div>
+
         <div class="lang-tags">
             <span class="tag">🇷🇺 Орос</span>
             <span class="tag">🇬🇧 Англи</span>
@@ -336,8 +521,9 @@
             <span class="tag">🇰🇷 Солонгос</span>
             <span class="tag">🇯🇵 Япон</span>
             <span class="tag">🇲🇳 Монгол</span>
-     
         </div>
+    </div>
+
 <section id="about" class="reveal" style="padding: 10px 20px 40px 20px; margin-top: 0; text-align: left; background-color: #fff; font-family: 'Segoe UI', Arial, sans-serif;">
     
     <h2 style="color: #1a2b3c; border-bottom: 3px solid #d4a035; display: inline-block; padding-bottom: 5px; margin-top: 5px; margin-bottom: 25px; font-size: 24px; font-weight: 800;">Бидний тухай</h2>
