@@ -31,14 +31,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 
-    <style>
-        Прекрасно, переходим к монгольской версии! Фраза ОРЧУУЛГЫН ТОВЧОО идеально делится на две аккуратные строки (11 букв в первом слове и 6 букв во втором), точно так же, как и в английском варианте.
 
-Я взял ваши исходные стили для монгольской страницы, полностью интегрировал десктопную механику взрыва рун и кристаллизации камня God of War, а также скорректировал анимационные шаги под кириллические символы.
-
-Вот готовый блок <style>, которым нужно полностью заменить стили на монгольской версии страницы:
-
-CSS
 <style>
         /* БАЗОВЫЕ СТИЛИ */
         html {
@@ -303,9 +296,6 @@ CSS
 
             .hero-title-block { flex: 1.4; text-align: left; }
             
-            /* Скрываем старый h1 на десктопе, замещая его анимацией рун */
-            .hero-title-block h1 { display: none; }
-
             .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
 
             .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
@@ -382,6 +372,7 @@ CSS
 </div>
 
 <div class="hero-title-block">
+  <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Орчуулгын товчоо — Орчуулгын Самбар ХХК</h1>
     
     <!-- МОНУМЕНТАЛЬНЫЙ БЛОК АНИМАЦИИ GOD OF WAR (MONGOLIAN — CORRECTED) -->
     <div class="gow-mn-text-container">
@@ -438,8 +429,10 @@ CSS
         <div class="quality-badge">
  <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
             ЧАНАРЫН ХЯНАЛТ
-        </h2>
-            <p>Манай гол зарчим бол <b>мэргэжлийн хариуцлага</b> юм. Орчуулга бэлэн болмогц компанийн ерөнхий орчуулагч маань бүх материалыг <b>нарийвчлан хянаж</b>, захиалагчид хүлээлгэн өгдөг. <br> Чанарын хоёр шаттай давхар хяналт нь орчуулгыг алдаагүй, үнэн зөвийн баталгаатай болгодог юм.<br></p>
+</h2>
+            <p style="text-align: center; width: 100%; margin-left: auto; margin-right: auto;">
+                Манай гол зарчим бол <b>мэргэжлийн хариуцлага</b> юм. Орчуулга бэлэн болмогц компанийн ерөнхий орчуулагч маань бүх материалыг <b>нарийвчлан хянаж</b>, захиалагчид хүлээлгэн өгдөг. <br> Чанарын хоёр шаттай давхар хяналт нь орчуулгыг алдаагүй, үнэн зөвийн баталгаатай болгодог юм.<br>
+            </p>
         </div>
     </div>
 

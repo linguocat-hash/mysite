@@ -275,9 +275,6 @@
 
             .hero-title-block { flex: 1.4; text-align: left; }
             
-            /* Скрываем старый h1 на десктопе, так как вместо него выводим анимацию */
-            .hero-title-block h1 { display: none; } 
-            
             .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
 
             .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
@@ -286,6 +283,36 @@
 
             .services-grid { grid-template-columns: 1fr 1fr; }
         }
+
+        /* Ультимативное скрытие главного заголовка H1 для роботов SEO */
+.seo-hidden-h1 {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+            /* Основные стили карточек */
+            .price-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
+            details { background: #fff; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; height: fit-content; }
+            summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #c61a30; font-size: 17px; outline: none; }
+            summary::-webkit-details-marker { display: none; }
+            summary::after { content: '+'; font-size: 22px; color: #d4a035; transition: 0.3s; }
+            details[open] summary::after { content: '−'; transform: rotate(180deg); }
+            details[open] summary { border-bottom: 1px solid #eee; }
+            
+            /* Адаптация для компьютеров */
+            @media (min-width: 1024px) {
+                .price-container { grid-template-columns: 1fr 1fr; gap: 25px; }
+                .price-full-width { grid-column: span 2; }
+            }
 </style>
 <script type="application/ld+json">
 {
@@ -351,11 +378,19 @@
         </ul>
     </nav>
 
+
     <div class="m-logo">
         <img src="LOGO.gif" alt="Logo">
         <div class="translation-board-text">TRANSLATION BOARD LLC</div>
+    </div>
 
-<div class="hero-title-block">
+    <div class="hero-wrapper">
+        
+        <div class="hero-title-block">
+            
+            <div style="width: 100%; text-align: center; font-size: 16px; color: #333; margin-bottom: 25px; font-weight: 600; letter-spacing: 0.5px;">
+                Translation Bureau in Ulaanbaatar - TRANSLATION BOARD LLC
+            </div>
     
     <div class="gow-ru-text-container">
         <div class="gow-ru-line gow-ru-line-1">
@@ -417,8 +452,10 @@ Translation Board LLC is committed to building long-term professional relationsh
         <div class="quality-badge">
  <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
             QUALITY CONTROL
-        </h2>
-            <p>Our primary principle is <b>professional responsibility</b> and <b>adherence to high quality standards</b>. Every completed translation undergoes <b>mandatory review</b>, by the company’s chief translator prior to delivery to the client. Our double quality control system ensures linguistic accuracy, terminological consistency, and the elimination of errors.</p>
+</h2>
+            <p style="text-align: center; width: 100%; max-width: 1160px; margin-left: auto; margin-right: auto; line-height: 1.75; font-size: 16px;">
+                Our primary principle is <b>professional responsibility</b> and <b>adherence to high quality standards</b>. Every completed translation undergoes <b>mandatory review</b>, by the company’s chief translator prior to delivery to the client. Our double quality control system ensures linguistic accuracy, terminological consistency, and the elimination of errors.
+            </p>
         </div>
     </div>
 
@@ -540,23 +577,6 @@ Translation Board LLC is committed to building long-term professional relationsh
         <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
             RATES
         </h2>
-
-        <style>
-            /* Основные стили карточек */
-            .price-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
-            details { background: #fff; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; height: fit-content; }
-            summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #c61a30; font-size: 17px; outline: none; }
-            summary::-webkit-details-marker { display: none; }
-            summary::after { content: '+'; font-size: 22px; color: #d4a035; transition: 0.3s; }
-            details[open] summary::after { content: '−'; transform: rotate(180deg); }
-            details[open] summary { border-bottom: 1px solid #eee; }
-            
-            /* Адаптация для компьютеров */
-            @media (min-width: 1024px) {
-                .price-container { grid-template-columns: 1fr 1fr; gap: 25px; }
-                .price-full-width { grid-column: span 2; }
-            }
-        </style>
 
         <div class="price-container">
             <details>
@@ -682,13 +702,15 @@ Translation Board LLC is committed to building long-term professional relationsh
             </div>
         </details>
 
-<!-- Дисклеймер в одну строку с автоматическим переносом только на мобильных -->
-        <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; margin-left: auto; margin-right: auto; font-style: italic; max-width: 820px; margin-bottom: 0;">
+        </div> <!-- 👈 ИСПРАВЛЕНО: Закрываем сетку .price-container ЗДЕСЬ, освобождая абзац -->
+
+        <!-- Теперь этот текст находится в свободном пространстве контейнера и встанет строго по центру -->
+        <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin: 30px auto 0; font-style: italic; max-width: 820px;">
             <span style="display: inline-block; white-space: normal;">* Translation fees may vary depending on the target language, document type, volume, and complexity of the translation.</span>
         </p>
 
-    </div> <!-- Закрытие внутреннего контейнера сетки -->
-</section> <!-- Единственное корректное закрытие всей секции цен -->
+    </div> <!-- Закрытие внутреннего контейнера (max-width: 1200px) -->
+</section>
 
 <section id="order" class="order-section" style="scroll-margin-top: 90px;">
     <div class="order-info">
