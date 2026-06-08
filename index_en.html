@@ -160,6 +160,20 @@
         .pc-nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; }
         .pc-nav a:hover { color: #d4a035; }
 
+        /* Правильное скрытие H1 для поисковых роботов (Accessible Hidden) */
+        /* ТЕПЕРЬ ОН НАХОДИТСЯ В БАЗОВЫХ СТИЛЯХ И РАБОТАЕТ НА ВСЕХ УСТРОЙСТВАХ */
+        .seo-hidden-h1 {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
         /* LOGO */
         .m-logo { padding: 20px; }
         .m-logo img { width: 100px; }
@@ -274,7 +288,6 @@
             }
 
             .hero-title-block { flex: 1.4; text-align: left; }
-            
             .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
 
             .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
@@ -282,9 +295,11 @@
             .hero-info-frame p { font-size: 14px; color: #555; line-height: 1.6; margin: 0; }
 
             .services-grid { grid-template-columns: 1fr 1fr; }
-        }
+        } /* ЗДЕСЬ СКОБКА ТЕПЕРЬ ПРАВИЛЬНО ЗАКРЫВАЕТ МЕДИА-ЗАПРОС */
 
-        /* Ультимативное скрытие главного заголовка H1 для роботов SEO */
+        /* Основные стили карточек */
+
+/* Правильное скрытие H1 для поисковых роботов (Accessible Hidden) */
 .seo-hidden-h1 {
     position: absolute !important;
     width: 1px !important;
@@ -293,10 +308,9 @@
     margin: -1px !important;
     overflow: hidden !important;
     clip: rect(0, 0, 0, 0) !important;
-    border: 0 !important;
     white-space: nowrap !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+    border: 0 !important;
+    /* Убраны opacity и visibility, чтобы роботы не игнорировали текст */
 }
 
             /* Основные стили карточек */
@@ -326,6 +340,26 @@
       "item": "https://translationboard.mn/index_en.html"
     }
   ]
+}
+.m-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует логотип и текст по горизонтали */
+    padding: 20px 20px 10px 20px; /* Немного уменьшили нижний паддинг */
+}
+
+.m-logo img {
+    display: block;
+    margin-bottom: 2px; /* Минимальный зазор под картинкой */
+}
+
+.translation-board-text {
+    color: #c61a30;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 0 !important; /* Полностью убираем внешний отступ сверху */
+    line-height: 1.1;
 }
 </script>
 </head>
@@ -379,18 +413,20 @@
     </nav>
 
 
-    <div class="m-logo">
+   <div class="m-logo">
         <img src="LOGO.gif" alt="Logo">
         <div class="translation-board-text">TRANSLATION BOARD LLC</div>
     </div>
 
     <div class="hero-wrapper">
         
-        <div class="hero-title-block">
-            
-            <div style="width: 100%; text-align: center; font-size: 16px; color: #333; margin-bottom: 25px; font-weight: 600; letter-spacing: 0.5px;">
-                Translation Bureau in Ulaanbaatar - TRANSLATION BOARD LLC
-            </div>
+<div class="hero-title-block">
+    
+    <h1 style="position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;">
+    Translation Bureau in Ulaanbaatar - TRANSLATION BOARD LLC
+</h1>
+
+</div>
     
     <div class="gow-ru-text-container">
         <div class="gow-ru-line gow-ru-line-1">
