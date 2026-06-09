@@ -6,7 +6,7 @@
 
     <title>Translation Board LLC | Translation Bureau in Ulaanbaatar</title>
 
-    <meta name="description" content="Translation Board LLC — professional translation bureau in Ulaanbaatar, Mongolia. Certified and high-quality translations for English, Russian, Mongolian, Chinese, and Korean documents.">
+    <meta name="description" content="Professional translation agency in Ulaanbaatar. Fast, certified translation services for documents in English, Russian, Mongolian, and more. Get a quote!">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -49,14 +49,16 @@
 
         /* CONTAINER FOR GOD OF WAR EFFECT (DESKTOP) */
         .gow-ru-text-container {
-            text-align: center;
-            padding: 10px 0;
-            background: transparent;
-            width: 100%;
-            margin: 0 auto;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
+    margin-top: -75px; /* Этот маржин безопасно подвинет надпись вверх, не трогая логотип */
+    text-align: center;
+    padding: 0;        /* Убираем внутреннюю пустоту */
+    background: transparent;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
 
         .gow-ru-line {
             display: block;
@@ -179,7 +181,7 @@
         .m-logo img { width: 100px; }
         
         /* HERO SECTION (MAIN BLOCK) */
-        .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+        .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px 20px 20px; display: flex; flex-direction: column; gap: 20px; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 10px 0; font-weight: 800; }
 
         /* ABOUT US SECTION (Optimized for Desktop) */
@@ -287,8 +289,12 @@
                 gap: 50px;
             }
 
-            .hero-title-block { flex: 1.4; text-align: left; }
-            .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
+            .hero-title-block {
+    margin-top: -40px; /* Принудительно подтягивает блок с языками вверх к анимации */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;         /* Уменьшаем расстояние между элементами внутри этого блока, если стояло больше */
+}
 
             .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
             .quality-title-pc { font-size: 18px; color: #1a2b3c; font-weight: 700; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
