@@ -67,27 +67,34 @@
 
     <style>
         /* Базовые стили */
+        html, body { 
+            overflow-x: hidden; 
+            max-width: 100%;
+        }
+
+        * { box-sizing: border-box; }
+
         body { 
-    font-family: 'Segoe UI', sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    /* Указываем точный путь к картинке на сервере translationboard.mn */
-    background: #ffffff url('https://translationboard.mn/Office1.png') no-repeat center top; 
-    background-size: cover; 
-    background-attachment: fixed; 
-    text-align: center; 
-    color: #333; 
-}
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            /* Указываем точный путь к картинке на сервере translationboard.mn */
+            background: #ffffff url('https://translationboard.mn/Office1.png') no-repeat center top; 
+            background-size: cover; 
+            background-attachment: fixed; 
+            text-align: center; 
+            color: #333; 
+        }
         .m-header { background: #000; color: #fff; padding: 15px; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
         .m-logo { padding: 20px; }
         .m-logo img { width: 100px; }
         
-        .hero-mobile { padding: 20px; text-align: left; }
+        .hero-mobile { padding: 10px 20px 20px; text-align: left; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 5px 0 15px; font-weight: 800; text-align: center; }
         
-                .gow-text-container {
+        .gow-text-container {
             text-align: center;
-            padding: 20px 0;
+            padding: 0 0 5px;
             background: transparent;
             width: 100%;
             max-width: 100%;
@@ -100,6 +107,7 @@
             white-space: nowrap;
             margin-bottom: 8px;
             width: 100%;
+            max-width: 100%;
         }
 
         .gow-letter-box {
