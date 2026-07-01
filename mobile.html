@@ -287,6 +287,48 @@
         
         .m-contact { background: #f4f4f4; padding: 25px; margin-top: 30px; font-size: 14px; text-align: center; }
 
+        .advantages-block {
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding: 20px 15px 25px;
+            text-align: left;
+        }
+
+        .advantages-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .advantages-layout > h3 {
+            flex: 0 0 220px;
+            font-size: 18px;
+            color: #1a2b3c;
+            margin: 0;
+            padding-left: 5px;
+        }
+
+        .advantages-layout > ul {
+            flex: 1;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .advantages-layout {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .advantages-layout > h3 {
+                flex-basis: auto;
+                padding-left: 0;
+            }
+        }
+
         .scroll-top-btn {
             position: fixed;
             bottom: 25px;
@@ -705,32 +747,34 @@
     </details>
 </section>
 
-<div class="reveal" style="background: #fff; border-top: 1px solid #eee; padding-top: 20px; text-align: left;">
-    <h3 style="font-size: 18px; color: #1a2b3c; margin-bottom: 18px; padding-left: 5px;">🌟 Манай давуу тал:</h3>
-    
-    <ul class="reveal-list" style="list-style: none; padding: 0; margin: 0;">
-        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-            <span style="min-width: 25px; text-align: center;">⚡</span> 
-            <span><b>Орчуулгыг хурдан шуурхай хийнэ.</b> Онлайн захиалгыг богино хугацаанд хүлээн авч чанартай орчуулга хийж гүйцэтгэнэ.</span>
-        </li>
-        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-            <span style="min-width: 25px; text-align: center;">🌍</span> 
-            <span><b>Гадаад мэргэжилтнүүдтэй ажилладаг.</b> Хамт олон маань төрсөн хэлээрээ ярьдаг ба гадаад орчуулагчтай хамтран ажилладаг.</span>
-        </li>
-        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-            <span style="min-width: 25px; text-align: center;">🏛️</span> 
-            <span><b>Элчин сайдын яамны визний зөвлөгөө өгнө.</b> Элчин сайдын яамны стандартын дагуу орчуулга хийж материалыг бэлтгэх төдийгүй визний материал бүрдүүлэх явцад асуудлыг шийдвэрлэнэ. Австрали, Америк, Европын Холбооны улсын визний материал чанартай орчуулна.</span>
-        </li>
-        <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-            <span style="min-width: 25px; text-align: center;">🏢</span> 
-            <span><b>Оффис дээр үйлчилгээ үзүүлнэ.</b> Манай орчуулгын товчоо нь орчуулга онлайнаар хийдэг ч үйлчлүүлэгч бүр манай оффис дээр биеэр ирж үйлчлүүлэх боломжтой.</span>
-        </li>
-        <li style="margin-bottom: 5px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-            <span style="min-width: 25px; text-align: center;">🃏</span> 
-            <span><b>Манай орчуулгын товчоо нь дагалдах үйлчилгээ үзүүлдэг.</b> Жишээлбэл:
-Үйлчлүүлэгчид олон улсын Аяллын eSIM, биет сим картын санал болгож аяллын турш хамгийн сайхан дурсамж үлдээх гэж үүрэн холбооны үйлчилгээг үзүүлнэ.</span>
-        </li>
-    </ul>
+<div class="reveal advantages-block">
+    <div class="advantages-layout">
+        <h3>🌟 Манай давуу тал:</h3>
+        
+        <ul class="reveal-list">
+            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                <span style="min-width: 25px; text-align: center;">⚡</span> 
+                <span><b>Орчуулгыг хурдан шуурхай хийнэ.</b> Онлайн захиалгыг богино хугацаанд хүлээн авч чанартай орчуулга хийж гүйцэтгэнэ.</span>
+            </li>
+            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                <span style="min-width: 25px; text-align: center;">🌍</span> 
+                <span><b>Гадаад мэргэжилтнүүдтэй ажилладаг.</b> Хамт олон маань төрсөн хэлээрээ ярьдаг ба гадаад орчуулагчтай хамтран ажилладаг.</span>
+            </li>
+            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                <span style="min-width: 25px; text-align: center;">🏛️</span> 
+                <span><b>Элчин сайдын яамны визний зөвлөгөө өгнө.</b> Элчин сайдын яамны стандартын дагуу орчуулга хийж материалыг бэлтгэх төдийгүй визний материал бүрдүүлэх явцад асуудлыг шийдвэрлэнэ. Австрали, Америк, Европын Холбооны улсын визний материал чанартай орчуулна.</span>
+            </li>
+            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                <span style="min-width: 25px; text-align: center;">🏢</span> 
+                <span><b>Оффис дээр үйлчилгээ үзүүлнэ.</b> Манай орчуулгын товчоо нь орчуулга онлайнаар хийдэг ч үйлчлүүлэгч бүр манай оффис дээр биеэр ирж үйлчлүүлэх боломжтой.</span>
+            </li>
+            <li style="margin-bottom: 5px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                <span style="min-width: 25px; text-align: center;">🃏</span> 
+                <span><b>Манай орчуулгын товчоо нь дагалдах үйлчилгээ үзүүлдэг.</b> Жишээлбэл:
+    Үйлчлүүлэгчид олон улсын Аяллын eSIM, биет сим картын санал болгож аяллын турш хамгийн сайхан дурсамж үлдээх гэж үүрэн холбооны үйлчилгээг үзүүлнэ.</span>
+            </li>
+        </ul>
+    </div>
 </div>
     
 <section id="work" class="our-work-section">
