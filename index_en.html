@@ -80,16 +80,14 @@
 
         /* CONTAINER FOR GOD OF WAR EFFECT (DESKTOP) */
         .gow-ru-text-container {
-    margin-top: -75px; /* Этот маржин безопасно подвинет надпись вверх, не трогая логотип */
-    text-align: center;
-    padding: 0;        /* Убираем внутреннюю пустоту */
-    background: transparent;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-    overflow: hidden;
-}
+            text-align: center;
+            padding: 10px 0;
+            background: transparent;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
 
         .gow-ru-line {
             display: block;
@@ -212,7 +210,7 @@
         .m-logo img { width: 100px; }
         
         /* HERO SECTION (MAIN BLOCK) */
-        .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 20px 20px 20px; display: flex; flex-direction: column; gap: 20px; }
+        .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
         .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 10px 0; font-weight: 800; }
 
         /* ABOUT US SECTION (Optimized for Desktop) */
@@ -283,8 +281,9 @@
         .scroll-top-btn { position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px; background: #d4a035; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
 
         /* LANGUAGE TAGS WITH FLAGS */
-        .lang-tags { display: flex !important; justify-content: center !important; flex-wrap: nowrap !important; gap: 10px !important; margin: 20px auto !important; width: 100% !important; }
-        .tag { display: inline-flex !important; align-items: center !important; background: #f8f9fa; border: 1px solid #e0e0e0; padding: 8px 18px; border-radius: 50px; font-size: 14px; font-weight: 600; color: #1a2b3c; margin: 5px; gap: 10px; white-space: nowrap !important; flex-shrink: 0 !important; }
+        .lang-tags { display: flex !important; justify-content: center !important; flex-wrap: nowrap !important; gap: 12px !important; margin: 20px auto !important; width: 100% !important; }
+        .tag { display: inline-flex !important; align-items: center !important; background: #f8f9fa !important; border: 1px solid #e0e0e0 !important; padding: 8px 18px !important; border-radius: 50px !important; font-size: 14px !important; font-weight: 600 !important; color: #1a2b3c !important; gap: 10px !important; white-space: nowrap !important; flex-shrink: 0 !important; margin: 0 !important; transition: 0.3s ease !important; }
+        .tag:hover { background: #fff !important; border-color: #d4a035 !important; transform: translateY(-2px) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important; }
         .tag i { color: #d4a035; font-size: 16px; }
         .flag-svg { width: 24px !important; height: 18px !important; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: pixelated; display: inline-block; vertical-align: middle; margin-right: 8px; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.1); flex-shrink: 0 !important; }
 
@@ -320,12 +319,9 @@
                 gap: 50px;
             }
 
-            .hero-title-block {
-    margin-top: -40px; /* Принудительно подтягивает блок с языками вверх к анимации */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;         /* Уменьшаем расстояние между элементами внутри этого блока, если стояло больше */
-}
+            .hero-title-block { flex: 1.4; text-align: left; }
+                
+            .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
 
             .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
             .quality-title-pc { font-size: 18px; color: #1a2b3c; font-weight: 700; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
@@ -442,16 +438,11 @@
         <div class="translation-board-text">TRANSLATION BOARD LLC</div>
     </div>
 
-    <div class="hero-wrapper">
-        
 <div class="hero-title-block">
-    
-    <h1 style="position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;">
+  <h1 style="position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important;">
     Translation Bureau in Ulaanbaatar - TRANSLATION BOARD LLC
 </h1>
 
-</div>
-    
     <div class="gow-ru-text-container">
         <div class="gow-ru-line gow-ru-line-1">
             <div class="gow-ru-letter-box ru-box-1-1"><span class="gow-ru-item rune-ru">ᛏ</span><span class="gow-ru-item letter-ru">T</span></div>
@@ -484,7 +475,6 @@
     <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/kr.svg" class="flag-svg" alt="Korean flag"> Korean</span>
     <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/jp.svg" class="flag-svg" alt="Japanese flag"> Japanese</span>
     <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" class="flag-svg" alt="Mongolian flag"> Mongolian</span>
-</div>
 </div>
 </div>
 
