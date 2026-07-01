@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+В<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -249,6 +249,48 @@
     .m-call { background: #c61a30; color: #fff; }
     
     .m-contact { background: #f4f4f4; padding: 25px; margin-top: 30px; font-size: 14px; text-align: center; }
+
+    .advantages-block {
+        background: #fff;
+        border-top: 1px solid #eee;
+        padding: 20px 15px 25px;
+        text-align: left;
+    }
+
+    .advantages-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .advantages-layout > h3 {
+        flex: 0 0 220px;
+        font-size: 18px;
+        color: #1a2b3c;
+        margin: 0;
+        padding-left: 5px;
+    }
+
+    .advantages-layout > ul {
+        flex: 1;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .advantages-layout {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .advantages-layout > h3 {
+            flex-basis: auto;
+            padding-left: 0;
+        }
+    }
 
     .scroll-top-btn {
         position: fixed;
@@ -646,30 +688,32 @@
     </details>
 </section>
 
-    <div style="background: #fff; border-top: 1px solid #eee; padding-top: 20px; text-align: left;">
-        <h3 style="font-size: 18px; color: #1a2b3c; margin-bottom: 18px; padding-left: 5px;">🌟 OUR ADVANTAGES:</h3>
-        <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-                <span style="min-width: 25px; text-align: center;">⚡</span> 
-                <span><b>Efficiency:</b> We process online requests promptly and ensure timely completion of orders without compromising translation quality.</span>
-            </li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-                <span style="min-width: 25px; text-align: center;">🌍</span> 
-                <span><b>International Specialists:</b> We cooperate with international translators and specialized language professionals, ensuring a high level of accuracy and a professional approach to every project.</span>
-            </li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-                <span style="min-width: 25px; text-align: center;">🏛️</span> 
-                <span><b>Embassy Compliance:</b> Translations and supporting documents are prepared in accordance with the requirements and standards of foreign embassies and consulates.</span>
-            </li>
-            <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-                <span style="min-width: 25px; text-align: center;">🏢</span> 
-                <span><b>Office Services:</b> Clients may receive consultations and place orders directly at our office at a convenient time.</span>
-            </li>
-            <li style="margin-bottom: 5px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
-                <span style="min-width: 25px; text-align: center;">🇦🇺</span> 
-                <span><b>Australian Visa Consulting</b> We provide professional guidance and Consulting Services on the preparation and completion of documents for Australian visa applications.</span>
-            </li>
-        </ul>
+    <div class="advantages-block">
+        <div class="advantages-layout">
+            <h3>🌟 OUR ADVANTAGES:</h3>
+            <ul class="reveal-list">
+                <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                    <span style="min-width: 25px; text-align: center;">⚡</span> 
+                    <span><b>Efficiency:</b> We process online requests promptly and ensure timely completion of orders without compromising translation quality.</span>
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                    <span style="min-width: 25px; text-align: center;">🌍</span> 
+                    <span><b>International Specialists:</b> We cooperate with international translators and specialized language professionals, ensuring a high level of accuracy and a professional approach to every project.</span>
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                    <span style="min-width: 25px; text-align: center;">🏛️</span> 
+                    <span><b>Embassy Compliance:</b> Translations and supporting documents are prepared in accordance with the requirements and standards of foreign embassies and consulates.</span>
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                    <span style="min-width: 25px; text-align: center;">🏢</span> 
+                    <span><b>Office Services:</b> Clients may receive consultations and place orders directly at our office at a convenient time.</span>
+                </li>
+                <li style="margin-bottom: 5px; display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.4;">
+                    <span style="min-width: 25px; text-align: center;">🇦🇺</span> 
+                    <span><b>Australian Visa Consulting</b> We provide professional guidance and Consulting Services on the preparation and completion of documents for Australian visa applications.</span>
+                </li>
+            </ul>
+        </div>
     </div>
 
     
