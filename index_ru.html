@@ -6,7 +6,7 @@
 
     <title>ООО Доска Переводов | Сертифицированное Бюро переводов в Улан-Баторе</title>
 
-    <meta name="description" content="Профессиональное бюро переводов. Официальный перевод документов на русский, английский и монгольский языки в Улан-Баторе. Быстро и надежно. Звоните!">
+    <meta name="description" content="Профессиональное бюро переводов. Официальный перевод документов на русский, английский и монгольский языки in Улан-Баторе. Быстро и надежно. Звоните!">
 
     <link rel="shortcut icon" href="https://translationboard.mn/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" href="https://translationboard.mn/favicon-32x32.png" sizes="32x32">
@@ -23,6 +23,13 @@
     <meta property="og:image:height" content="630">
 
     <link rel="alternate" media="only screen and (max-width: 640px)" href="https://translationboard.mn/mobile_ru.html">
+
+    <!-- ПРАВИЛЬНЫЙ МОБИЛЬНЫЙ РЕДИРЕКТ ДЛЯ РУССКОЙ ВЕРСИИ -->
+    <script>
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = "https://translationboard.mn/mobile_ru.html";
+    }
+    </script>
 
     <link rel="canonical" href="https://translationboard.mn/index_ru.html" />
     <link rel="alternate" hreflang="mn" href="https://translationboard.mn/" />
@@ -56,10 +63,10 @@
         "addressCountry": "MN"
       },
       "geo": {
-  "@type": "GeoCoordinates",
-  "latitude": "47.917496", 
-  "longitude": "106.9343258"
-}
+        "@type": "GeoCoordinates",
+        "latitude": "47.917496", 
+        "longitude": "106.9343258"
+      }
     }
     </script>
 
