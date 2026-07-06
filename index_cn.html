@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Translation Board LLC | 翻译板有限公司</title>
+
+    <meta name="description" content="乌兰巴托专业翻译机构。为英文、俄文、蒙古文和中文文件提供正规、快速、可靠的翻译服务。欢迎咨询。">
+
+    <link rel="shortcut icon" href="https://translationboard.mn/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" href="https://translationboard.mn/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://translationboard.mn/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://translationboard.mn/android-icon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://translationboard.mn/apple-icon-180x180.png">
+
+    <link rel="manifest" href="https://translationboard.mn/manifest.json">
+    <meta name="msapplication-config" content="https://translationboard.mn/browserconfig.xml">
+
+    <meta property="og:image" content="https://translationboard.mn/FORPAGESHARELOGO.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://translationboard.mn/mobile_cn.html">
+
+    <!-- 中文版移动端跳转 -->
+    <script>
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = "https://translationboard.mn/mobile_cn.html";
+    }
+    </script>
+
+    <link rel="canonical" href="https://translationboard.mn/index_cn.html" />
+    <link rel="alternate" hreflang="mn" href="https://translationboard.mn/" />
+    <link rel="alternate" hreflang="ru" href="https://translationboard.mn/index_ru.html" />
+    <link rel="alternate" hreflang="en" href="https://translationboard.mn/index_en.html" />
+    <link rel="alternate" hreflang="zh" href="https://translationboard.mn/index_cn.html" />
+    <link rel="alternate" hreflang="x-default" href="https://translationboard.mn/" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+    <!-- 中文版本地业务结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "翻译板有限公司",
+      "alternateName": "Translation Board LLC",
+      "url": "https://translationboard.mn/index_cn.html",
+      "logo": "https://translationboard.mn/LOGO.gif",
+      "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
+      "description": "乌兰巴托专业翻译机构。为英文、俄文、蒙古文和中文文件提供正规、快速、可靠的翻译服务。欢迎咨询。",
+      "telephone": "+976-80599859", 
+      "priceRange": "₮₮",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "蒙古国乌兰巴托市巴彦珠尔赫区和平大道，摔跤宫右侧，Erkhet大厦10层1006室",
+        "addressLocality": "乌兰巴托",
+        "addressCountry": "MN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "47.917496", 
+        "longitude": "106.9343258"
+      }
+    }
+    </script>
+
+<style>
+        /* БАЗОВЫЕ СТИЛИ */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #ffffff url('https://translationboard.mn/OfficeLAPTOP.png') no-repeat center top; 
+            background-size: cover; 
+            background-attachment: fixed; 
+            text-align: center; 
+            color: #333; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
+        }
+
+        /* HERO ANIMATION FOR CHINESE VERSION */
+        .gow-mn-text-container {
+            text-align: center;
+            padding: 10px 0;
+            background: transparent;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .gow-mn-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap; 
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .gow-mn-line-1 {
+            margin-bottom: 10px;
+        }
+
+        .gow-mn-line-1 .gow-mn-letter-box,
+        .gow-mn-line-2 .gow-mn-letter-box {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 100px;
+            margin: 0 6px;
+            vertical-align: middle;
+        }
+
+        .gow-mn-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            user-select: none;
+        }
+
+        .gow-mn-letter-box .rune-mn {
+            font-family: 'Segoe UI Historic', 'Arial', sans-serif;
+            font-size: 4.2rem !important;
+            font-weight: bold;
+            background: linear-gradient(135deg, #9a741e 0%, #f9e497 25%, #d4af37 50%, #ffffff 65%, #b38f2d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(1px 1px 0.5px #5c4308) 
+                    drop-shadow(-0.5px -0.5px 0.5px #fff5cc)
+                    drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
+            opacity: 0;
+            transform: scale(1);
+            animation: gowGoldExplodeMn 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        .gow-mn-letter-box .letter-mn {
+            font-family: 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+            font-weight: 900;
+            font-size: 3.6rem !important;
+            color: #1c2e3d; 
+            opacity: 0;
+            transform: scale(0.9);
+            animation: gowLetterRevealMn 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes gowGoldExplodeMn {
+            0% { opacity: 0; transform: scale(1.25); filter: blur(3px) brightness(2) drop-shadow(0 0 15px #ffaa00); }
+            15% { opacity: 1; transform: scale(1); filter: drop-shadow(1px 1px 0.5px #5c4308) drop-shadow(-0.5px -0.5px 0.5px #fff5cc) drop-shadow(0 0 6px rgba(212, 175, 55, 0.5)); }
+            45% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 12px #ff4500) brightness(1.7) contrast(1.2); }
+            70% { opacity: 0.5; transform: scale(1.05); filter: blur(2px) brightness(0.8); }
+            100% { opacity: 0; transform: scale(0.85); filter: blur(12px); }
+        }
+
+        @keyframes gowLetterRevealMn {
+            0% { opacity: 0; transform: scale(0.85); filter: blur(5px) brightness(3); color: #ffffff; text-shadow: 0 0 12px rgba(255,255,255,1); }
+            45% { opacity: 0.7; filter: blur(2px) brightness(2); color: #ffffff; text-shadow: 0 0 20px #ffffff, 0 0 12px #ff8c00; }
+            100% { opacity: 1; transform: scale(1); filter: blur(0px); color: #1c2e3d; text-shadow: 1px 1px 0px #2f3e4e, 2px 2px 0px #13202d, 2px 4px 4px rgba(0, 0, 0, 0.25); }
+        }
+
+        .mn-box-1-1 .letter-mn, .mn-box-1-1 .rune-mn { animation-delay: 0.30s; }
+        .mn-box-1-2 .letter-mn, .mn-box-1-2 .rune-mn { animation-delay: 0.60s; }
+        .mn-box-1-3 .letter-mn, .mn-box-1-3 .rune-mn { animation-delay: 0.90s; }
+        .mn-box-1-4 .letter-mn, .mn-box-1-4 .rune-mn { animation-delay: 1.20s; }
+        .mn-box-2-1 .letter-mn, .mn-box-2-1 .rune-mn { animation-delay: 1.40s; }
+        .mn-box-2-2 .letter-mn, .mn-box-2-2 .rune-mn { animation-delay: 1.70s; }
+        .mn-box-2-3 .letter-mn, .mn-box-2-3 .rune-mn { animation-delay: 2.00s; }
+        .mn-box-2-4 .letter-mn, .mn-box-2-4 .rune-mn { animation-delay: 2.30s; }
+        
+        /* ШАПКА */
+        .m-header { background: #000; color: #fff; padding: 10px 20px; font-weight: bold; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .pc-nav { display: none; list-style: none; gap: 20px; margin: 0; padding: 0; }
+        .pc-nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .pc-nav a:hover { color: #d4a035; }
+
+        /* ЛОГОТИП */
+        .m-logo { padding: 20px; }
+        .m-logo img { width: 100px; }
+        
+        /* ГЛАВНЫЙ БЛОК (HERO) */
+        .hero-wrapper { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+        .hero-mobile h1 { font-size: 32px; color: #1a2b3c; margin: 10px 0; font-weight: 800; }
+
+        /* БЛОК «О КОМПАНИИ» */
+        .about-centered {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 40px;
+            text-align: justify;
+            text-justify: inter-word;
+            color: #333333;
+        }
+
+        .about-centered h2 {
+            color: #1a2b3c;
+            text-align: center;
+            margin-bottom: 45px;
+            font-size: 34px;
+            border-bottom: 2px solid #d4a035;
+            display: block;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-centered p { font-size: 16px; line-height: 1.75; margin-bottom: 22px; }
+        .about-centered .lead-text { font-size: 18px; line-height: 1.7; color: #1a2b3c; }
+        .about-centered strong { color: #c61a30; }
+
+        /* КАРТОЧКИ ДИРЕКТОРА / КОМАНДЫ */
+        .staff-container { display: flex; flex-direction: column; gap: 10px; text-align: left; margin-top: 20px; }
+        .staff-card { display: flex; align-items: center; gap: 15px; padding: 15px; border-bottom: 1px solid #f0f0f0; }
+
+        /* СЛАЙДЕР (КРУПНЫЙ) */
+        .our-work-section { padding: 40px 0; background-color: #fff; overflow: hidden; }
+        .work-title { font-size: 24px; font-weight: bold; border-left: 4px solid #d4a035; padding-left: 15px; margin: 0 auto 20px; max-width: 1160px; text-align: left; }
+        .marquee-window { width: 100%; overflow: hidden; height: 320px; display: flex; align-items: center; }
+        .marquee-track { display: flex; width: max-content; gap: 20px; animation: scroll-right 25s linear infinite; }
+        .marquee-track img { width: 400px; height: 280px; object-fit: contain; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #fff; transition: 0.3s; flex-shrink: 0; }
+        .marquee-track:hover { animation-play-state: paused; }
+        .marquee-track img:hover { transform: scale(1.05); }
+
+        @keyframes scroll-right { 
+            0% { transform: translateX(calc(-50% - 10px)); } 
+            100% { transform: translateX(0); } 
+        }
+
+        /* УСЛУГИ И ТАРИФЫ */
+        .services-grid, .price-container { display: grid; grid-template-columns: 1fr; gap: 15px; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .service-card, details { background: #f9f9f9; border-radius: 12px; border: 1px solid #eee; text-align: left; overflow: hidden; }
+        summary { padding: 18px; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+        summary::after { content: '+'; color: #d4a035; font-size: 20px; }
+        details[open] summary::after { content: '−'; }
+
+        /* БЛОК ЗАКАЗА И КНОПКИ */
+        .order-section { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; max-width: 1100px; margin: -40px auto 40px; padding: 0 20px 30px; background: #fff; }
+        .order-section + p { margin-top: 0 !important; }
+        .order-info { flex: 1; min-width: 300px; text-align: left; }
+        .buttons-container-side { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 15px; }
+        .m-btn { display: block; padding: 18px; border-radius: 12px; text-decoration: none; font-weight: 800; text-align: center; transition: 0.3s; font-size: 16px; color: #000; background: #d4a035; margin-bottom: 10px; }
+        .m-call { background: #c1121f; color: #fff; }
+        .m-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        /* КНОПКА НАВЕРХ */
+        .scroll-top-btn { position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px; background: #d4a035; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; z-index: 2000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+
+        /* ЯЗЫКОВЫЕ ТЕГИ */
+        .lang-tags { display: flex !important; justify-content: center !important; flex-wrap: nowrap !important; gap: 12px !important; margin: 20px auto !important; width: 100% !important; }
+        .tag { display: inline-flex !important; align-items: center !important; background: #f8f9fa !important; border: 1px solid #e0e0e0 !important; padding: 8px 18px !important; border-radius: 50px !important; font-size: 14px !important; font-weight: 600 !important; color: #1a2b3c !important; gap: 10px !important; white-space: nowrap !important; flex-shrink: 0 !important; margin: 0 !important; transition: 0.3s ease !important; }
+        .tag:hover { background: #fff !important; border-color: #d4a035 !important; transform: translateY(-2px) !important; box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important; }
+        .tag i { color: #d4a035; font-size: 16px; }
+        .flag-svg { width: 24px !important; height: 18px !important; display: inline-block !important; vertical-align: middle; margin-right: 0 !important; border-radius: 2px !important; object-fit: cover !important; box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important; flex-shrink: 0 !important; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; image-rendering: pixelated; }
+
+        /* РАЗДЕЛИТЕЛЬ */
+        .section-divider { border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(212, 160, 53, 0.75), rgba(0, 0, 0, 0)); margin: 40px auto; width: 80%; max-width: 800px; }
+
+        /* ПРЕИМУЩЕСТВА */
+        .advantages-section { background: #fff; border-top: 1px solid #eee; padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+        .advantages-title { font-size: 24px; color: #1a2b3c; margin-bottom: 30px; text-align: left; font-weight: 800; }
+        .advantages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .advantage-card { display: flex; align-items: flex-start; gap: 15px; padding: 20px; background: #fdfdfd; border: 1px solid #f0f0f0; border-radius: 15px; transition: 0.3s; text-align: left; }
+        .advantage-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: #d4a035; }
+        .adv-icon { font-size: 24px; min-width: 35px; text-align: center; }
+        .advantage-card b { display: block; font-size: 16px; color: #1a2b3c; margin-bottom: 5px; }
+        .advantage-card p { margin: 0; font-size: 14px; color: #555; line-height: 1.5; }
+
+        /* ФУТЕР */
+        .footer-flex { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .footer-text { flex: 1; min-width: 300px; text-align: left; }
+        .footer-image { flex: 1; min-width: 300px; }
+        .footer-image img { width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        .footer-image img:hover { transform: scale(1.02); }
+
+        /* МЕДИА-ЗАПРОСЫ ДЛЯ ДЕСКТOПА */
+        @media (min-width: 1024px) {
+            .hero-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 60px 40px;
+                max-width: 1300px;
+                margin: 0 auto;
+                gap: 50px;
+            }
+
+            .hero-title-block { flex: 1.4; text-align: left; }
+                
+            .hero-title-block .lang-tags { justify-content: flex-start; margin-top: 10px; }
+
+            .hero-info-frame { flex: 0.8; background: #fdfdfd; padding: 30px; border-radius: 16px; border: 1px solid #e0e0e0; box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-align: left; }
+            .quality-title-pc { font-size: 18px; color: #1a2b3c; font-weight: 700; margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+            .hero-info-frame p { font-size: 14px; color: #555; line-height: 1.6; margin: 0; }
+
+            .services-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="m-header">
+        <span>翻译板有限公司</span>
+        
+        <ul class="pc-nav">
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#services">我们的服务</a></li>
+            <li><a href="#work">我们的作品</a></li>
+            <li><a href="#price">价格表</a></li>
+            <li><a href="#location">联系信息</a></li>
+            <li><a href="#order" style="color: #d4a035; font-weight: bold;">如何下单？</a></li>
+        </ul>
+
+        <div style="display: flex; gap: 8px; margin-left: auto; margin-right: 15px;">
+            <a href="index.html" title="Монгол" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" alt="蒙古国旗" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+            </a>
+            <a href="index_en.html" title="English" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" alt="英国国旗" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+            </a>
+            <a href="index_ru.html" title="Русский" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" alt="俄罗斯国旗" style="width: 20px; border-radius: 2px; display: block; opacity: 0.8;">
+            </a>
+            <a href="index_cn.html" title="中文" style="text-decoration: none;">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" alt="中国国旗" style="width: 20px; border-radius: 2px; display: block; border: 1px solid #d4a035; box-shadow: 0 0 5px rgba(212, 160, 53, 0.6);">
+            </a>
+        </div>
+
+        <div id="menu-icon" onclick="toggleMenu(event)" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 22px; height: 14px; position: relative; z-index: 1001;">
+            <div class="line" style="width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s ease; transform-origin: left center;"></div>
+            <div class="line" style="width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s ease;"></div>
+            <div class="line" style="width: 22px; height: 2px; background: white; border-radius: 2px; transition: 0.3s ease; transform-origin: left center;"></div>
+        </div>
+    </header>
+
+<main>
+    <nav id="mobile-nav" style="display: none; background: #1a2b3c; position: fixed; width: 100%; z-index: 999;">
+        <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+            <li><a href="#about" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">🏢 关于我们</a></li>
+            <li><a href="#services" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">⚙️ 我们的服务</a></li>
+            <li><a href="#work" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💼 我们的作品</a></li>
+            <li><a href="#price" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">💰 价格表</a></li>
+            <li><a href="#location" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">📍 联系信息</a></li>
+            <li><a href="#order" onclick="toggleMenu(event)" style="display: block; color: white; padding: 15px 25px; text-decoration: none; border-bottom: 1px solid #2c3e50;">📝 如何下单?</a></li>
+        </ul>
+    </nav>
+
+    <div class="m-logo">
+        <img src="LOGO.gif" alt="LOGO" fetchpriority="high">
+        <div class="translation-board-text">翻译板有限公司</div>
+</div>
+
+<div class="hero-title-block">
+  <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">乌兰巴托翻译局 — 翻译板有限公司</h1>
+
+        <div class="gow-mn-text-container">
+                <div class="gow-mn-line gow-mn-line-1">
+                    <div class="gow-mn-letter-box mn-box-1-1"><span class="gow-mn-item rune-mn">ᛒ</span><span class="gow-mn-item letter-mn">翻</span></div>
+                    <div class="gow-mn-letter-box mn-box-1-2"><span class="gow-mn-item rune-mn">ᚢ</span><span class="gow-mn-item letter-mn">译</span></div>
+                    <div class="gow-mn-letter-box mn-box-1-3"><span class="gow-mn-item rune-mn">ᚱ</span><span class="gow-mn-item letter-mn">服</span></div>
+                </div>
+                <div class="gow-mn-line gow-mn-line-2">
+                    <div class="gow-mn-letter-box mn-box-2-1"><span class="gow-mn-item rune-mn">ᛏ</span><span class="gow-mn-item letter-mn">务</span></div>
+                    <div class="gow-mn-letter-box mn-box-2-2"><span class="gow-mn-item rune-mn">ᛖ</span><span class="gow-mn-item letter-mn">局</span></div>
+                </div>
+            </div>
+
+    <div class="lang-tags">
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" alt="俄罗斯国旗" class="flag-svg"> 俄语</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" alt="英国国旗" class="flag-svg"> 英语</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" alt="中国国旗" class="flag-svg"> 中文</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/kr.svg" alt="韩国国旗" class="flag-svg"> 韩语</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/jp.svg" alt="日本国旗" class="flag-svg"> 日语</span>
+    <span class="tag"><img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" alt="蒙古国旗" class="flag-svg"> 蒙古语</span>
+</div>
+
+<hr class="section-divider" id="about">
+
+<section class="about-centered">
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            关于我们
+        </h2>
+    <p><b>翻译板有限公司</b>成立于2023年，致力于为蒙古国公民及海外客户提供符合国际质量标准的中高端翻译服务。公司专注于各类书面文件的翻译，始终将准确性、保密性与专业责任感置于首位。我们以高质量交付、快速响应和个性化服务为核心原则，力求每一份译稿都精准契合客户预期。</p>
+
+<p>公司核心团队由蒙古语、俄语和英语资深译员组成，同时与中文、日语及韩语领域的外部专家保持密切合作。我们严格执行双重质量控制体系：每份译稿在交付前均由公司负责人亲自复核，确保术语准确、表述规范、忠实于原文。</p>
+
+<p>翻译板有限公司持有正式经营许可，并使用蒙古国认证翻译协会官方印章，充分体现了我司在合法合规与专业资质方面的坚实保障。</p>
+
+<p>公司负责人为综合翻译师，俄罗斯籍，拥有专业语言学硕士学位，先后毕业于扎巴伊卡尔斯克国立大学与蒙古国国立大学。其丰富的行业经验与扎实的学术背景，是我们服务品质的重要支撑。</p>
+
+<p>我们珍视每一位客户的信任，致力于建立长期合作关系，为个人、企业及国际合作伙伴提供稳定、可靠、高质量的翻译解决方案。</p>
+</section>
+
+    <div class="hero-info-card">
+    <div class="quality-badge">
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            质量控制
+        </h2>
+        <p style="text-align: center; width: 100%; max-width: 1160px; margin-left: auto; margin-right: auto; line-height: 1.75; font-size: 16px;">
+            我们始终秉持 <b>专业责任感</b> 与 <b>高标准质量</b> 的服务理念。每一份译稿在交付前，均由公司主译进行 <b>严格复核</b>，确保译文精准、术语规范、错误率降至最低。这套双重质量控制体系，是我们对每一位客户的郑重承诺与品质保障。
+        </p>
+    </div>
+</div>
+
+<section id="services" style="padding: 40px 0;">
+    <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+        我们的服务
+    </h2>
+    <div class="services-grid">
+        <details class="service-card">
+            <summary>📜 认证翻译</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555; line-height: 1.6;">
+                提供各类文件的专业翻译服务，所有译稿均加盖公司正式印章认证，并经过严格质量审核，确保译文准确、忠实于原文。
+            </div>
+        </details>
+
+        <details class="service-card">
+            <summary>🛂 签证文件准备</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555; line-height: 1.6;">
+                提供签证申请咨询、辅助文件准备，以及提交至外国使领馆所需材料的专业翻译服务。
+            </div>
+        </details>
+
+        <details class="service-card">
+            <summary>🌐 附加服务 — WorldSIM 蒙古</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555; line-height: 1.6;">
+                提供国际旅游物理 SIM 卡与 eSIM 卡的咨询、开通及使用指导，帮助客户在境外顺利使用移动通信服务。
+                <br><br>
+                <div style="display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                    <a href="https://www.facebook.com/profile.php?id=100070001765710" 
+                       target="_blank" 
+                       style="color: #1877F2; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 18px; height: 18px; object-fit: contain; display: block;"> 
+                        访问 WorldSIM 页面
+                    </a>
+                    <span style="color: #ccc;">|</span>
+                    <a href="https://worldsim.translationboard.mn" 
+                       target="_blank" 
+                       style="color: #d4a035; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Website" style="width: 18px; height: 18px; object-fit: contain; display: block;"> 
+                        访问 WorldSIM 网站
+                    </a>
+                </div>
+            </div>
+        </details>
+
+        <details class="service-card">
+            <summary>🖨️ 复印、打印与扫描</summary>
+            <div style="padding: 15px; border-top: 1px solid #eee; color: #555;">
+                提供高质量文件复印、打印与扫描服务，并可将材料整理为数字格式，确保内容清晰可读。
+            </div>
+        </details>
+    </div>
+</section>
+
+<div class="advantages-section">
+    <h3 class="advantages-title">🌟 我们的优势</h3>
+    <div class="advantages-grid">
+        <div class="advantage-card">
+            <span class="adv-icon">⚡</span>
+            <div>
+                <b>高效响应</b>
+                <p>快速处理线上订单，确保准时交付，同时严格把控翻译质量。</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🌍</span>
+            <div>
+                <b>国际译员团队</b>
+                <p>与海外资深译员及多领域专家紧密合作，提供精准、专业的翻译服务。</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🏛️</span>
+            <div>
+                <b>符合使馆要求</b>
+                <p>所有翻译文件及配套材料均严格遵照外国使领馆的规范与标准准备。</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🏢</span>
+            <div>
+                <b>办公室服务</b>
+                <p>客户可随时莅临办公室咨询并直接办理翻译订单，便捷高效。</p>
+            </div>
+        </div>
+        <div class="advantage-card">
+            <span class="adv-icon">🇦🇺</span>
+            <div>
+                <b>澳大利亚签证咨询</b>
+                <p>提供澳大利亚签证申请的专业材料准备与文件翻译咨询服务。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <section id="work" class="our-work-section">
+<h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            我们的作品
+        </h2>
+        <div class="marquee-window">
+            <div class="marquee-track">
+                <img src="mysite1.webp" alt="Пример работы 1"><img src="mysite2.webp" alt="Пример работы 2"><img src="mysite3.webp" alt="Пример работы 3"><img src="mysite4.webp" alt="Пример работы 4"><img src="mysite5.webp" alt="Пример работы 5"><img src="mysite6.webp" alt="Пример работы 6">
+                <img src="mysite1.webp" alt="Пример работы 1"><img src="mysite2.webp" alt="Пример работы 2"><img src="mysite3.webp" alt="Пример работы 3"><img src="mysite4.webp" alt="Пример работы 4"><img src="mysite5.webp" alt="Пример работы 5"><img src="mysite6.webp" alt="Пример работы 6">
+            </div>
+        </div>
+    </section>
+
+    <div style="line-height: 0; background-color: #fff;">
+    <svg viewBox="0 0 1440 120" fill="#f9f9f9" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 32L60 42.7C120 53 240 75 360 80C480 85 600 75 720 58.7C840 43 960 21 1080 16C1200 11 1320 21 1380 26.7L1440 32V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V32Z"></path>
+    </svg>
+</div>
+
+<section id="price" style="padding: 10px 15px 60px; background-color: #f9f9f9; font-family: 'Segoe UI', Arial, sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        
+        <h2 style="color: #1a2b3c; text-align: center; margin-bottom: 40px; font-size: 28px; border-bottom: 2px solid #d4a035; display: block; max-width: 400px; margin-left: auto; margin-right: auto; padding-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
+            价格表
+        </h2>
+
+        <style>
+            .price-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
+            details { background: #fff; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; height: fit-content; }
+            summary { padding: 18px 15px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #c61a30; font-size: 17px; outline: none; }
+            summary::-webkit-details-marker { display: none; }
+            summary::after { content: '+'; font-size: 22px; color: #d4a035; transition: 0.3s; }
+            details[open] summary::after { content: '−'; transform: rotate(180deg); }
+            details[open] summary { border-bottom: 1px solid #eee; }
+            
+            @media (min-width: 1024px) {
+                .price-container { grid-template-columns: 1fr 1fr; gap: 25px; }
+                .price-full-width { grid-column: span 2; }
+            }
+        </style>
+
+        <div class="price-container">
+    <details>
+        <summary>👤 个人文件</summary>
+        <div class="price-list-content">
+            <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                    <li>蒙古国身份证</li>
+                    <li>蒙古国出生证明</li>
+                    <li>蒙古国结婚证明</li>
+                    <li>蒙古国离婚证明</li>
+                    <li>蒙古国死亡证明</li>
+                </ul>
+            </div>
+            <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: #666; font-weight: 600;">单份文件翻译费用：</span>
+                <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">25,000₮</strong>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary>📄 E-Mongolia 证明文件</summary>
+        <div class="price-list-content">
+            <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                    <li>亲属关系证明</li>
+                    <li>出生登记证明</li>
+                    <li>婚姻登记证明</li>
+                    <li>无婚姻登记证明</li>
+                    <li>离婚证明</li>
+                    <li>无犯罪记录证明</li>
+                    <li>身份证登记簿摘录</li>
+                    <li>护照相关证明</li>
+                    <li>居住登记证明</li>
+                </ul>
+            </div>
+            <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: #666; font-weight: 600;">单份文件翻译费用：</span>
+                <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">25,000₮</strong>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary>🏠 财产文件</summary>
+        <div class="price-list-content">
+            <div style="padding: 15px; color: #444; font-size: 14px; line-height: 1.6;">
+                <ul style="margin: 0; padding-left: 18px; font-weight: 500;">
+                    <li>房产所有权证明</li>
+                    <li>土地使用权证明</li>
+                    <li>机动车登记证明</li>
+                </ul>
+            </div>
+            <div style="background: #fdfaf3; padding: 15px; border-top: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 13px; color: #666; font-weight: 600;">单份文件翻译费用：</span>
+                <strong style="color: #1a2b3c; font-size: 18px; font-weight: 800;">25,000₮</strong>
+            </div>
+        </div>
+    </details>
+
+    <details>
+        <summary>🎓 教育文件</summary>
+        <div class="price-list-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee;">
+                <span style="color: #333; font-weight: 500; font-size: 15px;">蒙古国高中毕业证</span>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">35,000₮</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #eee; background: #fcfcfc;">
+                <div>
+                    <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">蒙古国本科学位证</span>
+                    <small style="color: #888; font-size: 12px;">（含成绩单附页）</small>
+                </div>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">45,000₮</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                <div>
+                    <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">俄罗斯本科学位证</span>
+                    <small style="color: #888; font-size: 12px;">（含成绩单附页）</small>
+                </div>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">85,000₮</strong>
+            </div>
+        </div>
+    </details>
+
+    <details class="price-full-width">
+        <summary>💼 法律与商业文件</summary>
+        <div class="price-list-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                <span style="color: #333; font-weight: 500; font-size: 15px;">蒙古国公司注册证书</span>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">35,000₮</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
+                <div>
+                    <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">公司章程</span>
+                    <small style="color: #888; font-size: 12px;">（每页）</small>
+                </div>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000₮</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0;">
+                <div>
+                    <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">财务报表</span>
+                    <small style="color: #888; font-size: 12px;">（每页）</small>
+                </div>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">20,000–30,000₮</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px; border-bottom: 1px solid #f0f0f0; background: #fcfcfc;">
+                <div>
+                    <span style="color: #333; font-weight: 500; font-size: 15px; display: block;">合同与协议</span>
+                    <small style="color: #888; font-size: 12px;">（每页）</small>
+                </div>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000–30,000₮</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 15px;">
+                <span style="color: #333; font-weight: 500; font-size: 15px;">蒙古国委托书</span>
+                <strong style="color: #1a2b3c; font-size: 16px; font-weight: 800;">25,000₮</strong>
+            </div>
+        </div>
+    </details>
+
+    <p style="text-align: center; color: #888; font-size: 13px; line-height: 1.4; margin-top: 30px; margin-left: auto; margin-right: auto; font-style: italic; grid-column: 1 / -1;">
+        <span style="display: inline-block; white-space: nowrap;">* 翻译费用可能因目标语言、文件类型、篇幅及复杂程度而有所调整。</span>
+    </p>
+</div>
+</section>
+
+<section id="order" class="order-section" style="scroll-margin-top: 90px;">
+    <div class="order-info">
+        <p style="font-weight: bold; font-size: 18px; margin-bottom: 15px;">📝 如何下单？</p>
+        <div style="font-size: 15px; color: #444; line-height: 2;">
+            <p><strong>1.</strong> 将文件及相关材料发送至我们的电子邮箱。</p>
+            <p><strong>2.</strong> 我们根据文件内容与翻译要求，通过邮件为您提供费用估算及交付时间，并附上商务方案。</p>
+            <p><strong>3.</strong> 确认订单后，我们将立即启动翻译工作。</p>
+            <p><strong>4.</strong> 翻译完成后，我们会将加盖公司印章的 PDF 电子文件发送给您。</p>
+        </div>
+    </div>
+
+    <div class="buttons-container-side" style="text-align: center;">
+        <a href="mailto:linguocat@gmail.com?subject=翻译订单咨询&body=您好！请为我提供翻译费用和交付时间的报价。" class="m-btn">📧 立即下单</a>
+        <a href="tel:+97680599859" class="m-btn m-call">📞 电话: 8059 9859</a>
+        
+        <p style="font-size: 13px; color: #666; margin-top: 15px; width: 100%; font-family: sans-serif;">
+            或者直接发送文件至：<strong style="color: #1a2b3c; border-bottom: 1px dashed #666; padding-bottom: 2px;">linguocat@gmail.com</strong>
+        </p>
+    </div>
+</section>
+
+<footer class="footer-flex" id="location" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px; padding: 40px 0;">
+    <div class="footer-text" style="flex: 1 1 65%; min-width: 300px;">
+        <h2 style="font-weight: 800; margin-bottom: 15px;">📍 联系信息</h2>
+        <p style="line-height: 1.6; margin-bottom: 20px;">
+            <b>地址：</b>蒙古国乌兰巴托市巴彦卓尔赫区，国家摔跤宫右侧，Erkhet办公室，10层，1006号。<br>
+            <span style="display: inline-block; margin-top: 10px; font-size: 0.95em; color: #555;">
+                <b>营业时间：</b>周一至周五 09:00 - 17:00
+            </span>
+        </p>
+
+        <div style="font-size: 15px; line-height: 1.8;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>📞</span>
+                <a href="tel:+97680599859" style="text-decoration: none; color: inherit; font-weight: 600;">+976 8059 9859</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span>✉️</span>
+                <a href="mailto:linguocat@gmail.com" style="text-decoration: none; color: inherit;">linguocat@gmail.com</a>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 15px; margin: 25px 0;">
+            <a href="https://facebook.com/xxvxxzzv2020/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" style="width: 24px; height: auto; display: block;">
+            </a>
+            <a href="https://wa.me/97680599859" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" style="width: 24px; height: auto; display: block;">
+            </a>
+        </div>
+        
+        <p style="font-size: 11px; opacity: 0.6; margin-top: 30px;">
+            © 2026 Translation Board LLC
+        </p>
+    </div>
+
+    <div class="footer-image" style="flex: 1 1 30%; min-width: 250px; text-align: right;">
+        <a href="https://maps.app.goo.gl/mJLCsUuYmYixMdBG7" target="_blank" style="text-decoration: none; display: block;">
+            <img src="image_5.webp" alt="办公室" style="max-width: 100%; height: auto; border-radius: 8px; display: inline-block;">
+        </a>
+    </div>
+</footer>
+
+<a href="#" class="scroll-top-btn">↑</a>
+
+<script>
+    function toggleMenu(event) {
+        // Если функция вызвана кликом, останавливаем всплытие, 
+        // чтобы клик по бургеру не считался кликом «снаружи меню»
+        if (event) event.stopPropagation();
+
+        var menu = document.getElementById("mobile-nav");
+        var icon = document.getElementById("menu-icon");
+        var lines = icon ? icon.getElementsByClassName('line') : [];
+
+        if (menu) {
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+                
+                // Превращаем полоски в крестик (если они есть)
+                if (lines.length >= 3) {
+                    lines[0].style.transform = 'rotate(45deg) translate(2px, -1px)';
+                    lines[1].style.opacity = '0';
+                    lines[2].style.transform = 'rotate(-45deg) translate(2px, 1px)';
+                }
+            } else {
+                menu.style.display = "none";
+                
+                // Возвращаем полоски в исходное состояние
+                if (lines.length >= 3) {
+                    lines[0].style.transform = 'none';
+                    lines[1].style.opacity = '1';
+                    lines[2].style.transform = 'none';
+                }
+            }
+        }
+    }
+
+    // Слушатель кликов по всей странице: закрывает меню, если кликнули мимо
+    document.addEventListener('click', function(event) {
+        var menu = document.getElementById("mobile-nav");
+        var icon = document.getElementById("menu-icon");
+        
+        // Если меню открыто, и клик был НЕ по меню, и НЕ по иконке бургера — закрываем его
+        if (menu && menu.style.display === 'block') {
+            if (!menu.contains(event.target) && (!icon || !icon.contains(event.target))) {
+                toggleMenu();
+            }
+        }
+    });
+
+    // ВАШ ИСХОДНЫЙ КОД: Проверка устройства и редирект на мобильные версии страниц
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900) {
+        var path = window.location.pathname;
+        var currentPage = path.split("/").pop();
+        
+        if (!currentPage.includes('mobile')) {
+            if (currentPage === "" || currentPage === "index.html" || path === "/") {
+                window.location.href = "mobile.html";
+            } 
+            else if (currentPage === "index_en.html") {
+                window.location.href = "mobile_en.html";
+            } 
+            else if (currentPage === "index_ru.html") {
+                window.location.href = "mobile_ru.html";
+            }
+        }
+    }
+</script>
+</body>
+</html>
