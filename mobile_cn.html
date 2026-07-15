@@ -350,6 +350,14 @@
 
         /* ИСПРАВЛЕНО: Картинки стали аккуратнее, чтобы не перегружать мобильный экран */
         .marquee-track img {
+            width: 130px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0; /* Запрещаем браузеру сжимать картинки */
+        }
 
         .reviews-mobile {
             padding: 20px 25px 40px;
@@ -492,14 +500,6 @@
             color: #888;
             text-decoration: none;
             font-weight: 600;
-        }
-            width: 130px;
-            height: 90px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            flex-shrink: 0; /* Запрещаем браузеру сжимать картинки */
         }
 
         /* ИСПРАВЛЕНО: Идеальный бесшовный цикл, учитывающий gap */
