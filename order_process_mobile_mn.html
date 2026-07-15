@@ -116,8 +116,8 @@
         #mobile-nav a:hover { background: rgba(255, 255, 255, 0.07); }
         main { max-width: 1000px; margin: 0 auto; padding: 26px 20px 50px; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
-        .gow-process-container { text-align: center; margin: 4px 0 16px; padding: 6px 0; }
-        .gow-process-line { display: block; white-space: nowrap; margin-bottom: 10px; width: 100%; }
+        .gow-process-container { text-align: center; margin: 4px 0 16px; padding: 6px 0; display: flex; flex-direction: column; align-items: center; }
+        .gow-process-line { display: inline-block; white-space: nowrap; margin-bottom: 10px; width: auto; }
         .gow-process-line:last-child { margin-bottom: 0; }
         .gow-process-letter-box { display: inline-block; position: relative; width: 36px; height: 48px; margin: 0 2px; vertical-align: middle; }
         .gow-process-space { display: inline-block; width: 14px; }
@@ -158,7 +158,7 @@
         .page-footer .brand-line { font-size: 12px; color: #c61a30; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 8px; }
         .page-footer .copy-line { font-size: 11px; color: #666; }
         @media (max-width: 780px) { .gow-process-letter-box { width: 31px; height: 42px; margin: 0 1.5px; } .gow-process-item.rune { font-size: 33px; } .gow-process-item.letter { font-size: 30px; } .process-item { padding: 14px; gap: 12px; } .policy-grid { grid-template-columns: 1fr; } .media-circle { width: 88px; height: 88px; min-width: 88px; font-size: 11px; } .process-title { font-size: 16px; } }
-        @media (max-width: 560px) { .brand { font-size: 12px; } .lang-switcher { gap: 6px; margin-left: auto; margin-right: 8px; } .lang-switcher img { width: 18px; } .gow-process-letter-box { width: 24px; height: 34px; margin: 0 1px; } .gow-process-item.rune { font-size: 26px; } .gow-process-item.letter { font-size: 23px; } .gow-process-space { width: 10px; } .process-item { gap: 10px; } .process-desc { font-size: 13px; } .media-circle { width: 76px; height: 76px; min-width: 76px; font-size: 10px; } }
+        @media (max-width: 560px) { .brand { font-size: 12px; } .lang-switcher { gap: 6px; margin-left: auto; margin-right: 8px; } .lang-switcher img { width: 18px; } .gow-process-letter-box { width: 22px; height: 34px; margin: 0 0.5px; } .gow-process-item.rune { font-size: 24px; } .gow-process-item.letter { font-size: 21px; } .gow-process-space { width: 8px; } .process-item { gap: 10px; } .process-desc { font-size: 13px; } .media-circle { width: 76px; height: 76px; min-width: 76px; font-size: 10px; } }
             @media (max-width: 900px) {
             body { background-attachment: scroll; background-position: center top; }
             .m-header { padding: calc(10px + env(safe-area-inset-top)) 12px 10px; }
@@ -197,12 +197,12 @@
     </header>
     <nav id="mobile-nav" aria-label="Сайт цэс">
         <ul>
-            <li><a href="https://translationboard.mn/order_process_mobile_mn.html#about">🏢 Бидний тухай</a></li>
-            <li><a href="https://translationboard.mn/order_process_mobile_mn.html#services">⚙️ Үйлчилгээ</a></li>
-            <li><a href="https://translationboard.mn/order_process_mobile_mn.html#work">💼 Манай ажил</a></li>
-            <li><a href="https://translationboard.mn/order_process_mobile_mn.html#price">💰 Үнийн жагсаалт</a></li>
-            <li><a href="https://translationboard.mn/order_process_mobile_mn.html#location">📍 Холбоо барих</a></li>
-            <li><a href="https://translationboard.mn/order_process_mobile_mn.html#order" style="color:#d4a035;font-weight:700;">📝 Захиалга өгөх</a></li>
+            <li><a href="mobile.html#about">🏢 Бидний тухай</a></li>
+            <li><a href="mobile.html#services">⚙️ Үйлчилгээ</a></li>
+            <li><a href="mobile.html#work">💼 Манай ажил</a></li>
+            <li><a href="mobile.html#price">💰 Үнийн жагсаалт</a></li>
+            <li><a href="mobile.html#address">📍 Холбоо барих</a></li>
+            <li><a href="mobile.html#order" style="color:#d4a035;font-weight:700;">📝 Захиалга өгөх</a></li>
         </ul>
     </nav>
     <main>
