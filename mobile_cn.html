@@ -273,7 +273,7 @@
 
         .advantages-layout > h3 {
             flex: 0 0 220px;
-            font-size: 18px;
+            font-size: 24px;
             color: #1a2b3c;
             margin: 0;
             padding-left: 5px;
@@ -325,7 +325,7 @@
         .work-title {
            text-align: left;
            margin-left: 20px;
-           font-size: 18px;
+              font-size: 24px;
            font-weight: bold;
            border-left: 4px solid #d4a035;
            padding-left: 10px;
@@ -1481,8 +1481,6 @@ function startMobileReviewsAutoScroll(grid) {
         mobileReviewsTimer = null;
     }
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     mobileReviewsTimer = setInterval(function() {
         if (mobileReviewsPaused) return;
 
@@ -1514,8 +1512,24 @@ function initMobileReviews() {
         grid.dataset.autoscrollBound = 'true';
         grid.addEventListener('mouseenter', function() { mobileReviewsPaused = true; });
         grid.addEventListener('mouseleave', function() { mobileReviewsPaused = false; });
+        grid.addEventListener('pointerenter', function() { mobileReviewsPaused = true; });
+        grid.addEventListener('pointerleave', function() { mobileReviewsPaused = false; });
         grid.addEventListener('touchstart', function() { mobileReviewsPaused = true; }, { passive: true });
         grid.addEventListener('touchend', function() { mobileReviewsPaused = false; }, { passive: true });
+        grid.addEventListener('touchcancel', function() { mobileReviewsPaused = false; }, { passive: true });
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                mobileReviewsPaused = true;
+            } else {
+                mobileReviewsPaused = false;
+                startMobileReviewsAutoScroll(grid);
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            startMobileReviewsAutoScroll(grid);
+        });
     }
 
     startMobileReviewsAutoScroll(grid);
