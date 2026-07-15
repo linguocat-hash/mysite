@@ -385,6 +385,7 @@
             padding: 5px 2px 10px;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
         }
 
         .reviews-grid-mobile::-webkit-scrollbar {
@@ -1510,13 +1511,41 @@ function initMobileReviews() {
 
     if (grid.dataset.autoscrollBound !== 'true') {
         grid.dataset.autoscrollBound = 'true';
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let startScrollLeft = 0;
+        let touchDragging = false;
+
         grid.addEventListener('mouseenter', function() { mobileReviewsPaused = true; });
         grid.addEventListener('mouseleave', function() { mobileReviewsPaused = false; });
         grid.addEventListener('pointerenter', function() { mobileReviewsPaused = true; });
         grid.addEventListener('pointerleave', function() { mobileReviewsPaused = false; });
-        grid.addEventListener('touchstart', function() { mobileReviewsPaused = true; }, { passive: true });
-        grid.addEventListener('touchend', function() { mobileReviewsPaused = false; }, { passive: true });
-        grid.addEventListener('touchcancel', function() { mobileReviewsPaused = false; }, { passive: true });
+        grid.addEventListener('touchstart', function(event) {
+            mobileReviewsPaused = true;
+            if (!event.touches || !event.touches.length) return;
+            touchDragging = true;
+            touchStartX = event.touches[0].clientX;
+            touchStartY = event.touches[0].clientY;
+            startScrollLeft = grid.scrollLeft;
+        }, { passive: true });
+        grid.addEventListener('touchmove', function(event) {
+            if (!touchDragging || !event.touches || !event.touches.length) return;
+            const deltaX = event.touches[0].clientX - touchStartX;
+            const deltaY = event.touches[0].clientY - touchStartY;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                grid.scrollLeft = startScrollLeft - deltaX;
+                if (event.cancelable) event.preventDefault();
+            }
+        }, { passive: false });
+        grid.addEventListener('touchend', function() {
+            touchDragging = false;
+            mobileReviewsPaused = false;
+        }, { passive: true });
+        grid.addEventListener('touchcancel', function() {
+            touchDragging = false;
+            mobileReviewsPaused = false;
+        }, { passive: true });
 
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
