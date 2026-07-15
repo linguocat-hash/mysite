@@ -27,7 +27,7 @@
     <!-- CORRECT MOBILE REDIRECT FOR ENGLISH VERSION -->
     <script>
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        window.location.href = "https://translationboard.mn/mobile_en.html";
+        window.location.replace("https://translationboard.mn/mobile_en.html");
     }
     </script>
 
@@ -339,6 +339,240 @@
             .services-grid { grid-template-columns: 1fr 1fr; }
         } /* ЗДЕСЬ СКОБКА ТЕПЕРЬ ПРАВИЛЬНО ЗАКРЫВАЕТ МЕДИА-ЗАПРОС */
 
+        /* REVIEWS SECTION */
+        .reviews-section {
+            background: #ffffff;
+            border-top: 1px solid #eee;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .reviews-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a2b3c;
+            border-left: 4px solid #d4a035;
+            padding-left: 15px;
+            margin: 0 auto 35px;
+            max-width: 1160px;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .reviews-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
+            max-width: 1160px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px 5px 30px 5px;
+            align-items: stretch;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .reviews-grid::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .reviews-grid::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+
+        .reviews-grid::-webkit-scrollbar-thumb {
+            background: #d4a035;
+            border-radius: 10px;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-45px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .review-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+            background: #fdfdfd;
+            border: 1px solid #f0f0f0;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            box-sizing: border-box;
+            width: 320px;
+            min-width: 320px;
+            flex: 0 0 320px;
+            height: 390px;
+            opacity: 0;
+            animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @media (max-width: 767px) {
+            .review-card {
+                width: 280px;
+                min-width: 280px;
+                flex-basis: 280px;
+                height: 350px;
+            }
+        }
+
+        .review-card:nth-child(1) { animation-delay: 0.05s; }
+        .review-card:nth-child(2) { animation-delay: 0.12s; }
+        .review-card:nth-child(3) { animation-delay: 0.19s; }
+        .review-card:nth-child(4) { animation-delay: 0.26s; }
+        .review-card:nth-child(5) { animation-delay: 0.33s; }
+        .review-card:nth-child(6) { animation-delay: 0.40s; }
+        .review-card:nth-child(7) { animation-delay: 0.47s; }
+        .review-card:nth-child(8) { animation-delay: 0.54s; }
+        .review-card:nth-child(9) { animation-delay: 0.61s; }
+        .review-card:nth-child(10) { animation-delay: 0.68s; }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-color: #d4a035;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .review-user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .review-meta {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-author {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a2b3c;
+        }
+
+        .review-stars {
+            color: #d4a035;
+            font-size: 14px;
+            margin-top: 2px;
+            letter-spacing: 1px;
+        }
+
+        .review-text {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+            font-style: italic;
+            flex-grow: 1;
+            overflow-y: auto;
+            min-height: 0;
+        }
+
+        .more-btn {
+            background: none;
+            border: none;
+            color: #d4a035;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0;
+            margin-top: -5px;
+            margin-bottom: 15px;
+            text-align: left;
+            display: none;
+            transition: color 0.2s;
+        }
+
+        .more-btn:hover {
+            color: #1a2b3c;
+            text-decoration: underline;
+        }
+
+        .review-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px dashed #e2e8f0;
+            margin-top: auto;
+        }
+
+        .translate-btn {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #1a2b3c;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+        }
+
+        .translate-btn:hover {
+            background: #d4a035;
+            color: #ffffff;
+            border-color: #d4a035;
+        }
+
+        .translate-btn.active {
+            background: #1a2b3c;
+            color: #ffffff;
+            border-color: #1a2b3c;
+        }
+
+        .review-card-link {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 12px;
+            color: #888888;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .review-card-link:hover {
+            color: #d4a035;
+            text-decoration: underline;
+        }
+
         /* Основные стили карточек */
 
 /* Правильное скрытие H1 для поисковых роботов (Accessible Hidden) */
@@ -634,26 +868,215 @@ Translation Board LLC is committed to building long-term professional relationsh
     </svg>
 </div>
 
-<section id="reviews" style="padding: 60px 20px; background-color: #ffffff;">
-    <div style="max-width: 1160px; margin: 0 auto; text-align: left;">
-        
-        <!-- Заголовок: выровнен по левой сетке сайта и имеет фирменную золотую линию слева, как у ".work-title" -->
-        <h2 style="color: #1a2b3c; border-left: 4px solid #d4a035; padding-left: 15px; margin-top: 0; margin-bottom: 35px; font-size: 24px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">
-    Customer Reviews
-</h2>
-        
-        <!-- Контейнер виджета: скругленные углы 16px, адаптивная золотая рамка и мягкая тень для ПК-мониторов -->
-        <div style="background: #ffffff; border-radius: 16px; padding: 15px; border: 1px solid rgba(212, 160, 53, 0.3); box-shadow: 0 6px 20px rgba(212, 160, 53, 0.06); position: relative; min-height: 120px;">
-            
-            <!-- Скрипт Trustindex -->
-            <script defer async src="https://cdn.trustindex.io/loader.js?a9ef37d760c300747726df54d99"></script>
-            
-            <!-- HTML-контейнер виджета -->
-            <div class="ti-widget" data-widget-id="a9ef37d760c300747726df54d99"></div>
-            
+
+<!-- GOOGLE REVIEWS SECTION (Horizontal row, auto-scroll) -->
+<section class="reviews-section" id="reviews">
+    <h2 class="reviews-title">CLIENT REVIEWS</h2>
+
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #558b2f; color: #ffffff;">E</div>
+                <div class="review-meta">
+                    <b class="review-author">E V</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="We contacted Dmitry on the recommendation of friends who called him 'the best in Ulaanbaatar'. He truly provides first-class translation services: speed, accuracy, attention to detail, punctuality, and professionalism. Communication is available in Russian, Mongolian, and English. He responds to emails very quickly (which is rare in Mongolia). Dmitry is also simply a pleasant, calm, and friendly person. He also helped us purchase train and bus tickets from Ulaanbaatar to Ulan-Ude in advance. Highly recommended."
+               data-translated="Обращались к Дмитрию по рекомендации знакомых, причем recommendation была - 'самый лучший в Улан Баторе'. Дмитрий на самом деле оказывает первоклассные услуги перевода: скорость, аккуратность, внимание к деталям, пунктуальность и профессионализм. Общение на русском, монгольском и английском языках. Моментально отвечает по электронной почте (для Монголии это редкость). Кроме того, Дмитрий просто приятный, спокойный и общительный человек. Также он помог нам с покупкой ЖД и автобусных билетов из Улан-Батора в Улан-Удэ заранее. Однозначно рекомендую.">
+                "We contacted Dmitry on the recommendation of friends who called him 'the best in Ulaanbaatar'. He truly provides first-class translation services: speed, accuracy, attention to detail, punctuality, and professionalism. Communication is available in Russian, Mongolian, and English. He responds to emails very quickly (which is rare in Mongolia). Dmitry is also simply a pleasant, calm, and friendly person. He also helped us purchase train and bus tickets from Ulaanbaatar to Ulan-Ude in advance. Highly recommended."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #9c27b0;">D</div>
+                <div class="review-meta">
+                    <b class="review-author">Daria P</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="High-quality service. After three unsuccessful attempts with local agencies, they translated everything exactly as needed. If you need quality document translation into Russian, this is the place."
+               data-translated="Качественный сервис. После трех неудачных обращений в местные агентства здесь мне перевели документы именно так, как нужно. Если нужен качественный перевод документов на русский язык, вам сюда.">
+                "High-quality service. After three unsuccessful attempts with local agencies, they translated everything exactly as needed. If you need quality document translation into Russian, this is the place."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #4f5b66;">O</div>
+                <div class="review-meta">
+                    <b class="review-author">Oyuna Dugarzhapova</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="Everything was done quickly and with high quality. I recommend them!"
+               data-translated="Сделали все быстро и качественно, рекомендую!">
+                "Everything was done quickly and with high quality. I recommend them!"
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #ffb300; color: #000;">G</div>
+                <div class="review-meta">
+                    <b class="review-author">Galigator LLC</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="Very polite, fast, and provides great translations."
+               data-translated="Ikh soyoltoi hurdn, sn orchuulga hiidg gazar">
+                "Very polite, fast, and provides great translations."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #e65100;">L</div>
+                <div class="review-meta">
+                    <b class="review-author">Lkhagvamaa Altangerel</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="This is a place that does excellent translations. I will definitely use their services again. Thank you very much."
+               data-translated="Маш сайн орчуулга хийдэг газар байна. Дахин үйлчлүүлнэ ээ. Маш их баярлалаа.">
+                "This is a place that does excellent translations. I will definitely use their services again. Thank you very much."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #1e293b; color: #ffffff;">T</div>
+                <div class="review-meta">
+                    <b class="review-author">Tsolmon Turtogtokh</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="Good 👍 ..."
+               data-translated="Сайн байна 👍">
+                "Good 👍 ..."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #1a202c;">K</div>
+                <div class="review-meta">
+                    <b class="review-author">Khulan Altanhuu</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="Quick and reliable translation service. Highly recommended."
+               data-translated="Хурдан бөгөөд найдвартай орчуулгын үйлчилгээ. Маш их санал болгож байна.">
+                "Quick and reliable translation service. Highly recommended."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #78909c;">B</div>
+                <div class="review-meta">
+                    <b class="review-author">BZD 115 S.Munkhjargal</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="Fast, prompt, and very professional translation service. Thank you very much!"
+               data-translated="Хурдан шуурхай, маш сайн орчуулга хийдэг газар байна. Маш их баярлалаа.">
+                "Fast, prompt, and very professional translation service. Thank you very much!"
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #3f51b5;">D</div>
+                <div class="review-meta">
+                    <b class="review-author">Danzka Marketing</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="Best translation agency in Mongolia, not like other ones where they just put words into a Word file without standards or proper formatting. Service is super fast, with official signature and seal."
+               data-translated="Best translation agency in Mongolia, not like other ones where they just put words on word file without no standard structure and the design integrity of the official file, also the service is super fast and with official signature and seal.">
+                "Best translation agency in Mongolia, not like other ones where they just put words into a Word file without standards or proper formatting. Service is super fast, with official signature and seal."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-user-info">
+                <div class="review-avatar" style="background-color: #00bcd4;">A</div>
+                <div class="review-meta">
+                    <b class="review-author">Amarzaya Nyamaa</b>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+            </div>
+            <p class="review-text"
+               data-original="So fast, so reliable! Thank you."
+               data-translated="Маш хурдан бөгөөд маш найдвартай! Баярлалаа!">
+                "So fast, so reliable! Thank you."
+            </p>
+            <button class="more-btn" onclick="toggleExpand(this)">Read more</button>
+            <div class="review-card-footer">
+                <button class="translate-btn" onclick="toggleTranslation(this)">Translate</button>
+                <a class="review-card-link" href="https://maps.app.goo.gl/FPT3jbs6zpr3Yc6h6?g_st=ac" target="_blank" rel="noopener">Google Maps</a>
+            </div>
         </div>
     </div>
 </section>
+
+
 
 <section id="price" style="padding: 10px 15px 60px; background-color: #f9f9f9; font-family: 'Segoe UI', Arial, sans-serif;">
     <div style="max-width: 1200px; margin: 0 auto;">
@@ -913,22 +1336,134 @@ Translation Board LLC is committed to building long-term professional relationsh
         }
     });
 
-    // ВАШ ИСХОДНЫЙ КОД: Редирект мобильных пользователей
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 900) {
-        var path = window.location.pathname;
-        var currentPage = path.split("/").pop();
-        
-        if (!currentPage.includes('mobile')) {
-            if (currentPage === "" || currentPage === "index.html" || path === "/") {
-                window.location.href = "mobile.html";
-            } 
-            else if (currentPage === "index_en.html") {
-                window.location.href = "mobile_en.html";
-            } 
-            else if (currentPage === "index_ru.html") {
-                window.location.href = "mobile_ru.html";
-            }
+    const CHAR_LIMIT = 180;
+    let reviewsAutoScrollTimer = null;
+    let isReviewsHoverPaused = false;
+
+    function setupReviewsAutoScroll() {
+        const reviewsGrid = document.querySelector('.reviews-grid');
+        if (!reviewsGrid) return;
+
+        if (reviewsGrid.dataset.autoscrollBound === 'true') {
+            if (!reviewsAutoScrollTimer) startReviewsAutoScroll(reviewsGrid);
+            return;
         }
+
+        reviewsGrid.dataset.autoscrollBound = 'true';
+
+        reviewsGrid.addEventListener('mouseenter', function() {
+            isReviewsHoverPaused = true;
+        });
+
+        reviewsGrid.addEventListener('mouseleave', function() {
+            isReviewsHoverPaused = false;
+        });
+
+        startReviewsAutoScroll(reviewsGrid);
+    }
+
+    function startReviewsAutoScroll(reviewsGrid) {
+        if (reviewsAutoScrollTimer) {
+            clearInterval(reviewsAutoScrollTimer);
+            reviewsAutoScrollTimer = null;
+        }
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const stepPx = 1;
+        const intervalMs = 20;
+
+        reviewsAutoScrollTimer = setInterval(function() {
+            if (!isReviewsHoverPaused) {
+                const maxScrollLeft = reviewsGrid.scrollWidth - reviewsGrid.clientWidth;
+
+                if (maxScrollLeft > 0) {
+                    reviewsGrid.scrollLeft += stepPx;
+                    if (reviewsGrid.scrollLeft >= maxScrollLeft) {
+                        reviewsGrid.scrollLeft = 0;
+                    }
+                }
+            }
+        }, intervalMs);
+    }
+
+    function renderCard(card) {
+        const textElem = card.querySelector('.review-text');
+        const moreBtn = card.querySelector('.more-btn');
+
+        if (!textElem || !moreBtn) return;
+
+        const isTranslated = card.dataset.isTranslated === 'true';
+        const isExpanded = card.dataset.isExpanded === 'true';
+
+        const originalText = (textElem.dataset.original || '').trim();
+        const translatedText = (textElem.dataset.translated || '').trim();
+        const fullText = isTranslated ? translatedText : originalText;
+
+        if (!fullText) {
+            moreBtn.style.display = 'none';
+            return;
+        }
+
+        if (fullText.length > CHAR_LIMIT) {
+            moreBtn.style.display = 'inline-block';
+            if (isExpanded) {
+                textElem.textContent = '"' + fullText + '"';
+                moreBtn.textContent = 'Close';
+            } else {
+                textElem.textContent = '"' + fullText.substring(0, CHAR_LIMIT) + '..."';
+                moreBtn.textContent = 'Read more';
+            }
+        } else {
+            textElem.textContent = '"' + fullText + '"';
+            moreBtn.style.display = 'none';
+        }
+    }
+
+    function toggleTranslation(button) {
+        const card = button.closest('.review-card');
+        if (!card) return;
+
+        const isTranslated = card.dataset.isTranslated === 'true';
+        card.dataset.isTranslated = !isTranslated ? 'true' : 'false';
+
+        if (card.dataset.isTranslated === 'true') {
+            button.textContent = 'Original';
+            button.classList.add('active');
+        } else {
+            button.textContent = 'Translate';
+            button.classList.remove('active');
+        }
+
+        renderCard(card);
+    }
+
+    function toggleExpand(button) {
+        const card = button.closest('.review-card');
+        if (!card) return;
+
+        const isExpanded = card.dataset.isExpanded === 'true';
+        card.dataset.isExpanded = !isExpanded ? 'true' : 'false';
+        renderCard(card);
+    }
+
+    function initReviews() {
+        document.querySelectorAll('.review-card').forEach(function(card) {
+            if (!card.dataset.initialized) {
+                card.dataset.isTranslated = 'false';
+                card.dataset.isExpanded = 'false';
+                card.dataset.initialized = 'true';
+                renderCard(card);
+            }
+        });
+
+        setupReviewsAutoScroll();
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        initReviews();
+    } else {
+        document.addEventListener('DOMContentLoaded', initReviews);
     }
 </script>
 </body>
