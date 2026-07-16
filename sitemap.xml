@@ -27,4 +27,32 @@
     <lastmod>2026-07-06</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <!-- Как мы выполняем заказ (Монгольский, canonical) -->
+  <url>
+    <loc>https://translationboard.mn/order_process_mn.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Как мы выполняем заказ (Русский, canonical) -->
+  <url>
+    <loc>https://translationboard.mn/order_process_ru.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- How We Process Your Order (English, canonical) -->
+  <url>
+    <loc>https://translationboard.mn/order_process_en.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 我们的订单如何执行 (Chinese, canonical) -->
+  <url>
+    <loc>https://translationboard.mn/order_process_cn.html</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
