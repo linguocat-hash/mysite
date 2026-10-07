@@ -144,6 +144,12 @@
         .policy-card p { margin: 0 0 8px; font-size: 14px; color: #4e5d70; line-height: 1.55; }
         .policy-card p:last-child { margin-bottom: 0; }
         .policy-card a { color: #1a2b3c; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+        .policy-card a.notary-link { display: inline-flex; align-items: center; gap: 6px; margin: 6px 6px 0 0; padding: 7px 12px; border-radius: 999px; color: #fff; text-decoration: none; font-size: 12px; font-weight: 800; vertical-align: middle; box-shadow: 0 4px 10px rgba(30, 107, 94, 0.28); border: 1px solid rgba(255,255,255,0.2); }
+        .policy-card a.notary-call { background: linear-gradient(135deg, #1e6b5e 0%, #23a48d 100%); }
+        .policy-card a.notary-call::before { content: '📞'; }
+        .policy-card a.notary-map { background: linear-gradient(135deg, #315c9b 0%, #4d8de0 100%); box-shadow: 0 4px 10px rgba(49, 92, 155, 0.28); }
+        .policy-card a.notary-map::before { content: '📍'; }
+        .policy-card a.notary-link:hover, .policy-card a.notary-link:focus, .policy-card a.notary-link:active { filter: brightness(1.08); transform: translateY(-1px); text-decoration: none; }
         .process-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: #fff; border: 1px solid #e9edf2; border-left: 4px solid #d4a035; border-radius: 14px; padding: 16px; box-shadow: 0 5px 16px rgba(20, 31, 45, 0.06); }
         .process-text { text-align: left; min-width: 0; flex: 1; }
         .process-step { display: inline-block; margin: 0 0 7px; padding: 4px 10px; font-size: 12px; font-weight: 700; color: #c61a30; background: #fff3f5; border-radius: 999px; letter-spacing: 0.4px; text-transform: uppercase; }
@@ -214,7 +220,7 @@
             <article class="policy-card"><h3>付款 / 文件</h3><p>📩 我们在查看客户材料后，会通过电子邮件发送发票。</p><p>💳 订单在收到100%预付款后才会开始处理。</p><p>🧾 可为个人（自然人）及法人开具收款凭证。</p><p>💰 价格取决于材料类型及翻译语种。详情请参见 <a href="https://translationboard.mn/index_cn#price">价格表</a>。</p></article>
             <article class="policy-card"><h3>时限 / 加急翻译</h3><p>📅 翻译通常在当天内完成。</p><p>⏱ 在我们的工作时间内，通常可在1–2小时内完成。</p><p>📦 如材料量较大，个别情况下可能延至下一个工作日。</p><p>🕘 若订单在非办公时间提交，将顺延至下一个工作日处理。</p><p>⚡ 提供加急翻译服务，具体时限取决于材料数量和翻译语种。</p></article>
             <article class="policy-card"><h3>质量 / 保密</h3><p>✅ 每份翻译均由总译员进行双重审核。</p><p>🔒 我们在各环节均对客户材料严格保密。</p><p>♻ 若客户未领取纸质版本，我们将在保管期满后予以销毁。</p></article>
-            <article class="policy-card"><h3>法律用途 / 公证</h3><p>🏛 翻译适用于大使馆、领事馆及其他政府机构。</p><p>📷 如需初步评估，可先发送清晰的文件照片。确认后即可启动订单。</p><p>📍 如需办理公证，我们办公室附近设有公证处，可协助安排。</p><p>📌 公证通常仅在文件用于蒙古国或需办理附加证明书（Apostille/海牙认证）时才需要。大多数情况下无需额外公证。</p></article>
+            <article class="policy-card"><h3>法律用途 / 公证</h3><p>🏛 翻译适用于大使馆、领事馆及其他政府机构。</p><p>📷 如需初步评估，可先发送清晰的文件照片。确认后即可启动订单。</p><p>📍 我们办公室附近设有公证处。地址：巴彦珠尔赫区，巴彦珠尔赫市场，Geo中心2层。公证处电话：99158500。<a href="tel:+97699158500" class="notary-link notary-call">致电公证处</a><a href="https://www.google.com/maps/place/69,+%D0%91%D0%97%D0%94+-+6+%D1%85%D0%BE%D1%80%D0%BE%D0%BE,+%D0%A3%D0%BB%D0%B0%D0%B0%D0%BD%D0%B1%D0%B0%D0%B0%D1%82%D0%B0%D1%80+13373/@47.9177391,106.9326981,19z/data=!4m6!3m5!1s0x5d96923bf640dc29:0xdb52380b88990eaf!8m2!3d47.9177391!4d106.9333418!16s%2Fg%2F11y5l4sj_g?entry=ttu&amp;g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D" class="notary-link notary-map" target="_blank" rel="noopener noreferrer">查看地图</a></p><p>📌 公证通常仅在文件用于蒙古国或需办理附加证明书（Apostille/海牙认证）时才需要。大多数情况下无需额外公证。</p></article>
         </section>
         <div style="margin-top:22px;text-align:center;"><a href="https://translationboard.mn/index_cn.html" class="m-btn m-btn-back">↩ 返回主页</a></div>
         <section class="order-section" id="order-cta"><p class="order-section-title">📝 如何下单？</p><div class="order-steps"><p>1. 请将文件发送至我们的电子邮箱。</p><p>2. 我们会准备报价和交期说明，并通过邮件发送给您。</p><p>3. 订单确认后，我们即开始处理您的订单。</p><p>4. 我们将完成的翻译件以加盖印章的PDF格式发送给您。</p></div><div class="order-buttons"><a href="mailto:linguocat@gmail.com?subject=翻译订单咨询&body=您好！我正在发送材料以便报价并确认翻译时间。" class="m-btn m-btn-order">📧 立即下单</a><a href="tel:+97680599859" class="m-btn m-btn-call">📞 拨打电话：8059 9859</a></div><p class="order-email-note">或直接发送至：<strong>linguocat@gmail.com</strong></p></section>
@@ -250,8 +256,6 @@
     </script>
 </body>
 </html>
-
-
 
 
 
