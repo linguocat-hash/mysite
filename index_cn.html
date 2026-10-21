@@ -44,32 +44,91 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
 
-    <!-- 中文版本地业务结构化数据 -->
-    <script type="application/ld+json">
+   <!-- 中文版本地业务结构化数据 (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://translationboard.mn/#organization",
+  "name": "翻译板有限公司",
+  "alternateName": ["Орчуулгын Самбар ХХК", "Translation Board LLC"],
+  "url": "https://translationboard.mn/index_cn.html",
+  "logo": "https://translationboard.mn/LOGO.gif",
+  "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
+  "description": "乌兰巴托专业翻译机构。为蒙古文、英文、俄文、中文、韩文、日文、德文、法文、捷克文和意大利文文件提供官方认证及快速可靠的翻译服务。",
+  "telephone": "+976-80599859",
+  "priceRange": "₮₮",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "巴彦珠尔赫区摔跤宫西侧 Erkhet 大厦10层1006室",
+    "addressLocality": "乌兰巴托",
+    "addressRegion": "乌兰巴托",
+    "addressCountry": "MN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.917496,
+    "longitude": 106.9343258
+  },
+  "openingHoursSpecification": [
     {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "翻译板有限公司",
-      "alternateName": "Translation Board LLC",
-      "url": "https://translationboard.mn/index_cn.html",
-      "logo": "https://translationboard.mn/LOGO.gif",
-      "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
-      "description": "乌兰巴托专业翻译机构。为英文、俄文、蒙古文和中文文件提供正规、快速、可靠的翻译服务。欢迎咨询。",
-      "telephone": "+976-80599859", 
-      "priceRange": "₮₮",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "蒙古国乌兰巴托市巴彦珠尔赫区和平大道，摔跤宫右侧，Erkhet大厦10层1006室",
-        "addressLocality": "乌兰巴托",
-        "addressCountry": "MN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "47.917496", 
-        "longitude": "106.9343258"
-      }
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
     }
-    </script>
+  ],
+  "sameAs": [
+    "https://maps.app.goo.gl/6hmwBcANeJWKMdui7",
+    "https://www.facebook.com/xxvxxzzv2020"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "28"
+  },
+  "knowsLanguage": [
+    "mn",
+    "en",
+    "ru",
+    "zh",
+    "ko",
+    "ja",
+    "de",
+    "fr",
+    "cs",
+    "it"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "翻译服务项目",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "官方认证翻译"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "公证及法律文件翻译"
+        }
+      }
+    ]
+  }
+}
+</script>
 
 <style>
         /* БАЗОВЫЕ СТИЛИ */

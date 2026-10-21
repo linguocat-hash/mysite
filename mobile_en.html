@@ -42,30 +42,89 @@
 
 <!-- LOCAL BUSINESS MICRODATA (JSON-LD) FOR ENGLISH VERSION -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://translationboard.mn/#organization",
+  "name": "Translation Board LLC",
+  "alternateName": ["Орчуулгын Самбар ХХК", "Translation Board Mongolia"],
+  "url": "https://translationboard.mn/index_en.html",
+  "logo": "https://translationboard.mn/LOGO.gif",
+  "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
+  "description": "Professional certified translation agency in Ulaanbaatar, Mongolia. Fast and official translation services for documents in English, Russian, Mongolian, Chinese, Korean, Japanese, German, French, Czech, and Italian.",
+  "telephone": "+976-80599859",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Suite 1006, 10th Floor, Erkhet Office, West of National Wrestling Palace, Bayanzurkh District",
+    "addressLocality": "Ulaanbaatar",
+    "addressRegion": "Ulaanbaatar",
+    "addressCountry": "MN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.917496,
+    "longitude": 106.9343258
+  },
+  "openingHoursSpecification": [
     {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Translation Board LLC",
-      "alternateName": "Орчуулгын Самбар ХХК",
-      "url": "https://translationboard.mn/index_en.html",
-      "logo": "https://translationboard.mn/LOGO.gif",
-      "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
-      "description": "Professional translation agency in Ulaanbaatar. Fast, certified translation services for documents in English, Russian, Mongolian, and more. Get a quote!",
-      "telephone": "+976-80599859", 
-      "priceRange": "₮₮",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "#1006, F.10, Erkhet Office, the National Wrestling Palace, Bayanzurkh District Ulaanbaatar City, Mongolia",
-        "addressLocality": "Ulaanbaatar",
-        "addressCountry": "MN"
-      },
-      "geo": {
-  "@type": "GeoCoordinates",
-  "latitude": "47.917496", 
-  "longitude": "106.9343258"
-}
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
     }
-    </script>
+  ],
+  "sameAs": [
+    "https://maps.app.goo.gl/6hmwBcANeJWKMdui7",
+    "https://www.facebook.com/xxvxxzzv2020"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "28"
+  },
+  "knowsLanguage": [
+    "mn",
+    "en",
+    "ru",
+    "zh",
+    "ko",
+    "ja",
+    "de",
+    "fr",
+    "cs",
+    "it"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Translation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Certified Translation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Official Document Translation"
+        }
+      }
+    ]
+  }
+}
+</script>
 
     <style>
     body { 

@@ -43,30 +43,89 @@
 
     <!-- 2. МИКРОРАЗМЕТКА ЛОКАЛЬНОГО БИЗНЕСА (JSON-LD) -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://translationboard.mn/#organization",
+  "name": "ООО Доска Переводов",
+  "alternateName": ["Орчуулгын Самбар ХХК", "Translation Board LLC"],
+  "url": "https://translationboard.mn/index_ru.html",
+  "logo": "https://translationboard.mn/LOGO.gif",
+  "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
+  "description": "Профессиональное бюро переводов в Улан-Баторе. Официальный и нотариальный перевод документов на русский, монгольский, английский, китайский, корейский, японский, немецкий, французский, чешский и итальянский языки.",
+  "telephone": "+976-80599859",
+  "priceRange": "₮₮",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "район Баянзурх, западная сторона Дворца национальной борьбы, офис Эрхэт, 10 этаж, офис 1006",
+    "addressLocality": "Улан-Батор",
+    "addressRegion": "Улан-Батор",
+    "addressCountry": "MN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.917496,
+    "longitude": 106.9343258
+  },
+  "openingHoursSpecification": [
     {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Орчуулгын Самбар ХХК",
-      "alternateName": "ООО Доска Переводов",
-      "url": "https://translationboard.mn/index_ru.html",
-      "logo": "https://translationboard.mn/LOGO.gif",
-      "image": "https://translationboard.mn/FORPAGESHARELOGO.png",
-      "description": "Профессиональное бюро переводов. Официальный перевод документов на русский, английский и монгольский языки в Улан-Баторе. Быстро и надежно. Звоните!",
-      "telephone": "+976-80599859", 
-      "priceRange": "₮₮",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Монголия, г. Улан-Батор, район Баянзурх, правая сторона от Дворца национальной борьбы, офис Эрхэт, этаж 10, 1006",
-        "addressLocality": "Улан-Батор",
-        "addressCountry": "MN"
-      },
-      "geo": {
-  "@type": "GeoCoordinates",
-  "latitude": "47.917496", 
-  "longitude": "106.9343258"
-}
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
     }
-    </script>
+  ],
+  "sameAs": [
+    "https://maps.app.goo.gl/6hmwBcANeJWKMdui7",
+    "https://www.facebook.com/xxvxxzzv2020"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "28"
+  },
+  "knowsLanguage": [
+    "mn",
+    "en",
+    "ru",
+    "zh",
+    "ko",
+    "ja",
+    "de",
+    "fr",
+    "cs",
+    "it"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги перевода",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Заверенный перевод документов"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Официальный перевод"
+        }
+      }
+    ]
+  }
+}
+</script>
 
     <style>
         html, body { 
