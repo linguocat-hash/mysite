@@ -152,9 +152,6 @@
             height: 100vh;
             background: url('https://translationboard.mn/Office1.webp') no-repeat center top / cover;
             z-index: -1;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            will-change: transform;
         }
         .m-header { background: #000; color: #fff; padding: 15px; font-weight: bold; font-size: 14px; letter-spacing: 1px; }
         .m-logo { padding: 20px; }
@@ -473,7 +470,7 @@
 .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.6s ease-out;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 .reveal.active {
     opacity: 1;
@@ -500,7 +497,7 @@
 #mobile-nav li {
     opacity: 0 !important;
     transform: translateX(30px) !important;
-    transition: all 0.4s ease-out !important;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out !important;
 }
 
 /* Состояние при открытом меню */
@@ -517,6 +514,40 @@
 #mobile-nav.open li:nth-child(5) { transition-delay: 0.3s !important; }
 #mobile-nav.open li:nth-child(6) { transition-delay: 0.35s !important; } /* Новая вкладка */
 #mobile-nav.open li:nth-child(7) { transition-delay: 0.4s !important; }  /* Блок выбора языков */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+
+    .marquee-track {
+        transform: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .rune,
+    .letter {
+        opacity: 1;
+        transform: none;
+    }
+
+    #mobile-nav li {
+        transition: none !important;
+        transition-delay: 0s !important;
+    }
+
+    #mobile-nav.open li:nth-child(n) {
+        transition-delay: 0s !important;
+    }
+}
 
 /* Стили для монгольского текста плашки */
 .translation-board-text-mobile {
@@ -686,16 +717,16 @@
                 <div style="color: #888; font-size: 11px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">Хэл сонгох</div>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <a href="mobile.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: #000; font-size: 13px; padding: 8px 12px; background: #d4a035; border-radius: 6px; font-weight: bold; box-shadow: 0 4px 10px rgba(212, 160, 53, 0.4);">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" style="width: 18px; border-radius: 2px;"> MN
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/mn.svg" width="24" height="18" style="width: 18px; border-radius: 2px;"> MN
                     </a>
                     <a href="mobile_en.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: white; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" style="width: 18px; border-radius: 2px;"> EN
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/gb.svg" width="24" height="18" style="width: 18px; border-radius: 2px;"> EN
                     </a>
                     <a href="mobile_ru.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: white; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" style="width: 18px; border-radius: 2px;"> RU
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/ru.svg" width="24" height="18" style="width: 18px; border-radius: 2px;"> RU
                     </a>
                     <a href="mobile_cn.html" style="text-decoration: none; display: flex; align-items: center; gap: 8px; color: white; font-size: 13px; padding: 8px 12px; background: rgba(255,255,255,0.1); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
-                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" style="width: 18px; border-radius: 2px;"> CN
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/cn.svg" width="24" height="18" style="width: 18px; border-radius: 2px;"> CN
                     </a>
                 </div>
             </li>
@@ -742,7 +773,7 @@
     </script>
     
    <div class="m-logo">
-    <img src="LOGO.gif" alt="LOGO" fetchpriority="high">
+    <img src="LOGO.gif" alt="LOGO" width="500" height="500" fetchpriority="high">
     <div class="translation-board-text-mobile">Translation Board LLC</div>
 </div>
 
@@ -822,7 +853,7 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        transition: all 0.3s ease;
+        transition: border-color 0.3s ease, color 0.3s ease;
         box-shadow: 0 2px 5px rgba(212, 160, 53, 0.1);
         font-family: 'Segoe UI', Arial, sans-serif;
     ">
@@ -973,19 +1004,19 @@
 
     <div class="marquee-window">
         <div class="marquee-track">
-            <img src="mysite1.webp" alt="Ажил 1">
-            <img src="mysite2.webp" alt="Ажил 2">
-            <img src="mysite3.webp" alt="Ажил 3">
-            <img src="mysite4.webp" alt="Ажил 4">
-            <img src="mysite5.webp" alt="Ажил 5">
-            <img src="mysite6.webp" alt="Ажил 6">
+            <img src="mysite1.webp" alt="Ажил 1" width="1509" height="1080">
+            <img src="mysite2.webp" alt="Ажил 2" width="1525" height="1069">
+            <img src="mysite3.webp" alt="Ажил 3" width="1528" height="1080">
+            <img src="mysite4.webp" alt="Ажил 4" width="1534" height="1080">
+            <img src="mysite5.webp" alt="Ажил 5" width="1540" height="1075">
+            <img src="mysite6.webp" alt="Ажил 6" width="1532" height="1080">
     
-            <img src="mysite1.webp" alt="Ажил 1">
-            <img src="mysite2.webp" alt="Ажил 2">
-            <img src="mysite3.webp" alt="Ажил 3">
-            <img src="mysite4.webp" alt="Ажил 4">
-            <img src="mysite5.webp" alt="Ажил 5">
-            <img src="mysite6.webp" alt="Ажил 6">
+            <img src="mysite1.webp" alt="Ажил 1" width="1509" height="1080">
+            <img src="mysite2.webp" alt="Ажил 2" width="1525" height="1069">
+            <img src="mysite3.webp" alt="Ажил 3" width="1528" height="1080">
+            <img src="mysite4.webp" alt="Ажил 4" width="1534" height="1080">
+            <img src="mysite5.webp" alt="Ажил 5" width="1540" height="1075">
+            <img src="mysite6.webp" alt="Ажил 6" width="1532" height="1080">
         </div>
     </div>
 </section>
@@ -1240,6 +1271,8 @@
             <img 
                 src="image_5.webp" 
                 alt="Эрхэт оффис" 
+                width="965"
+                height="1630"
                 style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"
             >
             
